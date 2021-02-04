@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import Header from './components/header/Header';
+import Contact from "./pages/contact/Contact";
+import About from "./pages/about/About";
+import Projects from "./pages/projects/Projects";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let [showData, setShowData] = useState('Projects');
+    return (
+        <div className="App">
+            <Header showData={showData} setShowData={setShowData}/>
+            {contentSwitcher(showData)}
+        </div>
+    );
+}
+
+function contentSwitcher(showData) {
+    switch (showData) {
+        case "Contact":
+            return (<Contact/>);
+        case "About Me":
+            return (<About/>);
+        case "Projects":
+            return (<Projects/>);
+    }
 }
 
 export default App;
