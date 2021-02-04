@@ -1,8 +1,6 @@
 import React from 'react';
 import './Header.css';
 function Header({showData, setShowData}) {
-
-
     return (
         <div className='uk-width-1-1 uk-flex uk-flex-middle header-wrapper'>
             <div className='uk-flex-none'>
