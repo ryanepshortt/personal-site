@@ -1,4 +1,4 @@
-# Personal Site to highlight projects that I have worked on over the past years
+# Personal Site to highlight projects that I have worked on
 
 # Getting Started with Create React App
 
