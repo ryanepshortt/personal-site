@@ -7,23 +7,20 @@ function useOutsideAlerter(ref, setDrop, drop) {
          * Alert if clicked on outside of element
          */
         function handleClickOutside(event) {
-            console.log(ref)
             if (event.target.id === 'hamburger') {
-
                 setDrop(!drop);
             } else {
                 if (ref.current && !ref.current.contains(event.target)) {
-                    console.log('here')
                     setDrop(false);
                 }
             }
         }
 
         // Bind the event listener
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("click", handleClickOutside);
         return () => {
             // Unbind the event listener on clean up
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("click", handleClickOutside);
         };
     }, [ref]);
 }
@@ -54,7 +51,7 @@ function Header({showData, setShowData}) {
 
                 <div ref={wrapperRef}>
                     <button type='button' id='hamburger' data-uk-icon='icon: table' className='table-icon uk-icon uk-button uk-text-bold uk-float-right uk-margin-right uk-hidden@s'
-                            onClick={() => {console.log('hamburger pressed'); setDrop(!drop)}}/>
+                            onClick={() => {setDrop(!drop)}}/>
 
                     <div id='drop' className={`uk-hidden@s custom-dropdown ${drop ? '' : 'uk-hidden'}`}>
                         <div className="uk-text-center uk-inline">

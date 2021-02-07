@@ -16,16 +16,20 @@
 }
 
 .ciena-icons {
-    margin-top: 0;
+    padding-top: 8px;
 }
 
 .boogie-icons {
-    margin-top: 0;
+    padding-top: 8px;
+}
+
+.icons3 {
+    padding-top:8px;
 }
 
 @media screen and (min-width: 958px){
     .ciena-icons {
-        margin-top: 32px;
+        padding-top: 32px;
     }
 
 
@@ -33,6 +37,6 @@
 
 @media screen and (min-width: 1598px){
     .boogie-icons {
-        margin-top: 32px;
+        padding-top: 32px;
     }
 }

@@ -118,7 +118,7 @@ function Projects() {
                                 upcoming events, or shows. This was the first site that I had ever made and was my
                                 first time using basic web development tools such as Javascript and JQuery. The site also
                                 used an embedded <span className='uk-text-bold'> Google Maps API </span> which showed
-                                the location of a clicked on event.
+                                the location of the most recently clicked on event.
                             </p>
                             <p>
                                 Since it was my first web development project I wanted to do all the styling and
@@ -160,10 +160,12 @@ function Projects() {
                         </div>
                         <div className='footer-wrapper'>
                             <div className='uk-card-footer'>
-                                <p className='uk-text-center'>
-                                    <img className='tech-icon' src={pythonIcon} alt={'Python icon'} data-uk-tooltip='Python'/>
-                                    <img className='tech-icon' src={numpyIcon} alt={'Numpy icon'} data-uk-tooltip='NumPy'/>
-                                </p>
+                                <div className='icons icons3'>
+                                    <p className='uk-text-center'>
+                                        <img className='tech-icon' src={pythonIcon} alt={'Python icon'} data-uk-tooltip='Python'/>
+                                        <img className='tech-icon' src={numpyIcon} alt={'Numpy icon'} data-uk-tooltip='NumPy'/>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -184,10 +186,12 @@ function Projects() {
                         </div>
                         <div className='footer-wrapper'>
                             <div className='uk-card-footer'>
-                                <p className='uk-text-center'>
-                                    <img className='tech-icon' src={pythonIcon} alt={'Python icon'} data-uk-tooltip='Python'/>
-                                    <img className='tech-icon' src={numpyIcon} alt={'Numpy icon'} data-uk-tooltip='NumPy'/>
-                                </p>
+                                <div className='icons icons3'>
+                                    <p className='uk-text-center'>
+                                        <img className='tech-icon' src={pythonIcon} alt={'Python icon'} data-uk-tooltip='Python'/>
+                                        <img className='tech-icon' src={numpyIcon} alt={'Numpy icon'} data-uk-tooltip='NumPy'/>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -210,10 +214,12 @@ function Projects() {
                         </div>
                         <div className='footer-wrapper'>
                             <div className='uk-card-footer'>
-                                <p className='uk-text-center'>
-                                    <img className='tech-icon' src={pythonIcon} alt={'Python icon'} data-uk-tooltip='Python'/>
-                                    <img className='tech-icon' src={numpyIcon} alt={'Numpy icon'} data-uk-tooltip='NumPy'/>
-                                </p>
+                                <div className='icons icons3'>
+                                    <p className='uk-text-center'>
+                                        <img className='tech-icon' src={pythonIcon} alt={'Python icon'} data-uk-tooltip='Python'/>
+                                        <img className='tech-icon' src={numpyIcon} alt={'Numpy icon'} data-uk-tooltip='NumPy'/>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
