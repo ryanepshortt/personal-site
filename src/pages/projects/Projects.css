@@ -1,5 +1,38 @@
-/*.media-card {*/
-/*   min-height: 258.3px;*/
-/*   max-height: 375px;*/
-/*   overflow: hidden;*/
-/*}*/
+.tech-icon {
+    height:32px;
+    width:32px;
+    margin: 5px 10px;
+}
+
+.custom-card {
+    padding-bottom: 144px;
+}
+
+.footer-wrapper {
+    position: absolute;
+    vertical-align: center;
+    bottom:0;
+    width:100%;
+}
+
+.ciena-icons {
+    margin-top: 0;
+}
+
+.boogie-icons {
+    margin-top: 0;
+}
+
+@media screen and (min-width: 958px){
+    .ciena-icons {
+        margin-top: 32px;
+    }
+
+
+}
+
+@media screen and (min-width: 1598px){
+    .boogie-icons {
+        margin-top: 32px;
+    }
+}

@@ -1,14 +1,21 @@
 import React,{useState, useEffect, useRef} from 'react';
 import './Header.css';
 
-function useOutsideAlerter(ref, setDrop) {
+function useOutsideAlerter(ref, setDrop, drop) {
     useEffect(() => {
         /**
          * Alert if clicked on outside of element
          */
         function handleClickOutside(event) {
-            if (ref.current && !ref.current.contains(event.target)) {
-                setDrop(false);
+            console.log(ref)
+            if (event.target.id === 'hamburger') {
+
+                setDrop(!drop);
+            } else {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    console.log('here')
+                    setDrop(false);
+                }
             }
         }
 
@@ -27,7 +34,7 @@ function Header({showData, setShowData}) {
     let [drop,setDrop] = useState(false);
 
     const wrapperRef = useRef(null);
-    useOutsideAlerter(wrapperRef, setDrop);
+    useOutsideAlerter(wrapperRef, setDrop, drop);
 
     return (
         <div className='uk-width-1-1 uk-flex uk-flex-middle header-wrapper'>
@@ -45,17 +52,19 @@ function Header({showData, setShowData}) {
                       onClick={() => setShowData('Projects')}>Projects</span>
 
 
-                <button type='button' data-uk-icon='icon: table' className='table-icon uk-icon uk-button uk-text-bold uk-float-right uk-margin-right uk-hidden@s'
-                        onClick={() => {setDrop(!drop)}}
-                />
+                <div ref={wrapperRef}>
+                    <button type='button' id='hamburger' data-uk-icon='icon: table' className='table-icon uk-icon uk-button uk-text-bold uk-float-right uk-margin-right uk-hidden@s'
+                            onClick={() => {console.log('hamburger pressed'); setDrop(!drop)}}/>
 
-                <div ref={wrapperRef} id='drop' className={`uk-hidden@s custom-dropdown ${drop ? '' : 'uk-hidden'}`}>
-                    <div className="uk-text-center uk-inline">
-                        <div className={`${showData === 'Projects' ? 'dd-selected' : 'dd-option'}`} onClick={() => {setShowData('Projects'); setDrop(false)}}>Projects</div>
-                        <div className={`${showData === 'About Me' ? 'dd-selected' : 'dd-option'} uk-padding uk-padding-remove-horizontal`} onClick={() => {setShowData('About Me'); setDrop(false)}}>About Me</div>
-                        <div className={`${showData === 'Contact' ? 'dd-selected' : 'dd-option'}`}  onClick={() => {setShowData('Contact'); setDrop(false)}}>Contact</div>
+                    <div id='drop' className={`uk-hidden@s custom-dropdown ${drop ? '' : 'uk-hidden'}`}>
+                        <div className="uk-text-center uk-inline">
+                            <div className={`${showData === 'Projects' ? 'dd-selected' : 'dd-option'}`} onClick={() => {setShowData('Projects'); setDrop(false)}}>Projects</div>
+                            <div className={`${showData === 'About Me' ? 'dd-selected' : 'dd-option'} uk-padding uk-padding-remove-horizontal`} onClick={() => {setShowData('About Me'); setDrop(false)}}>About Me</div>
+                            <div className={`${showData === 'Contact' ? 'dd-selected' : 'dd-option'}`}  onClick={() => {setShowData('Contact'); setDrop(false)}}>Contact</div>
+                        </div>
                     </div>
                 </div>
+
 
             </div>
         </div>
