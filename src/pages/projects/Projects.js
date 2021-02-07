@@ -7,23 +7,23 @@ import serverRoom from '../../assets/server-room.jpg';
 
 
 import ReactIcon from '../../assets/logo512.png';
-import pythonIcon from '../../assets/icons8-python-64.png';
+import pythonIcon from '../../assets/python-icon.png';
 import formikIcon from '../../assets/formik.png';
-import postgresIcon from '../../assets/icons8-postgresql-64.png';
-import reduxIcon from '../../assets/icons8-redux-48.png';
-import awsIcon from '../../assets/icons8-amazon-web-services-64.png';
-import npmIcon from '../../assets/icons8-npm-48.png';
-import mapsIcon from '../../assets/icons8-google-maps-old-48.png';
-import htmlIcon from '../../assets/icons8-html-5-48.png';
-import cssIcon from '../../assets/icons8-css3-48.png';
-import jsIcon from '../../assets/icons8-javascript-48.png';
-import jqIcon from '../../assets/icons8-jquery-50.png';
+import postgresIcon from '../../assets/postgres-icon.png';
+import reduxIcon from '../../assets/redux-icon.png';
+import awsIcon from '../../assets/aws-icon.png';
+import npmIcon from '../../assets/npm-icon.png';
+import mapsIcon from '../../assets/google-maps-icon.png';
+import htmlIcon from '../../assets/html-icon.png';
+import cssIcon from '../../assets/css-icon.png';
+import jsIcon from '../../assets/javascript-icon.png';
+import jqIcon from '../../assets/jquery-icon.png';
 import numpyIcon from '../../assets/numpy.png';
-import uiKitIcon from '../../assets/icons8-uikit-64.png';
+import uiKitIcon from '../../assets/uikit-icon.png';
 import d3Icon from '../../assets/d3-icon.png';
-import tclIcon from '../../assets/icons8-feather-48.png';
-import jenkinsIcon from '../../assets/icons8-jenkins-48.png';
-import bashIcon from '../../assets/icons8-console-48.png';
+import tclIcon from '../../assets/tcl-icon.png';
+import jenkinsIcon from '../../assets/jenkins-icon.png';
+import bashIcon from '../../assets/bash-icon.png';
 
 
 
