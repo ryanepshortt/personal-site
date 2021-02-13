@@ -1,4 +1,6 @@
 import React from 'react';
+import {useWindowDimensions} from "../../scripts/pageSize";
+
 import smartHome from '../../assets/smart-home.jpeg';
 import boogie from '../../assets/Boogie.png';
 import hve from '../../assets/HomeValue.jpeg';
@@ -30,9 +32,11 @@ import bashIcon from '../../assets/bash-icon.png';
 import './Projects.css'
 
 function Projects() {
+    const {width} = useWindowDimensions();
+    console.log(width);
     return (
         <div>
-            <div className="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@xl uk-grid-match" data-uk-grid data-uk-height-match="target: > div > div > .footer-wrapper">
+            <div className={`uk-child-width-1-2@xs uk-child-width-1-2@s uk-child-width-1-3@l uk-grid-match`} data-uk-grid data-uk-height-match="target: > div > div > .footer-wrapper">
                 <div>
                     <div className="uk-card uk-card-default custom-card">
                         <div className="uk-card-media-top media-card">

@@ -1,0 +1,35 @@
+.custom-margin {
+    margin-bottom: 25px;
+}
+
+.uk-overlay-default {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+.about-card:hover .uk-overlay-default {
+        background-color: rgba(255, 255, 255, 0.85);
+        transition: background-color .35s ease-in-out;
+}
+
+.video-img:hover {
+    cursor: pointer;
+}
+
+.video-selected {
+    opacity: 0.75;
+}
+
+.video-img {
+    box-shadow: 0 6px 10px 3px rgba(0,0,0,0.3);
+    border-radius: 25px;
+}
+
+.work-img {
+    max-height: 512px;
+}
+
+.overlay-plate {
+    padding-top:15px;
+    padding-bottom: 15px;
+}

@@ -27,15 +27,13 @@
     padding-top:8px;
 }
 
-@media screen and (min-width: 958px){
+@media screen and (min-width: 960px){
     .ciena-icons {
         padding-top: 32px;
     }
-
-
 }
 
-@media screen and (min-width: 1598px){
+@media screen and (min-width: 1600px){
     .boogie-icons {
         padding-top: 32px;
     }
