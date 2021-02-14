@@ -5,8 +5,10 @@ import mcmaster from '../../assets/McMaster.jpg';
 import mcmaster2 from '../../assets/McMaster-orig.jpg';
 import ciena from '../../assets/ciena-office.jpg';
 import ciena2 from '../../assets/ciena-office-orig.jpg';
+import cienaMid from '../../assets/ciena-office-2.jpg';
 import solace from '../../assets/solace.png';
 import solace2 from '../../assets/solace-orig.png';
+import solaceMid from '../../assets/solace-2.png'
 import IOF from '../../assets/IOF.png';
 import piano from '../../assets/RyanPiano.jpg';
 import ryanSwing from '../../assets/Ryan-Swing.png';
@@ -20,8 +22,14 @@ function About() {
     let Solace;
     if (width > 600) {
         Mac = mcmaster;
-        Ciena = ciena;
-        Solace = solace;
+        if (width > 960) {
+            Ciena = ciena;
+            Solace = solace;
+        } else {
+            Ciena = cienaMid;
+            Solace = solaceMid;
+        }
+
     } else {
         Mac = mcmaster2;
         Ciena = ciena2;

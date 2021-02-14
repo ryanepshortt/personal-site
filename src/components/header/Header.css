@@ -18,6 +18,20 @@
     transition: background-image 0.5s ease-in-out;
 }
 
+.small-light {
+    color: #FFFFFF;
+    height: 90px;
+    background-color: #ff225f;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.small-dark {
+    background-color: #2f0033;
+    color: #FFFFFF;
+    height: 90px;
+    transition: background-color 0.5s ease-in-out;
+}
+
 
 
 

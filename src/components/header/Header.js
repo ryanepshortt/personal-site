@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef, useContext} from 'react';
 import './Header.css';
 import {ThemeContext} from "../../themeContext/ThemeContext";
 import {useSpring, animated} from "react-spring";
+import {useWindowDimensions} from "../../scripts/pageSize";
 
 function useOutsideAlerter(ref, setDrop, drop) {
     useEffect(() => {
@@ -35,7 +36,7 @@ function Header({showData, setShowData}) {
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef, setDrop, drop);
     const {toggle, dark} = useContext(ThemeContext);
-
+    const {width} = useWindowDimensions();
     const properties = {
         dark: {
             r: 9,
@@ -54,13 +55,6 @@ function Header({showData, setShowData}) {
         springConfig: { mass: 4, tension: 250, friction: 35 }
     };
 
-    useEffect(() => {
-        if (dark === true) {
-            console.log('DARK IS TRUE');
-        } else {
-            console.log('DARK IS TRUE');
-        }
-    },[])
 
     const {r, transform, cx, cy, opacity} = properties[dark ? "dark" : "light"];
     const svgContainerProps = useSpring({transform, config: properties.springConfig});
@@ -117,7 +111,7 @@ function Header({showData, setShowData}) {
 
 
     return (
-        <div className={`uk-width-1-1 uk-flex uk-flex-middle ${ dark ? 'dark-header-wrapper' : 'header-wrapper'}`}>
+        <div className={`uk-width-1-1 uk-flex uk-flex-middle ${ width > 475 ? dark ? 'dark-header-wrapper' : 'header-wrapper' : dark ? 'small-dark' : 'small-light'}`}>
             <div className='uk-flex-none'>
                 <span className='uk-text-large uk-text-bold uk-padding'>Ryan Shortt</span>
             </div>
