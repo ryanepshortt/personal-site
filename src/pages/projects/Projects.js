@@ -227,7 +227,8 @@ function Projects() {
                                 This is the site you're looking at now! It was developed using React and NodeJs.
                                 React hooks allowed me to elegantly implement things such as the dark theme toggle button
                                 in the header. I also used react-spring, and UIKit to create a responsive website
-                                with smooth transitions. This site is hosted in a CI/CD pipeline in AWS.
+                                with smooth transitions. This site is hosted in a CI/CD pipeline in AWS, and the code can be found
+                                <span> <a href={'https://github.com/ryanepshortt/personal-site'} className='uk-link'>here</a></span>.
                             </p>
                         </div>
                         <div className='footer-wrapper'>
