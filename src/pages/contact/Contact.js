@@ -7,7 +7,7 @@ function Contact() {
     const {height} = useWindowDimensions();
     const {theme} = useContext(ThemeContext);
     return (
-        <div style={{height: (height - 190)}}>
+        <div className={'uk-animation-fade'} style={{height: (height - 190)}}>
             <div className='uk-text-center'>
 
                 <h3 style={{color: theme.cardTitle}}>I am currently interviewing for full-stack software development positions in the Toronto area!</h3>

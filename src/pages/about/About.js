@@ -39,14 +39,14 @@ function About() {
     ];
 
     return (
-        <div>
+        <div className={'uk-animation-fade'}>
 
             <h2 style={{color: theme.cardTitle}}> Education and Employment</h2>
 
-            <div className='custom-margin' style={{color: theme.overlayText}}>
-                <div className="uk-inline about-card">
+            <div className='custom-margin' >
+                <div className="uk-inline about-card"  style={{color: theme.overlayText}}>
                     <img className='mac-img' src={Mac} alt=""/>
-                    <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
+                    <div className={`uk-overlay uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                         <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>McMaster University</span> - Computer Engineering <span className='uk-visible@s'>Co-Op (2016-2021)</span></p>
                         <p className='uk-margin-small-top'>Dean's List: 3A, 3B, 4A</p>
                     </div>

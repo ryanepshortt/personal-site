@@ -39,7 +39,7 @@ function Projects() {
     const {width} = useWindowDimensions();
     const {theme,dark} = React.useContext(ThemeContext);
     return (
-        <div>
+        <div className={'uk-animation-fade'}>
             <div className={` uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@l uk-grid-match`} data-uk-grid data-uk-height-match="target: > div > div > .footer-wrapper">
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
