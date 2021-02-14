@@ -56,7 +56,7 @@ function About() {
             <div className="uk-child-width-1-2@m uk-text-center uk-grid-match" data-uk-grid>
 
                 <div>
-                    <div className="uk-inline about-card" style={{color: theme.overlayText}}>
+                    <div className="uk-inline about-card uk-animation-fade" style={{color: theme.overlayText}}>
                         <img className='work-img' src={Ciena} alt=""/>
                         <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>Ciena</span> - Automation Tools Developer (Co-Op)</p>
@@ -66,7 +66,7 @@ function About() {
                 </div>
 
                 <div>
-                    <div className="uk-inline about-card" style={{color: theme.overlayText}}>
+                    <div className="uk-inline about-card uk-animation-fade" style={{color: theme.overlayText}}>
                         <img className='work-img' src={Solace} alt=""/>
                         <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>Solace</span> - Technical Support Specialist (Co-Op)</p>
