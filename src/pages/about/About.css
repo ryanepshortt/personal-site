@@ -3,14 +3,26 @@
 }
 
 .uk-overlay-default {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: background-color .5s ease-in-out;
+}
+
+.uk-overlay-primary {
+    background-color: rgba(34, 34, 34, 0.6);
+    transition: background-color .5s ease-in-out;
 }
 
 
 .about-card:hover .uk-overlay-default {
         background-color: rgba(255, 255, 255, 0.85);
-        transition: background-color .35s ease-in-out;
+        transition: background-color .5s ease-in-out;
 }
+
+.about-card:hover .uk-overlay-primary {
+    background-color: rgba(34, 34, 34, 0.85);
+    transition: background-color .5s ease-in-out;
+}
+
 
 .video-img:hover {
     cursor: pointer;

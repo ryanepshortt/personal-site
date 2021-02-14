@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {ThemeContext} from "../../themeContext/ThemeContext";
 import {useWindowDimensions} from "../../scripts/pageSize";
 import mcmaster from '../../assets/McMaster.jpg';
 import mcmaster2 from '../../assets/McMaster-orig.jpeg';
@@ -10,13 +11,14 @@ import IOF from '../../assets/IOF.png';
 import piano from '../../assets/RyanPiano.jpg';
 import ryanSwing from '../../assets/Ryan-Swing.png';
 import './About.css';
+
 function About() {
     const {width} = useWindowDimensions();
     let [displayImg, setDisplayImg] = useState(1);
     let Mac;
     let Ciena;
     let Solace;
-    if (width > 400) {
+    if (width > 600) {
         Mac = mcmaster;
         Ciena = ciena;
         Solace = solace;
@@ -25,6 +27,8 @@ function About() {
         Ciena = ciena2;
         Solace = solace2;
     }
+
+    const {theme, dark} = React.useContext(ThemeContext);
 
 
     const mySources = [
@@ -37,12 +41,12 @@ function About() {
     return (
         <div>
 
-            <h2> Education and Employment</h2>
+            <h2 style={{color: theme.cardTitle}}> Education and Employment</h2>
 
-            <div className='custom-margin'>
+            <div className='custom-margin' style={{color: theme.overlayText}}>
                 <div className="uk-inline about-card">
                     <img className='mac-img' src={Mac} alt=""/>
-                    <div className="uk-overlay uk-overlay-default uk-position-bottom overlay-plate">
+                    <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                         <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>McMaster University</span> - Computer Engineering <span className='uk-visible@s'>Co-Op (2016-2021)</span></p>
                         <p className='uk-margin-small-top'>Dean's List: 3A, 3B, 4A</p>
                     </div>
@@ -52,9 +56,9 @@ function About() {
             <div className="uk-child-width-1-2@m uk-text-center uk-grid-match" data-uk-grid>
 
                 <div>
-                    <div className="uk-inline about-card">
+                    <div className="uk-inline about-card" style={{color: theme.overlayText}}>
                         <img className='work-img' src={Ciena} alt=""/>
-                        <div className="uk-overlay uk-overlay-default uk-position-bottom overlay-plate">
+                        <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>Ciena</span> - Automation Tools Developer (Co-Op)</p>
                             <p className='uk-margin-small-top'>May 2019 - May 2020</p>
                         </div>
@@ -62,9 +66,9 @@ function About() {
                 </div>
 
                 <div>
-                    <div className="uk-inline about-card">
+                    <div className="uk-inline about-card" style={{color: theme.overlayText}}>
                         <img className='work-img' src={Solace} alt=""/>
-                        <div className="uk-overlay uk-overlay-default uk-position-bottom overlay-plate">
+                        <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>Solace</span> - Technical Support Specialist (Co-Op)</p>
                             <p className='uk-margin-small-top'>April 2020 - August 2020</p>
                         </div>
@@ -73,12 +77,12 @@ function About() {
 
             </div>
 
-            <div className='uk-margin-large-top'>
-                <h2>Personal Profile</h2>
+            <div className='uk-margin-large-top' style={{color: theme.foreground}}>
+                <h2 style={{color: theme.cardTitle}}>Personal Profile</h2>
 
-                <p className="uk-article-meta">Hometown: Whitby On</p>
+                <p className="uk-article-meta" >Hometown: Whitby On</p>
 
-                <p className="uk-text-lead">
+                <p className="uk-text-lead" style={{color: theme.foreground}}>
                     I am a hard-working individual with a passion for coding, computers, and robotics.
                     I am an avid pianist, guitar player and singer, having been fortunate enough to play at various
                     events. Likewise, I have a passion for sports as I have played many years of competitive

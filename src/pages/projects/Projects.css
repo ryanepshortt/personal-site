@@ -15,6 +15,16 @@
     width:100%;
 }
 
+
+.double-paragraph {
+    display: none;
+}
+.single-paragraph {
+    display: block;
+}
+
+
+
 .ciena-icons {
     padding-top: 8px;
 }
@@ -27,13 +37,24 @@
     padding-top:8px;
 }
 
-@media screen and (min-width: 960px){
+@media screen and (min-width: 640px){
     .ciena-icons {
         padding-top: 32px;
     }
 }
 
-@media screen and (min-width: 1600px){
+@media screen and (max-width: 640px){
+    .single-paragraph {
+        display: none;
+    }
+    .double-paragraph {
+        display: block;
+    }
+
+
+}
+
+@media screen and (min-width: 1376px){
     .boogie-icons {
         padding-top: 32px;
     }
