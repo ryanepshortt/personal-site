@@ -44,7 +44,7 @@ function Projects() {
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
                         <div className="uk-card-media-top media-card">
-                            <img src={smartHome} alt=""/>
+                            <img classname='uk-animation-fade' src={smartHome} alt=""/>
                         </div>
                         <div className="uk-card-body" >
                             <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>Smart Home Microsite</h3>
@@ -96,7 +96,7 @@ function Projects() {
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
                         <div className="uk-card-media-top media-card">
-                            <img src={serverRoom} alt=""/>
+                            <img classname='uk-animation-fade' src={serverRoom} alt=""/>
                         </div>
                         <div className="uk-card-body">
                             <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>System Sanity Tool (Ciena)</h3>
@@ -129,7 +129,7 @@ function Projects() {
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
                         <div className="uk-card-media-top media-card">
-                            <img src={boogie} alt=""/>
+                            <img classname='uk-animation-fade' src={boogie} alt=""/>
                         </div>
                         <div className="uk-card-body">
                             <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>Musician Social Media Site</h3>
@@ -164,7 +164,7 @@ function Projects() {
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
                         <div className="uk-card-media-top media-card">
-                            <img src={hve} alt=""/>
+                            <img classname='uk-animation-fade' src={hve} alt=""/>
                         </div>
                         <div className="uk-card-body">
                             <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>Home Value Estimator</h3>
@@ -193,7 +193,7 @@ function Projects() {
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
                         <div className="uk-card-media-top media-card">
-                            <img src={neuralNet} alt=""/>
+                            <img classname='uk-animation-fade' src={neuralNet} alt=""/>
                         </div>
                         <div className="uk-card-body">
                             <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>Early Cancer Detector</h3>
@@ -219,7 +219,7 @@ function Projects() {
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
                         <div className="uk-card-media-top media-card">
-                            <img src={personalSite} alt=""/>
+                            <img classname='uk-animation-fade' src={personalSite} alt=""/>
                         </div>
                         <div className="uk-card-body">
                             <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>Personal Site</h3>
