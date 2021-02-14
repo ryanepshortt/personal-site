@@ -111,7 +111,8 @@ function Header({showData, setShowData}) {
 
 
     return (
-        <div className={`uk-width-1-1 uk-flex uk-flex-middle ${ width > 475 ? dark ? 'dark-header-wrapper' : 'header-wrapper' : dark ? 'small-dark' : 'small-light'}`}>
+        // <div className={`uk-width-1-1 uk-flex uk-flex-middle ${ width > 475 ? dark ? 'dark-header-wrapper' : 'header-wrapper' : dark ? 'small-dark' : 'small-light'}`}>
+        <div className={`uk-width-1-1 uk-flex uk-flex-middle ${ dark ? 'dark-header-wrapper' : 'header-wrapper'}`}>
             <div className='uk-flex-none'>
                 <span className='uk-text-large uk-text-bold uk-padding'>Ryan Shortt</span>
             </div>
