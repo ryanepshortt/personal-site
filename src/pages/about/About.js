@@ -3,12 +3,8 @@ import {ThemeContext} from "../../themeContext/ThemeContext";
 import {useWindowDimensions} from "../../scripts/pageSize";
 import mcmaster from '../../assets/McMaster.jpg';
 import mcmaster2 from '../../assets/McMaster-orig.jpg';
-import ciena from '../../assets/ciena-office.jpg';
-import ciena2 from '../../assets/ciena-office-orig.jpg';
-import cienaMid from '../../assets/ciena-office-2.jpg';
+import ciena from '../../assets/ciena.jpg';
 import solace from '../../assets/solace.png';
-import solace2 from '../../assets/solace-orig.png';
-import solaceMid from '../../assets/solace-2.png'
 import IOF from '../../assets/IOF.png';
 import piano from '../../assets/RyanPiano.jpg';
 import ryanSwing from '../../assets/Ryan-Swing.png';
@@ -18,22 +14,10 @@ function About() {
     const {width} = useWindowDimensions();
     let [displayImg, setDisplayImg] = useState(1);
     let Mac;
-    let Ciena;
-    let Solace;
-    if (width > 600) {
+    if (width > 960) {
         Mac = mcmaster;
-        if (width > 960) {
-            Ciena = ciena;
-            Solace = solace;
-        } else {
-            Ciena = cienaMid;
-            Solace = solaceMid;
-        }
-
     } else {
         Mac = mcmaster2;
-        Ciena = ciena2;
-        Solace = solace2;
     }
 
     const {theme, dark} = React.useContext(ThemeContext);
@@ -65,7 +49,7 @@ function About() {
 
                 <div>
                     <div className="uk-inline about-card uk-animation-fade" style={{color: theme.overlayText}}>
-                        <img className='work-img' src={Ciena} alt=""/>
+                        <img className='work-img' src={ciena} alt=""/>
                         <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>Ciena</span> - Automation Tools Developer (Co-Op)</p>
                             <p className='uk-margin-small-top'>May 2019 - May 2020</p>
@@ -75,7 +59,7 @@ function About() {
 
                 <div>
                     <div className="uk-inline about-card uk-animation-fade" style={{color: theme.overlayText}}>
-                        <img className='work-img' src={Solace} alt=""/>
+                        <img className='work-img' src={solace} alt=""/>
                         <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>Solace</span> - Technical Support Specialist (Co-Op)</p>
                             <p className='uk-margin-small-top'>April 2020 - August 2020</p>
@@ -96,12 +80,14 @@ function About() {
                     events. Likewise, I have a passion for sports as I have played many years of competitive
                     hockey and golf.
                 </p>
-                <iframe
-                    id='video-player'
-                    src={mySources[0]}
-                    width="1440" height="810" frameBorder="0" allowFullScreen data-uk-responsive
-                    data-uk-video="automute: true"
-                />
+                <div className='uk-width-1-1 uk-flex uk-flex-center'>
+                    <iframe
+                        id='video-player'
+                        src={mySources[0]}
+                        width="1440" height="810" frameBorder="0" allowFullScreen data-uk-responsive
+                        data-uk-video="automute: true"
+                    />
+                </div>
 
 
                 <div className={'uk-width-1-1 uk-flex uk-flex-center'}>
