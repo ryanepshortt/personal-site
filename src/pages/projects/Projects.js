@@ -1,9 +1,9 @@
 import React from 'react';
 import {ThemeContext} from "../../themeContext/ThemeContext";
 
-import smartHome from '../../assets/smart-home.jpeg';
+import smartHome from '../../assets/smart-home.jpg';
 import boogie from '../../assets/Boogie.png';
-import hve from '../../assets/HomeValue.jpeg';
+import hve from '../../assets/HomeValue.jpg';
 import neuralNet from '../../assets/neuralnetwork.jpg';
 import serverRoom from '../../assets/server-room.jpg';
 import personalSite from '../../assets/personal-site.png';
