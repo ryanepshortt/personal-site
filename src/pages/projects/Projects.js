@@ -14,7 +14,7 @@ import pythonIcon from '../../assets/python-icon.png';
 import formikIcon from '../../assets/formik.png';
 import postgresIcon from '../../assets/postgres-icon.png';
 import reduxIcon from '../../assets/redux-icon.png';
-import awsIcon from '../../assets/aws-icon.png';
+import awsIcon from '../../assets/aws.png';
 import npmIcon from '../../assets/npm-icon.png';
 import mapsIcon from '../../assets/google-maps-icon.png';
 import htmlIcon from '../../assets/html-icon.png';
@@ -237,6 +237,7 @@ function Projects() {
                                         <img className='tech-icon' src={ReactIcon} alt={'react icon'} data-uk-tooltip='React'/>
                                         <img className='tech-icon' src={npmIcon} alt={'npm icon'} data-uk-tooltip='NodeJS'/>
                                         <img className='tech-icon' src={uiKitIcon} alt={'uikit icon'} data-uk-tooltip='UiKit'/>
+                                        <img className='tech-icon' src={awsIcon} alt={'aws icon'} data-uk-tooltip='Amazon Web Services'/>
                                     </p>
                                 </div>
                             </div>
