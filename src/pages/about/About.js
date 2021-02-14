@@ -13,10 +13,8 @@ import './About.css';
 function About() {
     const {width} = useWindowDimensions();
     let [displayImg, setDisplayImg] = useState(1);
-    let Mac;
-    if (width > 960) {
-        Mac = mcmaster;
-    } else {
+    let Mac = mcmaster;
+    if (width <= 960) {
         Mac = mcmaster2;
     }
 
