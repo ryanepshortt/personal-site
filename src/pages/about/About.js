@@ -34,21 +34,22 @@ function About() {
 
             <h2 style={{color: theme.cardTitle}}> Education and Employment</h2>
 
-            <div className='custom-margin' >
+             <div className='custom-margin' >
                 <div className="uk-inline about-card"  style={{color: theme.overlayText}}>
                     <img  src={Mac} alt=""  className={`smooth-image image-${imageLoaded ? 'visible' :  'hidden'}`} onLoad={()=> setImageLoaded(true)}/>
-                    <div className={`uk-overlay uk-position-bottom overlay-plate ${imageLoaded ? 'image-visible' : 'uk-hidden'} ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
+                    <div className={`uk-overlay uk-position-bottom overlay-plate ${imageLoaded ? '' : 'uk-hidden'} ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                         <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>McMaster University</span> - Computer Engineering <span className='uk-visible@s'>Co-Op (2016-2021)</span></p>
                         <p className='uk-margin-small-top'>Dean's List: 3A, 3B, 4A</p>
                     </div>
                 </div>
-            </div>
+             </div>
+
 
             <div className="uk-child-width-1-2@m uk-text-center uk-grid-match" data-uk-grid>
 
                 <div>
                     <div className="uk-inline about-card" style={{color: theme.overlayText}}>
-                        <img onLoad={()=> setImageLoaded(true)} className='work-img' src={ciena} alt=""/>
+                        <img className='work-img' src={ciena} alt=""/>
                         <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>Ciena</span> - Automation Tools Developer (Co-Op)</p>
                             <p className='uk-margin-small-top'>May 2019 - May 2020</p>
