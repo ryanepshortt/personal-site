@@ -58,7 +58,7 @@ function Projects() {
                                 The application allowed users to create their own accounts as well as add and control
                                 paired hardware nodes. I was responsible for the development of the UI, as well as
                                 helping to design the REST API layer using Express and Postgres. Once development is
-                                finished, the app will be deployed in AWS
+                                finished, the app will be deployed in AWS.
                             </p>
                         </div>
                         <div className='footer-wrapper'>
@@ -101,15 +101,16 @@ function Projects() {
                         <div className="uk-card-body">
                             <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>System Sanity Tool (Ciena)</h3>
                             <p>
-                                Developed a system sanity tool to help with hardware debugging for automation
-                                testing teams at Ciena. The tool allowed users to target specific hardware
-                                configurations in the lab then gather and email out in depth diagnostics on them, such
-                                as the amount of packets lost, CRC errors or unconfigurable hardware nodes.
+                                Primary developer of a tool which allowed automation testing teams at Ciena to gather
+                                and email out in depth diagnostics targeted hardware configurations in the lab.
+                                The tool would return values such as the number of CRC errors, packets lost
+                                and missing hardware nodes.
                             </p>
                             <p>
-                                I also integrated the tool into our Jenkins Pipeline, where the tool would automati-cally
-                                detect the hardware configuration that was under test, run diagnostics checks on it
-                                and display the in Jenkins.
+                                The tool was integrated into our Jenkins Pipeline, where users could choose to run the
+                                tool before their test suite to ensure that the hardware topology would not produce
+                                unforeseen errors. The application of the tool would also halt any future tests from
+                                running on hardware topologies that could not meet sufficient health criteria.
                             </p>
                         </div>
                         <div className='footer-wrapper'>
@@ -134,16 +135,16 @@ function Projects() {
                         <div className="uk-card-body">
                             <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>Musician Social Media Site</h3>
                             <p>
-                                I Developed a personal music-themed website where users could advertise their own skills,
-                                upcoming events, or shows. This was the first site that I had ever made and was my
-                                first time using basic web development tools such as Javascript and JQuery. The site also
-                                used an embedded <span className='uk-text-bold'> Google Maps API </span> which showed
-                                the location of the most recently clicked on event.
+                                Developed a music-themed social-media website where users could advertise their own skills,
+                                upcoming events, or shows. This was my first time using basic web development tools such
+                                as Javascript and JQuery. The site used an embedded
+                                <span className='uk-text-bold'> Google Maps API </span> which showed the location of
+                                the most recently clicked on event.
                             </p>
                             <p>
-                                Since it was my first web development project I wanted to do all the styling and
+                                Since this was my first web development project I wanted to do all the styling and
                                 javascript development myself without the use of any frameworks or UI kits so that I could
-                                develop a strong fundamental understanding of these technologies.
+                                develop a strong fundamental JS and CSS skills.
                             </p>
                         </div>
                         <div className='footer-wrapper'>
@@ -171,10 +172,10 @@ function Projects() {
                             <p>
                                 Used various Python libraries to develop a home value estimator. The estimator was
                                 trained on the Boston housing dataset that can be found online. The dataset includes 506
-                                examples which had 13 features, such as the crime rate per capita, and the average number
-                                of rooms per dwelling. To select the best features I used basis expansion and K-Fold
-                                cross validation to gauge which features were most closely correlated to the associated
-                                target values.
+                                examples with 13 features each, such as the average number of rooms per dwelling, and
+                                the distance from the city center. To select the best features I used basis expansion
+                                and K-Fold cross validation to gauge which features were most closely correlated to
+                                the associated target values.
                             </p>
 
                         </div>
@@ -225,9 +226,10 @@ function Projects() {
                             <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>Personal Site</h3>
                             <p>
                                 This is the site you're looking at now! It was developed using React and NodeJs.
-                                React hooks allowed me to elegantly implement things such as the dark theme toggle button
-                                in the header. I also used react-spring, and UIKit to create a responsive website
-                                with smooth transitions. This site is hosted in a CI/CD pipeline in AWS, and the code can be found
+                                React hooks allowed me to implement things such as the dark theme toggle button
+                                in the header. Additionally, I used react-spring, and UIKit to create a responsive site
+                                with smooth transitions. This site is hosted in a CI/CD pipeline in AWS, and the code
+                                repository can be found
                                 <span> <a href={'https://github.com/ryanepshortt/personal-site'} className='uk-link'>here</a></span>.
                             </p>
                         </div>
