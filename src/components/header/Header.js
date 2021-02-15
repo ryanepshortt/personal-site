@@ -36,7 +36,6 @@ function Header({showData, setShowData}) {
     const wrapperRef = useRef(null);
     useOutsideAlerter(wrapperRef, setDrop, drop);
     const {toggle, dark} = useContext(ThemeContext);
-    const {width} = useWindowDimensions();
     const properties = {
         dark: {
             r: 9,
