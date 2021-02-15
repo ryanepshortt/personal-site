@@ -12,7 +12,8 @@ import './About.css';
 
 function About() {
     const {width} = useWindowDimensions();
-    let [displayImg, setDisplayImg] = useState(1);
+    const [displayImg, setDisplayImg] = useState(1);
+    const [imageLoaded, setImageLoaded]= useState(false);
     let Mac = mcmaster;
     if (width <= 960) {
         Mac = mcmaster2;
@@ -35,7 +36,7 @@ function About() {
 
             <div className='custom-margin' >
                 <div className="uk-inline about-card uk-animation-fade"  style={{color: theme.overlayText}}>
-                    <img className='mac-img' src={Mac} alt=""/>
+                    <img  src={Mac} alt=""  className={`smooth-image image-${imageLoaded ? 'visible' :  'hidden'}`} onLoad={()=> setImageLoaded(true)}/>
                     <div className={`uk-overlay uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                         <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>McMaster University</span> - Computer Engineering <span className='uk-visible@s'>Co-Op (2016-2021)</span></p>
                         <p className='uk-margin-small-top'>Dean's List: 3A, 3B, 4A</p>
@@ -47,7 +48,7 @@ function About() {
 
                 <div>
                     <div className="uk-inline about-card uk-animation-fade" style={{color: theme.overlayText}}>
-                        <img className='work-img' src={ciena} alt=""/>
+                        <img onLoad={()=> setImageLoaded(true)} className='work-img' src={ciena} alt=""/>
                         <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>Ciena</span> - Automation Tools Developer (Co-Op)</p>
                             <p className='uk-margin-small-top'>May 2019 - May 2020</p>
