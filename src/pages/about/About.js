@@ -20,7 +20,7 @@ function About() {
     const [showOverlay, setShowOverlay]= useState(false);
     useEffect(() => {
         if(imageLoaded === true) {
-            setTimeout(() => {setShowOverlay(true)}, 250);
+            setTimeout(() => {setShowOverlay(true)}, 100);
         }
     },[imageLoaded])
 

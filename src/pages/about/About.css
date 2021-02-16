@@ -1,5 +1,6 @@
 .custom-margin {
     margin-bottom: 25px;
+    min-height: 300px
 }
 
 .uk-overlay-default {
