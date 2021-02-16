@@ -51,14 +51,13 @@ function Projects() {
                             <p>
                                 Designed and implemented a smart home microsite for a
                                 <span className='uk-text-bold'> McMaster-partnered company</span>. This was my 4th year
-                                capstone project where my team members and I had to interview for the opportunity
+                                capstone project where and I had to interview for the opportunity
                                 to work with this company.
                             </p>
                             <p>
-                                The application allowed users to create their own accounts as well as add and control
-                                paired hardware nodes. I was responsible for the development of the UI, as well as
-                                helping to design the REST API layer using Express and Postgres. Once development is
-                                finished, the app will be deployed in AWS.
+                                The application administers distributed control over hardware nodes in a client-server
+                                infrastructure. I was responsible for the development of the UI, as well as
+                                helping to design the REST API layer using Express and Postgres. The app was deployed in AWS.
                             </p>
                         </div>
                         <div className='footer-wrapper'>
@@ -99,18 +98,18 @@ function Projects() {
                             <img classname='uk-animation-fade' src={serverRoom} alt=""/>
                         </div>
                         <div className="uk-card-body">
-                            <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>System Sanity Tool (Ciena)</h3>
+                            <h3 className="uk-card-title" style={{ color: theme.cardTitle}}>Hardware Topology Diagnostics (Ciena)</h3>
                             <p>
-                                Primary developer of a tool which allowed automation testing teams at Ciena to gather
-                                and email out in depth diagnostics targeted hardware configurations in the lab.
+                                Creator of a set of utilities allowing automation testing teams at Ciena to gather
+                                and email out in depth diagnostics on targeted hardware configurations in the lab.
                                 The tool would return values such as the number of CRC errors, packets lost
                                 and missing hardware nodes.
                             </p>
                             <p>
-                                The tool was integrated into our Jenkins Pipeline, where users could choose to run the
-                                tool before their test suite to ensure that the hardware topology would not produce
-                                unforeseen errors. The application of the tool would also halt any future tests from
-                                running on hardware topologies that could not meet sufficient health criteria.
+                                The tool was integrated into our Jenkins Pipeline, where users could queue it to run
+                                before their test suites to ensure that the hardware topology under test would not produce
+                                unforeseen errors. This application would also halt any future tests on hardware
+                                topologies that could not meet sufficient health criteria.
                             </p>
                         </div>
                         <div className='footer-wrapper'>
@@ -144,7 +143,7 @@ function Projects() {
                             <p>
                                 Since this was my first web development project I wanted to do all the styling and
                                 javascript development myself without the use of any frameworks or UI kits so that I could
-                                develop a strong fundamental JS and CSS skills.
+                                develop strong fundamental JS and CSS skills.
                             </p>
                         </div>
                         <div className='footer-wrapper'>
@@ -173,9 +172,8 @@ function Projects() {
                                 Used various Python libraries to develop a home value estimator. The estimator was
                                 trained on the Boston housing dataset that can be found online. The dataset includes 506
                                 examples with 13 features each, such as the average number of rooms per dwelling, and
-                                the distance from the city center. To select the best features I used basis expansion
-                                and K-Fold cross validation to gauge which features were most closely correlated to
-                                the associated target values.
+                                the distance from the city center. I used basis expansion and K-Fold cross validation
+                                to gauge which features were most closely correlated to the associated target values.
                             </p>
 
                         </div>
