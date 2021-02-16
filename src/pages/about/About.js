@@ -16,20 +16,30 @@ import './About.css';
 function About() {
     const {width,height} = useWindowDimensions();
     const [displayImg, setDisplayImg] = useState(1);
-    const [imageLoaded, setImageLoaded]= useState(false);
+    const [macLoaded, setMacLoaded]= useState(false);
     const [showOverlay, setShowOverlay]= useState(false);
-    const img = new Image();
-    img.onload = () => {
+    const img1 = new Image();
+    const img2 = new Image();
+    const img3 = new Image();
+    img1.onload = () => {
         // when it finishes loading, update the component state
-        setImageLoaded(true)
+        setMacLoaded(true)
     }
-    img.src = mcmaster; // by setting an src, you trigger browser download
+
+    if (width > 960) {
+        img1.src = mcmaster;
+    } else {
+        img2.src = mcmaster2;
+    }
+    // by setting an src, you trigger browser download
+    img2.src = ciena;
+    img3.src = solace;
 
     useEffect(() => {
-        if(imageLoaded === true) {
+        if(macLoaded === true) {
             setTimeout(() => {setShowOverlay(true)}, 100);
         }
-    },[imageLoaded])
+    },[macLoaded])
 
     let Mac = mcmaster;
     if (width <= 960) {
@@ -54,7 +64,7 @@ function About() {
 
             <div className='custom-margin' >
                 <div className="uk-inline about-card"  style={{color: theme.overlayText}}>
-                    <img src={Mac} alt="" className={`smooth-image image-${imageLoaded ? 'visible' :  'hidden'}`} />
+                    <img src={Mac} alt="" />
                         <div className={`uk-animation-fade uk-overlay uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>McMaster University</span> - Computer Engineering <span className='uk-visible@s'>Co-Op (2016-2021)</span></p>
                             <p className='uk-margin-small-top'>Dean's List: 3A, 3B, 4A</p>
