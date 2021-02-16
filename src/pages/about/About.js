@@ -14,10 +14,17 @@ import './About.css';
 
 
 function About() {
-    const {width} = useWindowDimensions();
+    const {width,height} = useWindowDimensions();
     const [displayImg, setDisplayImg] = useState(1);
     const [imageLoaded, setImageLoaded]= useState(false);
     const [showOverlay, setShowOverlay]= useState(false);
+    const img = new Image();
+    img.onload = () => {
+        // when it finishes loading, update the component state
+        setImageLoaded(true)
+    }
+    img.src = mcmaster; // by setting an src, you trigger browser download
+
     useEffect(() => {
         if(imageLoaded === true) {
             setTimeout(() => {setShowOverlay(true)}, 100);
@@ -40,24 +47,20 @@ function About() {
     ];
 
     return (
+        !showOverlay ? <div style={{height: (height - 190)}}/> :
         <div className={'uk-animation-fade'}>
 
             <h2 style={{color: theme.cardTitle}}> Education and Employment</h2>
 
-             <div className='custom-margin' >
+            <div className='custom-margin' >
                 <div className="uk-inline about-card"  style={{color: theme.overlayText}}>
-                    <img src={Mac} alt="" className={`smooth-image image-${imageLoaded ? 'visible' :  'hidden'}`} onLoad={()=> setImageLoaded(true)}/>
-
-                    {
-                        !showOverlay ? <div></div> : <div className={`uk-animation-fade uk-overlay uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
+                    <img src={Mac} alt="" className={`smooth-image image-${imageLoaded ? 'visible' :  'hidden'}`} />
+                        <div className={`uk-animation-fade uk-overlay uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>McMaster University</span> - Computer Engineering <span className='uk-visible@s'>Co-Op (2016-2021)</span></p>
                             <p className='uk-margin-small-top'>Dean's List: 3A, 3B, 4A</p>
                         </div>
-                    }
-
                 </div>
-             </div>
-
+            </div>
 
             <div className="uk-child-width-1-2@m uk-text-center uk-grid-match" data-uk-grid>
 
