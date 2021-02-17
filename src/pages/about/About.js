@@ -29,7 +29,7 @@ function About() {
     if (width > 960) {
         img1.src = mcmaster;
     } else {
-        img2.src = mcmaster2;
+        img1.src = mcmaster2;
     }
     // by setting an src, you trigger browser download
     img2.src = ciena;
