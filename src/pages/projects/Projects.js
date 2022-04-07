@@ -7,6 +7,7 @@ import hve from '../../assets/HomeValue.jpg';
 import neuralNet from '../../assets/neuralnetwork.jpg';
 import serverRoom from '../../assets/server-room.jpg';
 import personalSite from '../../assets/personal-site.png';
+import receta from '../../assets/Receta.png';
 
 
 import ReactIcon from '../../assets/logo512.png';
@@ -28,8 +29,12 @@ import d3Icon from '../../assets/d3-icon.png';
 import tclIcon from '../../assets/tcl-icon.png';
 import jenkinsIcon from '../../assets/jenkins-icon.png';
 import bashIcon from '../../assets/bash-icon.png';
-
-
+import nextjs from '../../assets/next.png';
+import prisma from '../../assets/prisma.png';
+import scss from '../../assets/scss.webp';
+import lighthouse from '../../assets/lighthouse.png';
+import vercel from '../../assets/vercel-icon.svg';
+import jwt from '../../assets/jwt.svg';
 
 import './Projects.css'
 import {useWindowDimensions} from "../../scripts/pageSize";
@@ -45,8 +50,80 @@ function Projects() {
         <div className={'uk-animation-fade'}>
             <div className={` uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@l uk-grid-match`} data-uk-grid data-uk-height-match="target: > div > div > .footer-wrapper">
                 <div>
+                    <div className="uk-card uk-card-default custom-card" style={{
+                        background: theme.cardBackground,
+                        color: theme.foreground,
+                        transition: theme.transition
+                    }}>
+                        <div className="uk-card-media-top media-card custom-image">
+                            <img className='uk-animation-fade' src={receta} alt=""/>
+                        </div>
+                        <div className="uk-card-body">
+                            <h3 className="uk-card-title" style={{color: theme.cardTitle}}><a href='http://receta.vercel.app' target="_blank">Receta</a></h3>
+                            <p>
+                                Receta is a recipe sharing app with a NextJS front end, a Prisma / Postgres backend, deployed using Vercel.
+                                All components were built from pure JSX/SCSS.
+                            </p>
+                            <p>
+                                In an attempt to make the site as performant as possible, I Integrated automated Google
+                                Lighthouse audits into the Vercel-Github CI/CD. The app now boasts impressive web vitals
+                                scores for performance, accessibility, and SEO.
+                            </p>
+                            <p>
+                                This project is still in development, but the code repo with design documentation can be
+                                found <a href="https://github.com/ShorttRyan/receta" target="_blank">here</a>.
+                            </p>
+                        </div>
+                        <div className='footer-wrapper'>
+                            <div className='uk-card-footer'>
+                                <div className='icons'>
+                                    {width > 707 || (width < 640 && width > 335) ? <span><p className='uk-text-center'>
+                                            <img className='tech-icon' src={ReactIcon} alt={'react icon'}
+                                                 data-uk-tooltip='React'/>
+                                            <img className='tech-icon' src={nextjs} alt={'nextjs icon'}
+                                                 data-uk-tooltip='NextJS'/>
+                                            <img className='tech-icon' src={postgresIcon} alt={'postgres icon'}
+                                                 data-uk-tooltip='Postgres'/>
+                                            <img className='tech-icon' src={vercel} alt={'vercel icon'}
+                                                 data-uk-tooltip='Vercel'/>
+                                        </p>
+                                        <p className='uk-text-center'>
+                                            <img className='tech-icon' src={jwt} alt={'JWT icon'}
+                                                 data-uk-tooltip='JWT'/>
+                                            <img className='tech-icon' src={lighthouse} alt={'lighthouse icon'}
+                                                 data-uk-tooltip='Google Lighthouse'/>
+                                            <img className='tech-icon' src={scss} alt={'SCSS icon'}
+                                                 data-uk-tooltip='SCSS'/>
+                                            <img className='tech-icon' src={prisma} alt={'prisma icon'}
+                                                 data-uk-tooltip='Prisma'/>
+                                        </p></span> : <p className='uk-text-center'>
+                                        <img className='tech-icon' src={ReactIcon} alt={'react icon'}
+                                             data-uk-tooltip='React'/>
+                                        <img className='tech-icon' src={postgresIcon} alt={'postgres icon'}
+                                             data-uk-tooltip='Postgres'/>
+                                        <img className='tech-icon' src={nextjs} alt={'nextjs icon'}
+                                             data-uk-tooltip='NextJS'/>
+                                        <img className='tech-icon' src={vercel} alt={'vercel icon'}
+                                             data-uk-tooltip='Vercel'/>
+                                        <img className='tech-icon' src={jwt} alt={'JWT icon'}
+                                             data-uk-tooltip='JWT'/>
+                                        <img className='tech-icon' src={lighthouse} alt={'lighthouse icon'}
+                                             data-uk-tooltip='Google Lighthouse'/>
+                                        <img className='tech-icon' src={scss} alt={'SCSS icon'}
+                                             data-uk-tooltip='SCSS'/>
+                                        <img className='tech-icon' src={prisma} alt={'prisma icon'}
+                                             data-uk-tooltip='Prisma'/>
+                                    </p>}
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
-                        <div className="uk-card-media-top media-card">
+                        <div className="uk-card-media-top media-card custom-image">
                             <img classname='uk-animation-fade' src={smartHome} alt=""/>
                         </div>
                         <div className="uk-card-body" >
@@ -97,7 +174,7 @@ function Projects() {
                 </div>
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
-                        <div className="uk-card-media-top media-card">
+                        <div className="uk-card-media-top media-card custom-image">
                             <img classname='uk-animation-fade' src={serverRoom} alt=""/>
                         </div>
                         <div className="uk-card-body">
@@ -131,7 +208,7 @@ function Projects() {
 
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
-                        <div className="uk-card-media-top media-card">
+                        <div className="uk-card-media-top media-card custom-image">
                             <img classname='uk-animation-fade' src={boogie} alt=""/>
                         </div>
                         <div className="uk-card-body">
@@ -166,7 +243,7 @@ function Projects() {
                 </div>
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
-                        <div className="uk-card-media-top media-card">
+                        <div className="uk-card-media-top media-card custom-image">
                             <img classname='uk-animation-fade' src={hve} alt=""/>
                         </div>
                         <div className="uk-card-body">
@@ -194,7 +271,7 @@ function Projects() {
                 </div>
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
-                        <div className="uk-card-media-top media-card">
+                        <div className="uk-card-media-top media-card custom-image">
                             <img classname='uk-animation-fade' src={neuralNet} alt=""/>
                         </div>
                         <div className="uk-card-body">
@@ -220,7 +297,7 @@ function Projects() {
                 </div>
                 <div>
                     <div className="uk-card uk-card-default custom-card" style={{ background: theme.cardBackground, color: theme.foreground, transition: theme.transition }}>
-                        <div className="uk-card-media-top media-card">
+                        <div className="uk-card-media-top media-card custom-image">
                             <img classname='uk-animation-fade' src={personalSite} alt=""/>
                         </div>
                         <div className="uk-card-body">

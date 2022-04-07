@@ -8,6 +8,7 @@ import solace from '../../assets/solace.png';
 import IOF from '../../assets/IOF.png';
 import piano from '../../assets/RyanPiano.jpg';
 import ryanSwing from '../../assets/Ryan-Swing.png';
+import MyplanetLogo from '../../assets/Myplanet_logo.jpg'
 import './About.css';
 
 
@@ -21,6 +22,7 @@ function About() {
     const img1 = new Image();
     const img2 = new Image();
     const img3 = new Image();
+    const img4 = new Image();
     img1.onload = () => {
         // when it finishes loading, update the component state
         setMacLoaded(true)
@@ -34,6 +36,7 @@ function About() {
     // by setting an src, you trigger browser download
     img2.src = ciena;
     img3.src = solace;
+    img4.src = MyplanetLogo;
 
     useEffect(() => {
         if(macLoaded === true) {
@@ -67,12 +70,22 @@ function About() {
                     <img src={Mac} alt="" />
                         <div className={`uk-animation-fade uk-overlay uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
                             <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>McMaster University</span> - Computer Engineering <span className='uk-visible@s'>Co-Op (2016-2021)</span></p>
-                            <p className='uk-margin-small-top'>Dean's List: 3A, 3B, 4A</p>
+                            <p className='uk-margin-small-top'>Dean's List: 3A, 3B, 4A, 4B</p>
                         </div>
                 </div>
             </div>
 
-            <div className="uk-child-width-1-2@m uk-text-center uk-grid-match" data-uk-grid>
+            <div className="uk-child-width-1-3@m uk-text-center uk-grid-match" data-uk-grid>
+
+                <div>
+                    <div className="uk-inline about-card uk-animation-fade" style={{color: theme.overlayText}}>
+                        <img className='work-img' src={MyplanetLogo} alt=""/>
+                        <div className={`uk-overlay  uk-position-bottom overlay-plate ${dark ? 'uk-overlay-primary' : 'uk-overlay-default'}`}>
+                            <p className='uk-margin-remove-bottom'><span className='uk-text-bold'>Myplanet</span> - Software Developer</p>
+                            <p className='uk-margin-small-top'>May 2021 - Present</p>
+                        </div>
+                    </div>
+                </div>
 
                 <div>
                     <div className="uk-inline about-card" style={{color: theme.overlayText}}>

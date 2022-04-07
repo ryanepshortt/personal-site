@@ -8,6 +8,10 @@
     padding-bottom: 144px;
 }
 
+.custom-image {
+    border-bottom: 1px solid #e5e5e5;
+}
+
 .footer-wrapper {
     position: absolute;
     vertical-align: center;
