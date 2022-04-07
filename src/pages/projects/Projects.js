@@ -61,7 +61,7 @@ function Projects() {
                         <div className="uk-card-body">
                             <h3 className="uk-card-title" style={{color: theme.cardTitle}}><a href='http://receta.vercel.app' target="_blank">Receta</a></h3>
                             <p>
-                                Receta is a recipe sharing app deployed using Vercel. It was built using NextJS with a Prisma / Postgres backend.
+                                Receta is a recipe sharing app deployed using Vercel. The app was built using NextJS, along with a Prisma / Postgres backend.
                                 All components were built using pure JSX/SCSS without the use of any prebuilt UI packages.
                             </p>
                             <p>
