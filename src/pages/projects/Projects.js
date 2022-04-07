@@ -31,7 +31,7 @@ import jenkinsIcon from '../../assets/jenkins-icon.png';
 import bashIcon from '../../assets/bash-icon.png';
 import nextjs from '../../assets/next.png';
 import prisma from '../../assets/prisma.png';
-import scss from '../../assets/scss.webp';
+import scss from '../../assets/scss.svg';
 import lighthouse from '../../assets/lighthouse.png';
 import vercel from '../../assets/vercel-icon.svg';
 import jwt from '../../assets/jwt.svg';
