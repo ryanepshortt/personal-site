@@ -61,16 +61,16 @@ function Projects() {
                         <div className="uk-card-body">
                             <h3 className="uk-card-title" style={{color: theme.cardTitle}}><a href='http://receta.vercel.app' target="_blank">Receta</a></h3>
                             <p>
-                                Receta is a recipe sharing app with a NextJS front end, a Prisma / Postgres backend, deployed using Vercel.
-                                All components were built from pure JSX/SCSS.
+                                Receta is a recipe sharing app deployed using Vercel. It was built using NextJS with a Prisma / Postgres backend.
+                                All components were built using pure JSX/SCSS without the use of any prebuilt UI packages.
                             </p>
                             <p>
-                                In an attempt to make the site as performant as possible, I Integrated automated Google
-                                Lighthouse audits into the Vercel-Github CI/CD. The app now boasts impressive web vitals
-                                scores for performance, accessibility, and SEO.
+                                In an attempt to make the site as performant as possible, I Integrated Google
+                                Lighthouse audits into the Vercel-Github CI/CD pipeline. The app now boasts impressive web vitals
+                                scores for performance, accessibility, best practices, SEO, & PWA.
                             </p>
                             <p>
-                                This project is still in development, but the code repo with design documentation can be
+                                This project is still in development, but the code repo and design documentation can be
                                 found <a href="https://github.com/ShorttRyan/receta" target="_blank">here</a>.
                             </p>
                         </div>
