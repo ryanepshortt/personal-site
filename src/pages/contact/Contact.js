@@ -10,10 +10,8 @@ function Contact() {
         <div className={'uk-animation-fade'} style={{height: (height - 190)}}>
             <div className='uk-text-center'>
 
-                <h3 style={{color: theme.cardTitle}}>I am currently interviewing for full stack software development positions in the Toronto area!</h3>
-                <h4>email: <span className='uk-text-bold uk-text-italic'>r.shortt98@gmail.com</span></h4>
-
-
+                <h3 style={{color: theme.cardTitle}}>I am currently interviewing for full stack positions in the Toronto area!</h3>
+                <h3 style={{color: theme.cardTitle}}>email: <span className='uk-text-bold uk-text-italic'>r.shortt98@gmail.com</span></h3>
 
             </div>
         </div>
