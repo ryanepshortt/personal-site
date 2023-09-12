@@ -1,54 +1,47 @@
-import React, {useState, createContext} from 'react';
-
+import React, { useState, createContext } from "react";
 
 export const themes = {
-    light: {
-        foreground: "#666",
-        background: "#ffffff",
-        transition: 'background 0.5s ease-in-out',
-        cardTitle: "#000000",
-        cardBackground: "#ffffff",
-        overlayText: "#404040"
-    },
-    dark: {
-        foreground: "#ffffff",
-        background: "#222222",
-        transition: 'background 0.5s ease-in-out',
-        cardTitle: "#ffffff",
-        cardBackground: "#262626",
-        overlayText: "#ffffff"
-    }
+  light: {
+    foreground: "#666",
+    background: "#ffffff",
+    transition: "background 0.5s ease-in-out",
+    cardTitle: "#000000",
+    cardBackground: "#ffffff",
+    overlayText: "#404040",
+  },
+  dark: {
+    foreground: "#ffffff",
+    background: "#222222",
+    transition: "background 0.5s ease-in-out",
+    cardTitle: "#ffffff",
+    cardBackground: "#262626",
+    overlayText: "#ffffff",
+  },
 };
 
 const initialState = {
-    dark: false,
-    theme: themes.light,
-    toggle: () => {}
-}
+  dark: false,
+  theme: themes.light,
+  toggle: () => {},
+};
 
-export const ThemeContext = createContext(initialState)
+export const ThemeContext = createContext(initialState);
 
+const ThemeProvider = ({ children }) => {
+  const [dark, setDark] = useState(localStorage.getItem("dark") === "true");
 
-function ThemeProvider({ children }) {
+  const toggle = () => {
+    const isDark = !dark;
+    localStorage.setItem("dark", JSON.stringify(isDark));
+    setDark(isDark);
+  };
+  const theme = dark ? themes.dark : themes.light;
 
-    const [dark, setDark] = useState(localStorage.getItem('dark') === 'true')
+  return (
+    <ThemeContext.Provider value={{ theme, dark, toggle }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
 
-    const toggle = () => {
-        const isDark = !dark
-        localStorage.setItem('dark', JSON.stringify(isDark))
-        setDark(isDark)
-    }
-    const theme = dark ? themes.dark : themes.light
-
-    return (
-        <ThemeContext.Provider value={{ theme, dark, toggle }}>
-            {children}
-        </ThemeContext.Provider>
-    )
-}
-
-
-
-
-export { ThemeProvider }
-
+export { ThemeProvider };
