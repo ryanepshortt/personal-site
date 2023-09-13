@@ -13,7 +13,7 @@ const Header = ({ showData, setShowData }) => {
   const onDropdownLinkClick = (option) => {
     setShowData(option);
     setDrop(false);
-  }
+  };
   return (
     <div
       className={`uk-width-1-1 uk-flex uk-flex-middle ${

@@ -56,7 +56,11 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img className="uk-animation-fade" src={receta} alt="Receta Screenshot" />
+              <img
+                className="uk-animation-fade"
+                src={receta}
+                alt="Receta Screenshot"
+              />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -210,7 +214,11 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={smartHome} alt="Home App" />
+              <img
+                classname="uk-animation-fade"
+                src={smartHome}
+                alt="Home App"
+              />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -358,7 +366,11 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={serverRoom} alt="Hardware Lab" />
+              <img
+                classname="uk-animation-fade"
+                src={serverRoom}
+                alt="Hardware Lab"
+              />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -419,7 +431,11 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={boogie} alt="Boogie Screenshot" />
+              <img
+                classname="uk-animation-fade"
+                src={boogie}
+                alt="Boogie Screenshot"
+              />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -538,7 +554,11 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={neuralNet} alt="Neural Network" />
+              <img
+                classname="uk-animation-fade"
+                src={neuralNet}
+                alt="Neural Network"
+              />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -585,7 +605,11 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={personalSite} alt="Personal Site Screenshot" />
+              <img
+                classname="uk-animation-fade"
+                src={personalSite}
+                alt="Personal Site Screenshot"
+              />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
