@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+import ThemeContext from "../../themeContext/ThemeContext";
 import "./Contact.css";
-import { useWindowDimensions } from "../../scripts/pageSize";
-import { ThemeContext } from "../../themeContext/ThemeContext";
 
 const Contact = () => {
   const { height } = useWindowDimensions();

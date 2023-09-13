@@ -1,49 +1,44 @@
 import React from "react";
-import { ThemeContext } from "../../themeContext/ThemeContext";
-
-import smartHome from "../../assets/smart-home.jpg";
-import boogie from "../../assets/Boogie.png";
-import hve from "../../assets/HomeValue.jpg";
-import neuralNet from "../../assets/neuralnetwork.jpg";
-import serverRoom from "../../assets/server-room.jpg";
-import personalSite from "../../assets/personal-site.png";
-import receta from "../../assets/Receta.png";
-
-import ReactIcon from "../../assets/logo512.png";
-import pythonIcon from "../../assets/python-icon.png";
-import formikIcon from "../../assets/formik.png";
-import postgresIcon from "../../assets/postgres-icon.png";
-import reduxIcon from "../../assets/redux-icon.png";
-import awsIcon from "../../assets/aws.png";
-import npmIcon from "../../assets/npm-icon.png";
-import mapsIcon from "../../assets/google-maps-icon.png";
-import htmlIcon from "../../assets/html-icon.png";
-import cssIcon from "../../assets/css-icon.png";
-import jsIcon from "../../assets/javascript-icon.png";
-import jqIcon from "../../assets/jquery.png";
-import jqIconLight from "../../assets/jqeury-light.png";
-import numpyIcon from "../../assets/numpy.png";
-import uiKitIcon from "../../assets/uikit-icon.png";
-import d3Icon from "../../assets/d3-icon.png";
-import tclIcon from "../../assets/tcl-icon.png";
-import jenkinsIcon from "../../assets/jenkins-icon.png";
-import bashIcon from "../../assets/bash-icon.png";
-import nextjs from "../../assets/next.png";
-import prisma from "../../assets/prisma.png";
-import scss from "../../assets/scss.svg";
-import lighthouse from "../../assets/lighthouse.png";
-import vercel from "../../assets/vercel-icon.svg";
-import jwt from "../../assets/jwt.svg";
-
+import ThemeContext from "../../themeContext/ThemeContext";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 import "./Projects.css";
-import { useWindowDimensions } from "../../scripts/pageSize";
-import mcmaster from "../../assets/McMaster.jpg";
+
+import smartHome from "../../assets/avifs/smartHome.avif";
+import boogie from "../../assets/avifs/boogie.avif";
+import homeValue from "../../assets/avifs/homeValue.avif";
+import neuralNet from "../../assets/avifs/neuralNet.avif";
+import serverRoom from "../../assets/avifs/serverRoom.avif";
+import personalSite from "../../assets/avifs/personalSite.avif";
+import receta from "../../assets/avifs/receta.avif";
+import ReactIcon from "../../assets/avifs/react.avif";
+import pythonIcon from "../../assets/avifs/python.avif";
+import formikIcon from "../../assets/avifs/formik.avif";
+import postgresIcon from "../../assets/avifs/postgres.avif";
+import reduxIcon from "../../assets/avifs/redux.avif";
+import awsIcon from "../../assets/avifs/aws.avif";
+import npmIcon from "../../assets/avifs/node.avif";
+import mapsIcon from "../../assets/avifs/googleMaps.avif";
+import htmlIcon from "../../assets/avifs/html.avif";
+import cssIcon from "../../assets/avifs/css.avif";
+import jsIcon from "../../assets/avifs/javascript.avif";
+import jqIcon from "../../assets/avifs/jquery.avif";
+import jqIconLight from "../../assets/avifs/jqueryLight.avif";
+import numpyIcon from "../../assets/avifs/numpy.avif";
+import uiKitIcon from "../../assets/avifs/uiKit.avif";
+import d3Icon from "../../assets/avifs/d3.avif";
+import tclIcon from "../../assets/avifs/tcl.avif";
+import jenkinsIcon from "../../assets/avifs/jenkins.avif";
+import bashIcon from "../../assets/avifs/bash.avif";
+import nextjs from "../../assets/avifs/next.avif";
+import prisma from "../../assets/avifs/prisma.avif";
+import lighthouse from "../../assets/avifs/lighthouse.avif";
+import vercel from "../../assets/svgs/vercel.svg";
+import jwt from "../../assets/svgs/jwt.svg";
+import scss from "../../assets/svgs/scss.svg";
 
 const Projects = () => {
   const { width } = useWindowDimensions();
   const { theme, dark } = React.useContext(ThemeContext);
-  const img1 = new Image();
-  img1.src = mcmaster;
   return (
     <div className={"uk-animation-fade"}>
       <div
@@ -61,7 +56,7 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img className="uk-animation-fade" src={receta} alt="" />
+              <img className="uk-animation-fade" src={receta} alt="Receta Screenshot" />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -99,52 +94,52 @@ const Projects = () => {
                         <img
                           className="tech-icon"
                           src={ReactIcon}
-                          alt={"react icon"}
+                          alt="react icon"
                           data-uk-tooltip="React"
                         />
                         <img
                           className="tech-icon"
-                          src={nextjs}
-                          alt={"nextjs icon"}
-                          data-uk-tooltip="NextJS"
+                          src={prisma}
+                          alt="prisma icon"
+                          data-uk-tooltip="Prisma"
                         />
                         <img
                           className="tech-icon"
                           src={postgresIcon}
-                          alt={"postgres icon"}
+                          alt="postgres icon"
                           data-uk-tooltip="Postgres"
                         />
                         <img
                           className="tech-icon"
-                          src={vercel}
-                          alt={"vercel icon"}
-                          data-uk-tooltip="Vercel"
+                          src={nextjs}
+                          alt="nextjs icon"
+                          data-uk-tooltip="NextJS"
                         />
                       </p>
                       <p className="uk-text-center">
                         <img
                           className="tech-icon"
+                          src={vercel}
+                          alt="vercel icon"
+                          data-uk-tooltip="Vercel"
+                        />
+                        <img
+                          className="tech-icon"
                           src={jwt}
-                          alt={"JWT icon"}
+                          alt="JWT icon"
                           data-uk-tooltip="JWT"
                         />
                         <img
                           className="tech-icon"
                           src={lighthouse}
-                          alt={"lighthouse icon"}
+                          alt="lighthouse icon"
                           data-uk-tooltip="Google Lighthouse"
                         />
                         <img
                           className="tech-icon"
                           src={scss}
-                          alt={"SCSS icon"}
+                          alt="SCSS icon"
                           data-uk-tooltip="SCSS"
-                        />
-                        <img
-                          className="tech-icon"
-                          src={prisma}
-                          alt={"prisma icon"}
-                          data-uk-tooltip="Prisma"
                         />
                       </p>
                     </span>
@@ -153,49 +148,49 @@ const Projects = () => {
                       <img
                         className="tech-icon"
                         src={ReactIcon}
-                        alt={"react icon"}
+                        alt="react icon"
                         data-uk-tooltip="React"
                       />
                       <img
                         className="tech-icon"
                         src={postgresIcon}
-                        alt={"postgres icon"}
+                        alt="postgres icon"
                         data-uk-tooltip="Postgres"
                       />
                       <img
                         className="tech-icon"
                         src={nextjs}
-                        alt={"nextjs icon"}
+                        alt="nextjs icon"
                         data-uk-tooltip="NextJS"
                       />
                       <img
                         className="tech-icon"
                         src={vercel}
-                        alt={"vercel icon"}
+                        alt="vercel icon"
                         data-uk-tooltip="Vercel"
                       />
                       <img
                         className="tech-icon"
                         src={jwt}
-                        alt={"JWT icon"}
+                        alt="JWT icon"
                         data-uk-tooltip="JWT"
                       />
                       <img
                         className="tech-icon"
                         src={lighthouse}
-                        alt={"lighthouse icon"}
+                        alt="lighthouse icon"
                         data-uk-tooltip="Google Lighthouse"
                       />
                       <img
                         className="tech-icon"
                         src={scss}
-                        alt={"SCSS icon"}
+                        alt="SCSS icon"
                         data-uk-tooltip="SCSS"
                       />
                       <img
                         className="tech-icon"
                         src={prisma}
-                        alt={"prisma icon"}
+                        alt="prisma icon"
                         data-uk-tooltip="Prisma"
                       />
                     </p>
@@ -215,7 +210,7 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={smartHome} alt="" />
+              <img classname="uk-animation-fade" src={smartHome} alt="Home App" />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -247,25 +242,25 @@ const Projects = () => {
                         <img
                           className="tech-icon"
                           src={ReactIcon}
-                          alt={"react icon"}
+                          alt="react icon"
                           data-uk-tooltip="React"
                         />
                         <img
                           className="tech-icon"
                           src={reduxIcon}
-                          alt={"redux icon"}
+                          alt="redux icon"
                           data-uk-tooltip="Redux"
                         />
                         <img
                           className="tech-icon"
                           src={postgresIcon}
-                          alt={"postgres icon"}
+                          alt="postgres icon"
                           data-uk-tooltip="Postgres"
                         />
                         <img
                           className="tech-icon"
                           src={awsIcon}
-                          alt={"aws icon"}
+                          alt="aws icon"
                           data-uk-tooltip="Amazon Web Services"
                         />
                       </p>
@@ -273,25 +268,25 @@ const Projects = () => {
                         <img
                           className="tech-icon"
                           src={npmIcon}
-                          alt={"npm icon"}
+                          alt="npm icon"
                           data-uk-tooltip="NodeJS"
                         />
                         <img
                           className="tech-icon"
                           src={formikIcon}
-                          alt={"formik icon"}
+                          alt="formik icon"
                           data-uk-tooltip="Formik"
                         />
                         <img
                           className="tech-icon"
                           src={uiKitIcon}
-                          alt={"uikit icon"}
+                          alt="uikit icon"
                           data-uk-tooltip="UiKit"
                         />
                         <img
                           className="tech-icon"
                           src={d3Icon}
-                          alt={"d3 icon"}
+                          alt="d3 icon"
                           data-uk-tooltip="D3.JS"
                         />
                       </p>
@@ -301,49 +296,49 @@ const Projects = () => {
                       <img
                         className="tech-icon"
                         src={ReactIcon}
-                        alt={"react icon"}
+                        alt="react icon"
                         data-uk-tooltip="React"
                       />
                       <img
                         className="tech-icon"
                         src={reduxIcon}
-                        alt={"redux icon"}
+                        alt="redux icon"
                         data-uk-tooltip="Redux"
                       />
                       <img
                         className="tech-icon"
                         src={postgresIcon}
-                        alt={"postgres icon"}
+                        alt="postgres icon"
                         data-uk-tooltip="Postgres"
                       />
                       <img
                         className="tech-icon"
                         src={awsIcon}
-                        alt={"aws icon"}
+                        alt="aws icon"
                         data-uk-tooltip="Amazon Web Services"
                       />
                       <img
                         className="tech-icon"
-                        src={npmIcon}
-                        alt={"npm icon"}
+                        src={nodeIcon}
+                        alt="npm icon"
                         data-uk-tooltip="NodeJS"
                       />
                       <img
                         className="tech-icon"
                         src={formikIcon}
-                        alt={"formik icon"}
+                        alt="formik icon"
                         data-uk-tooltip="Formik"
                       />
                       <img
                         className="tech-icon"
                         src={uiKitIcon}
-                        alt={"uikit icon"}
+                        alt="uikit icon"
                         data-uk-tooltip="UiKit"
                       />
                       <img
                         className="tech-icon"
                         src={d3Icon}
-                        alt={"d3 icon"}
+                        alt="d3 icon"
                         data-uk-tooltip="D3.JS"
                       />
                     </p>
@@ -363,7 +358,7 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={serverRoom} alt="" />
+              <img classname="uk-animation-fade" src={serverRoom} alt="Hardware Lab" />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -392,19 +387,19 @@ const Projects = () => {
                     <img
                       className="tech-icon"
                       src={tclIcon}
-                      alt={"TCL icon"}
+                      alt="TCL icon"
                       data-uk-tooltip="TCL"
                     />
                     <img
                       className="tech-icon"
                       src={jenkinsIcon}
-                      alt={"Jenkins icon"}
+                      alt="Jenkins icon"
                       data-uk-tooltip="Jenkins"
                     />
                     <img
                       className="tech-icon"
                       src={bashIcon}
-                      alt={"Bash icon"}
+                      alt="Bash icon"
                       data-uk-tooltip="Bash"
                     />
                   </p>
@@ -424,7 +419,7 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={boogie} alt="" />
+              <img classname="uk-animation-fade" src={boogie} alt="Boogie Screenshot" />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -452,31 +447,31 @@ const Projects = () => {
                     <img
                       className="tech-icon"
                       src={mapsIcon}
-                      alt={"google maps icon"}
+                      alt="google maps icon"
                       data-uk-tooltip="Google Maps"
                     />
                     <img
                       className="tech-icon"
                       src={htmlIcon}
-                      alt={"html icon"}
+                      alt="html icon"
                       data-uk-tooltip="HTML 5"
                     />
                     <img
                       className="tech-icon"
                       src={cssIcon}
-                      alt={"css icon"}
+                      alt="css icon"
                       data-uk-tooltip="CSS"
                     />
                     <img
                       className="tech-icon"
                       src={jsIcon}
-                      alt={"javascript icon"}
+                      alt="javascript icon"
                       data-uk-tooltip="JavaScript"
                     />
                     <img
                       className="tech-icon"
                       src={dark ? jqIconLight : jqIcon}
-                      alt={"JQuery icon"}
+                      alt="JQuery icon"
                       data-uk-tooltip="JQuery"
                     />
                   </p>
@@ -495,7 +490,7 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={hve} alt="" />
+              <img classname="uk-animation-fade" src={homeValue} alt="Hous" />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -518,13 +513,13 @@ const Projects = () => {
                     <img
                       className="tech-icon"
                       src={pythonIcon}
-                      alt={"Python icon"}
+                      alt="Python icon"
                       data-uk-tooltip="Python"
                     />
                     <img
                       className="tech-icon"
                       src={numpyIcon}
-                      alt={"Numpy icon"}
+                      alt="Numpy icon"
                       data-uk-tooltip="NumPy"
                     />
                   </p>
@@ -543,7 +538,7 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={neuralNet} alt="" />
+              <img classname="uk-animation-fade" src={neuralNet} alt="Neural Network" />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -565,13 +560,13 @@ const Projects = () => {
                     <img
                       className="tech-icon"
                       src={pythonIcon}
-                      alt={"Python icon"}
+                      alt="Python icon"
                       data-uk-tooltip="Python"
                     />
                     <img
                       className="tech-icon"
                       src={numpyIcon}
-                      alt={"Numpy icon"}
+                      alt="Numpy icon"
                       data-uk-tooltip="NumPy"
                     />
                   </p>
@@ -590,7 +585,7 @@ const Projects = () => {
             }}
           >
             <div className="uk-card-media-top media-card custom-image">
-              <img classname="uk-animation-fade" src={personalSite} alt="" />
+              <img classname="uk-animation-fade" src={personalSite} alt="Personal Site Screenshot" />
             </div>
             <div className="uk-card-body">
               <h3 className="uk-card-title" style={{ color: theme.cardTitle }}>
@@ -622,25 +617,25 @@ const Projects = () => {
                     <img
                       className="tech-icon"
                       src={ReactIcon}
-                      alt={"react icon"}
+                      alt="react icon"
                       data-uk-tooltip="React"
                     />
                     <img
                       className="tech-icon"
                       src={npmIcon}
-                      alt={"npm icon"}
+                      alt="npm icon"
                       data-uk-tooltip="NodeJS"
                     />
                     <img
                       className="tech-icon"
                       src={uiKitIcon}
-                      alt={"uikit icon"}
+                      alt="uikit icon"
                       data-uk-tooltip="UiKit"
                     />
                     <img
                       className="tech-icon"
                       src={awsIcon}
-                      alt={"aws icon"}
+                      alt="aws icon"
                       data-uk-tooltip="Amazon Web Services"
                     />
                   </p>

@@ -25,7 +25,7 @@ const initialState = {
   toggle: () => {},
 };
 
-export const ThemeContext = createContext(initialState);
+const ThemeContext = createContext(initialState);
 
 const ThemeProvider = ({ children }) => {
   const [dark, setDark] = useState(localStorage.getItem("dark") === "true");
@@ -45,3 +45,4 @@ const ThemeProvider = ({ children }) => {
 };
 
 export { ThemeProvider };
+export default ThemeContext;
