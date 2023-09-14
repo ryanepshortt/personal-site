@@ -20,7 +20,7 @@ export const themes = {
 };
 
 const initialState = {
-  dark: false,
+  dark: true,
   theme: themes.light,
   toggle: () => {},
 };

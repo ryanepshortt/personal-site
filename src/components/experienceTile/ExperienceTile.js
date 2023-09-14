@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import ThemeContext from "../../themeContext/ThemeContext";
+import "./ExperienceTile.css";
 
 const ExperienceTile = ({ imageSource, company, title, dates }) => {
   const { theme, dark } = useContext(ThemeContext);
@@ -9,7 +10,9 @@ const ExperienceTile = ({ imageSource, company, title, dates }) => {
         className="uk-inline about-card uk-animation-fade"
         style={{ color: theme.overlayText }}
       >
-        <img className="work-img" src={imageSource} />
+        <div className="img-wrapper">
+          <img className="work-img" src={imageSource} />
+        </div>
         <div
           className={`uk-overlay  uk-position-bottom overlay-plate ${
             dark ? "uk-overlay-primary" : "uk-overlay-default"

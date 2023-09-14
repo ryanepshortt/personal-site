@@ -1,3 +1,9 @@
+.icons-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px 5px;
+}
+
 .tech-icon {
   height: 32px;
   width: 32px;
@@ -10,7 +16,9 @@
 
 .footer-wrapper {
   position: absolute;
-  vertical-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 0;
   width: 100%;
 }

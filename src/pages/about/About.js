@@ -5,11 +5,12 @@ import ExperienceTile from "../../components/experienceTile/ExperienceTile";
 import { YOUTUBE_LINKS } from "../../constants/AppConstants";
 import mcmasterImgWide from "../../assets/avifs/mcmaster.avif";
 import mcmasterImgSmall from "../../assets/avifs/mcMasterOrig.avif";
-import cienaImg from "../../assets/avifs/ciena.avif";
+import orium from "../../assets/avifs/orium.avif";
+import wish from "../../assets/avifs/wish.avif";
+import ciena from "../../assets/avifs/ciena.avif";
 import songImg from "../../assets/avifs/imOnFire.avif";
 import pianoImg from "../../assets/avifs/ryanPiano.avif";
 import golfImg from "../../assets/avifs/ryanSwing.avif";
-import myPlanetImg from "../../assets/avifs/myplanet.avif";
 import "./About.css";
 
 const About = () => {
@@ -20,10 +21,6 @@ const About = () => {
   const { theme } = useContext(ThemeContext);
   const playerRef = useRef(null);
   const img1 = new Image();
-  const img2 = new Image();
-  const img3 = new Image();
-  img2.src = cienaImg;
-  img3.src = myPlanetImg;
   img1.onload = () => {
     setMacLoaded(true);
   };
@@ -70,13 +67,19 @@ const About = () => {
         data-uk-grid
       >
         <ExperienceTile
-          imageSource={myPlanetImg}
-          company="Orium (Formerly Myplanet)"
+          imageSource={wish}
+          company="Wish"
+          title="Fullstack Software Engineer"
+          dates="July 2022 - August 2023"
+        />
+        <ExperienceTile
+          imageSource={orium}
+          company="Orium"
           title="Software Engineer"
           dates="May 2021 - July 2022"
         />
         <ExperienceTile
-          imageSource={cienaImg}
+          imageSource={ciena}
           company="Ciena"
           title="Automation Tools Developer (Co-Op)"
           dates="May 2019 - May 2020"
@@ -87,11 +90,11 @@ const About = () => {
         <h2 style={{ color: theme.cardTitle }}>Personal Profile</h2>
         <p className="uk-article-meta">Hometown: Whitby On</p>
         <p className="uk-text-lead" style={{ color: theme.foreground }}>
-          I am a hard-working individual with a passion for coding, computers,
-          and robotics. I am an avid pianist, guitar player and singer, having
-          been fortunate enough to play at various events. Likewise, I have a
-          passion for sports as I have played many years of competitive hockey
-          and golf.
+          I am a hard-working individual with a passion for building high
+          quality products. I am an avid pianist, guitar player and singer,
+          having been fortunate enough to play at various events. Likewise, I
+          have a passion for sports as I have played many years of competitive
+          hockey and golf.
         </p>
         <div className="uk-width-1-1 uk-flex uk-flex-center">
           <iframe
