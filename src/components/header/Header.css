@@ -1,103 +1,94 @@
 .header-wrapper {
-    color: #FFFFFF;
-    height: 90px;
-    background-color: #ff9d00;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='138' height='115' viewBox='0 0 1600 800'%3E%3Cg stroke='%2391611d' stroke-width='45.7' stroke-opacity='0.05' %3E%3Ccircle fill='%23ff9d00' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23ff8e14' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23fd8020' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23fa712a' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23f56332' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23ef5539' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23e84740' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23e03946' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23d62b4c' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23cc1d51' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23c00c55' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23b30059' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23a5005c' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%2397005e' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%2388005f' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23780060' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%2367005f' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%2356005e' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
-    transition: background-image 0.5s ease-in-out;
+  color: #ffffff;
+  height: 90px;
+  background-color: #ff9d00;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='138' height='115' viewBox='0 0 1600 800'%3E%3Cg stroke='%2391611d' stroke-width='45.7' stroke-opacity='0.05' %3E%3Ccircle fill='%23ff9d00' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23ff8e14' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23fd8020' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23fa712a' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%23f56332' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%23ef5539' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%23e84740' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%23e03946' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%23d62b4c' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%23cc1d51' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%23c00c55' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23b30059' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23a5005c' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%2397005e' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%2388005f' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%23780060' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%2367005f' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%2356005e' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  transition: background-image 0.5s ease-in-out;
 }
 
 .dark-header-wrapper {
-    background-color: #2d37a1;
-    color: #FFFFFF;
-    height: 90px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='138' height='115' viewBox='0 0 1600 800'%3E%3Cg stroke='%231f0040' stroke-width='45.7' stroke-opacity='0.05' %3E%3Ccircle fill='%232d37a1' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23323399' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23362f92' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23392b8a' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%233b2782' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%233c237b' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%233d2074' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%233d1c6d' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%233c1866' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%233b155f' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%233a1258' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23380e52' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23370b4b' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23340845' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%2332063f' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%232f0439' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%232d0233' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%232a002e' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
-    transition: background-image 0.5s ease-in-out;
+  background-color: #2d37a1;
+  color: #ffffff;
+  height: 90px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='138' height='115' viewBox='0 0 1600 800'%3E%3Cg stroke='%231f0040' stroke-width='45.7' stroke-opacity='0.05' %3E%3Ccircle fill='%232d37a1' cx='0' cy='0' r='1800'/%3E%3Ccircle fill='%23323399' cx='0' cy='0' r='1700'/%3E%3Ccircle fill='%23362f92' cx='0' cy='0' r='1600'/%3E%3Ccircle fill='%23392b8a' cx='0' cy='0' r='1500'/%3E%3Ccircle fill='%233b2782' cx='0' cy='0' r='1400'/%3E%3Ccircle fill='%233c237b' cx='0' cy='0' r='1300'/%3E%3Ccircle fill='%233d2074' cx='0' cy='0' r='1200'/%3E%3Ccircle fill='%233d1c6d' cx='0' cy='0' r='1100'/%3E%3Ccircle fill='%233c1866' cx='0' cy='0' r='1000'/%3E%3Ccircle fill='%233b155f' cx='0' cy='0' r='900'/%3E%3Ccircle fill='%233a1258' cx='0' cy='0' r='800'/%3E%3Ccircle fill='%23380e52' cx='0' cy='0' r='700'/%3E%3Ccircle fill='%23370b4b' cx='0' cy='0' r='600'/%3E%3Ccircle fill='%23340845' cx='0' cy='0' r='500'/%3E%3Ccircle fill='%2332063f' cx='0' cy='0' r='400'/%3E%3Ccircle fill='%232f0439' cx='0' cy='0' r='300'/%3E%3Ccircle fill='%232d0233' cx='0' cy='0' r='200'/%3E%3Ccircle fill='%232a002e' cx='0' cy='0' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  transition: background-image 0.5s ease-in-out;
 }
 
 .small-light {
-    color: #FFFFFF;
-    height: 90px;
-    background-color: #ff225f;
-    transition: background-color 0.5s ease-in-out;
+  color: #ffffff;
+  height: 90px;
+  background-color: #ff225f;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .small-dark {
-    background-color: #2f0033;
-    color: #FFFFFF;
-    height: 90px;
-    transition: background-color 0.5s ease-in-out;
+  background-color: #2f0033;
+  color: #ffffff;
+  height: 90px;
+  transition: background-color 0.5s ease-in-out;
 }
 
-
-
-
 .selected {
-    color: white;
-    font-size: 15.5px;
-    padding:  0 30px;
-    transition: color .5s ease-in-out;
+  color: white;
+  font-size: 15.5px;
+  padding: 0 30px;
+  transition: color 0.5s ease-in-out;
 }
 
 .nav-link:hover {
-    color: gainsboro;
-    transition: color .5s ease-in-out;
+  color: gainsboro;
+  transition: color 0.5s ease-in-out;
 }
 
 .nav-link {
-    color: darkgrey;
-    font-size: 15.5px;
-    padding:  0 30px;
-    transition: padding .5s ease-in-out;
+  color: darkgrey;
+  font-size: 15.5px;
+  padding: 0 30px;
+  transition: padding 0.5s ease-in-out;
 }
 
 .uk-navbar-dropdown {
-    margin-left: 20px !important;
+  margin-left: 20px !important;
 }
 
 .uk-navbar-dropdown.uk-open {
-    background-color: #520059;
+  background-color: #520059;
 }
-
-
 
 .dd-selected {
-    color: darkgray;
-    cursor: pointer;
-    transition: color .5s ease-in-out;
+  color: darkgray;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
 }
 .dd-option:hover {
-    color: gainsboro;
-    cursor: pointer;
-    transition: color .5s ease-in-out;
-
+  color: gainsboro;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
 }
 
 .custom-dropdown {
-    position: absolute;
-    right:0;
-    margin-top:64px;
-    text-align: center;
-    z-index: 1020;
-    box-sizing: border-box;
-    min-width: 175px;
-    padding: 25px;
-    box-shadow: 0 6px 10px 3px rgba(0,0,0,0.43);
-    background-color: #520059;
+  position: absolute;
+  right: 0;
+  margin-top: 64px;
+  text-align: center;
+  z-index: 1020;
+  box-sizing: border-box;
+  min-width: 175px;
+  padding: 25px;
+  box-shadow: 0 6px 10px 3px rgba(0, 0, 0, 0.43);
+  background-color: #520059;
 }
 
+@media screen and (max-width: 900px) {
+  .nav-link {
+    padding: 0 15px;
+  }
 
-@media screen and (max-width: 900px){
-    .nav-link {
-        padding: 0 15px;
-    }
-
-    .selected {
-        padding:  0 15px;
-    }
-
-
+  .selected {
+    padding: 0 15px;
+  }
 }

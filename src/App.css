@@ -1,11 +1,12 @@
 .content-container {
-    width:80%;
-    margin-left:10%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+  width: 80%;
+  margin-left: 10%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
-html, body {
-    height:100%;
-    position: relative;
+html,
+body {
+  height: 100%;
+  position: relative;
 }
