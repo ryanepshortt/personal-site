@@ -5,7 +5,7 @@ import "./ExperienceTile.css";
 function ExperienceTile({ imageSource, company, title, dates, size }) {
   const { theme, isDark } = useContext(ThemeContext);
   return (
-    <div>
+    <div className="about-card-wrapper">
       <div
         className="uk-inline about-card uk-animation-fade"
         style={{ color: theme.overlayText }}
@@ -18,7 +18,7 @@ function ExperienceTile({ imageSource, company, title, dates, size }) {
           />
         </div>
         <div
-          className={`uk-overlay  uk-position-bottom overlay-plate ${
+          className={`uk-overlay uk-position-bottom overlay-plate ${
             isDark ? "uk-overlay-primary" : "uk-overlay-default"
           }`}
         >

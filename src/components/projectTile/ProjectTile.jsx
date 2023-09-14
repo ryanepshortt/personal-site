@@ -8,16 +8,16 @@ function ProjectTile({ projectInfo }) {
   return (
     <div>
       <div
-        className="uk-card uk-card-default custom-card"
+        className="uk-card uk-card-default project-tile-wrapper"
         style={{
           background: theme.cardBackground,
           color: theme.foreground,
           transition: theme.transition,
         }}
       >
-        <div className="uk-card-media-top media-card custom-image">
+        <div className="uk-card-media-top media-card project-tile-image-wrapper">
           <img
-            className="uk-animation-fade"
+            className="uk-animation-fade project-tile-image"
             src={imageInfo.img}
             alt={imageInfo.alt}
           />

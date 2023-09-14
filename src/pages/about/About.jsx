@@ -50,17 +50,12 @@ function About() {
     <div className="uk-animation-fade">
       <h2 style={{ color: theme.cardTitle }}>Education and Employment</h2>
       <div className="custom-margin">
-        <div
-          className="uk-inline about-card"
-          style={{ color: theme.overlayText }}
-        >
-          <ExperienceTile
-            imageSource={width <= 960 ? mcmasterImgSmall : mcmasterImgWide}
-            company="McMaster University"
-            title="Computer Engineering Co-Op (2016-2021)"
-            dates="Dean's List Semesters: 3A, 3B, 4A, 4B"
-          />
-        </div>
+        <ExperienceTile
+          imageSource={width <= 960 ? mcmasterImgSmall : mcmasterImgWide}
+          company="McMaster University"
+          title="Computer Engineering Co-Op (2016-2021)"
+          dates="Dean's List Semesters: 3A, 3B, 4A, 4B"
+        />
       </div>
       <div
         className="uk-child-width-1-3@m uk-text-center uk-grid-match"

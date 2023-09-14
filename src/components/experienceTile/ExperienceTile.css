@@ -1,5 +1,9 @@
+.about-card-wrapper {
+  border-radius: 8px;
+}
+
 .about-card {
-  border-radius: 4px;
+  border-radius: 8px !important;
   box-shadow:
     rgba(17, 17, 26, 0.05) 0px 1px 0px,
     rgba(17, 17, 26, 0.1) 0px 0px 8px;
@@ -17,11 +21,20 @@
 
 .img-wrapper {
   height: 100%;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.work-img {
+  border-radius: 8px;
+}
+
 .small-img {
   margin: 20px;
+}
+
+.overlay-plate {
+  border-radius: 0 0 8px 8px;
 }

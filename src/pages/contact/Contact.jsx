@@ -13,12 +13,16 @@ function Contact() {
           I am currently interviewing for full stack positions in the Toronto
           area!
         </h3>
-        <h3 style={{ color: theme.cardTitle }}>
+        <h4 style={{ color: theme.cardTitle }}>
           email:{" "}
           <span className="uk-text-bold uk-text-italic">
             r.shortt98@gmail.com
           </span>
-        </h3>
+        </h4>
+        <h4 style={{ color: theme.cardTitle }}>
+          phone:{" "}
+          <span className="uk-text-bold uk-text-italic">+1 (289) 600 3833</span>
+        </h4>
       </div>
     </div>
   );
