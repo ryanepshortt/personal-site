@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useMemo } from "react";
 
 export const themes = {
   light: {
@@ -27,24 +27,24 @@ const initialState = {
 
 const ThemeContext = createContext(initialState);
 
-const ThemeProvider = ({ children }) => {
+function ThemeProvider({ children }) {
   const [isDark, setIsDark] = useState(
     localStorage.getItem("isDark") === "true",
   );
 
   const toggle = () => {
-    console.log(!isDark);
     localStorage.setItem("isDark", JSON.stringify(!isDark));
     setIsDark(!isDark);
   };
   const theme = isDark ? themes.dark : themes.light;
 
+  const contextValue = useMemo(() => ({ isDark, theme, toggle }), [isDark]);
   return (
-    <ThemeContext.Provider value={{ theme, isDark, toggle }}>
+    <ThemeContext.Provider value={contextValue}>
       {children}
     </ThemeContext.Provider>
   );
-};
+}
 
 export { ThemeProvider };
 export default ThemeContext;

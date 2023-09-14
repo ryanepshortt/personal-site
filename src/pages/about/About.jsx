@@ -13,7 +13,7 @@ import pianoImg from "../../assets/avifs/ryanPiano.avif";
 import golfImg from "../../assets/avifs/ryanSwing.avif";
 import "./About.css";
 
-const About = () => {
+function About() {
   const { width, height } = useWindowDimensions();
   const [displayImg, setDisplayImg] = useState(1);
   const [macLoaded, setMacLoaded] = useState(false);
@@ -100,6 +100,7 @@ const About = () => {
           <iframe
             ref={playerRef}
             src={YOUTUBE_LINKS[0]}
+            title="Video player"
             width="1440"
             height="810"
             frameBorder="0"
@@ -118,18 +119,21 @@ const About = () => {
               <img
                 className={`video-img ${displayImg === 1 && "video-selected"}`}
                 src={songImg}
+                alt="singing video thumbnail"
               />
             </div>
             <div onClick={() => onSetDisplayImage(2)}>
               <img
                 className={`video-img ${displayImg === 2 && "video-selected"}`}
                 src={pianoImg}
+                alt="piano video thumbnail"
               />
             </div>
             <div onClick={() => onSetDisplayImage(3)}>
               <img
                 className={`video-img ${displayImg === 3 && "video-selected"}`}
                 src={golfImg}
+                alt="golf video thumbnail"
               />
             </div>
           </div>
@@ -137,6 +141,6 @@ const About = () => {
       </div>
     </div>
   );
-};
+}
 
 export default About;

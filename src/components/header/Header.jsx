@@ -5,13 +5,13 @@ import AnimatedIcon from "../animatedIcon/AnimatedIcon";
 import { PAGES } from "../../constants/AppConstants";
 import "./Header.css";
 
-const Header = ({ showData, setShowData }) => {
+function Header({ pageKey, setPageKey }) {
   const [drop, setDrop] = useState(false);
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef, setDrop, drop);
   const { isDark } = useContext(ThemeContext);
   const onDropdownLinkClick = (option) => {
-    setShowData(option);
+    setPageKey(option);
     setDrop(false);
   };
   return (
@@ -41,7 +41,7 @@ const Header = ({ showData, setShowData }) => {
             <div className="uk-text-center uk-inline">
               <div
                 className={`${
-                  showData === PAGES.about ? "dd-option" : "dd-selected"
+                  pageKey === PAGES.about ? "dd-option" : "dd-selected"
                 } uk-padding uk-padding-remove-horizontal`}
                 onClick={() => onDropdownLinkClick(PAGES.about)}
               >
@@ -49,7 +49,7 @@ const Header = ({ showData, setShowData }) => {
               </div>
               <div
                 className={`${
-                  showData === PAGES.projects ? "dd-option" : "dd-selected"
+                  pageKey === PAGES.projects ? "dd-option" : "dd-selected"
                 }`}
                 onClick={() => onDropdownLinkClick(PAGES.projects)}
               >
@@ -57,7 +57,7 @@ const Header = ({ showData, setShowData }) => {
               </div>
               <div
                 className={`${
-                  showData === PAGES.contact ? "dd-option" : "dd-selected"
+                  pageKey === PAGES.contact ? "dd-option" : "dd-selected"
                 }`}
                 onClick={() => onDropdownLinkClick(PAGES.contact)}
               >
@@ -69,31 +69,31 @@ const Header = ({ showData, setShowData }) => {
         <AnimatedIcon />
         <span
           className={`${
-            showData === PAGES.contact ? "selected" : "nav-link"
+            pageKey === PAGES.contact ? "selected" : "nav-link"
           } uk-button uk-text-bold uk-float-right uk-visible@s`}
-          onClick={() => setShowData(PAGES.contact)}
+          onClick={() => setPageKey(PAGES.contact)}
         >
           Contact
         </span>
         <span
           className={`${
-            showData === PAGES.projects ? "selected" : "nav-link"
+            pageKey === PAGES.projects ? "selected" : "nav-link"
           } uk-button uk-text-bold uk-float-right uk-margin-remove-left uk-visible@s`}
-          onClick={() => setShowData(PAGES.projects)}
+          onClick={() => setPageKey(PAGES.projects)}
         >
           Projects
         </span>
         <span
           className={`${
-            showData === PAGES.about ? "selected" : "nav-link"
+            pageKey === PAGES.about ? "selected" : "nav-link"
           } uk-button uk-text-bold uk-float-right uk-visible@s`}
-          onClick={() => setShowData(PAGES.about)}
+          onClick={() => setPageKey(PAGES.about)}
         >
           About Me
         </span>
       </div>
     </div>
   );
-};
+}
 
 export default Header;

@@ -1,3 +1,4 @@
+import React from "react";
 import boogie from "../../assets/avifs/boogie.avif";
 import javascript from "../../assets/avifs/javascript.avif";
 import html from "../../assets/avifs/html.avif";

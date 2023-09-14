@@ -3,11 +3,11 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 import ThemeContext from "../../themeContext/ThemeContext";
 import "./Contact.css";
 
-const Contact = () => {
+function Contact() {
   const { height } = useWindowDimensions();
   const { theme } = useContext(ThemeContext);
   return (
-    <div className={"uk-animation-fade"} style={{ height: height - 190 }}>
+    <div className="uk-animation-fade" style={{ height: height - 190 }}>
       <div className="uk-text-center">
         <h3 style={{ color: theme.cardTitle }}>
           I am currently interviewing for full stack positions in the Toronto
@@ -22,6 +22,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Contact;

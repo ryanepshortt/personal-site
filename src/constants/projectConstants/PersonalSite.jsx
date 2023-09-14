@@ -1,3 +1,4 @@
+import React from "react";
 import personalSite from "../../assets/avifs/personalSite.avif";
 import react from "../../assets/avifs/react.avif";
 import javascript from "../../assets/avifs/javascript.avif";

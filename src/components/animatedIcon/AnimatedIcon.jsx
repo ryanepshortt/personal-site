@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import ThemeContext from "../../themeContext/ThemeContext";
 import { useSpring, animated } from "react-spring";
+import ThemeContext from "../../themeContext/ThemeContext";
 
-const AnimatedIcon = () => {
+function AnimatedIcon() {
   const { toggle, isDark } = useContext(ThemeContext);
   const properties = {
     dark: {
@@ -78,6 +78,6 @@ const AnimatedIcon = () => {
       </animated.svg>
     </span>
   );
-};
+}
 
 export default AnimatedIcon;

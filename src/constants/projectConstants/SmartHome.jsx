@@ -1,3 +1,4 @@
+import React from "react";
 import smartHome from "../../assets/avifs/smartHome.avif";
 import react from "../../assets/avifs/react.avif";
 import javascript from "../../assets/avifs/javascript.avif";

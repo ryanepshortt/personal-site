@@ -1,3 +1,4 @@
+import React from "react";
 import homeValue from "../../assets/avifs/homeValue.avif";
 import python from "../../assets/avifs/python.avif";
 import numpy from "../../assets/avifs/numpy.avif";

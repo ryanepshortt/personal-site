@@ -1,3 +1,4 @@
+import React from "react";
 import receta from "../../assets/avifs/receta.avif";
 import lighthouse from "../../assets/avifs/lighthouse.avif";
 import vercel from "../../assets/svgs/vercel.svg";

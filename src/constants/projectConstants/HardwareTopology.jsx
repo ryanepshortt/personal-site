@@ -1,3 +1,4 @@
+import React from "react";
 import serverRoom from "../../assets/avifs/serverRoom.avif";
 import tcl from "../../assets/avifs/tcl.avif";
 import jenkins from "../../assets/avifs/jenkins.avif";

@@ -2,7 +2,7 @@ import React from "react";
 import ThemeContext from "../../themeContext/ThemeContext";
 import "../../pages/projects/Projects.css";
 
-const ProjectTile = ({ projectInfo }) => {
+function ProjectTile({ projectInfo }) {
   const { theme, isDark } = React.useContext(ThemeContext);
   const { titleInfo, imageInfo, techList, body } = projectInfo;
   return (
@@ -17,7 +17,7 @@ const ProjectTile = ({ projectInfo }) => {
       >
         <div className="uk-card-media-top media-card custom-image">
           <img
-            classname="uk-animation-fade"
+            className="uk-animation-fade"
             src={imageInfo.img}
             alt={imageInfo.alt}
           />
@@ -49,6 +49,6 @@ const ProjectTile = ({ projectInfo }) => {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectTile;

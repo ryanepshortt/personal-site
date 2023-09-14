@@ -8,13 +8,10 @@ const useOutsideAlerter = (ref, setDrop, drop) => {
     const handleClickOutside = (event) => {
       if (event.target.id === "hamburger") {
         setDrop(!drop);
-      } else {
-        if (ref.current && !ref.current.contains(event.target)) {
-          setDrop(false);
-        }
+      } else if (ref.current && !ref.current.contains(event.target)) {
+        setDrop(false);
       }
     };
-
     // Bind the event listener
     document.addEventListener("click", handleClickOutside);
     return () => {

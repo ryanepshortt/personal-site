@@ -8,9 +8,22 @@ import Projects from "./pages/projects/Projects";
 import { PAGES } from "./constants/AppConstants";
 import "./App.css";
 
-const App = () => {
-  let [showData, setShowData] = useState(PAGES.about);
+function App() {
+  const [pageKey, setPageKey] = useState(PAGES.about);
   const { theme } = useContext(ThemeContext);
+
+  const contentSwitcher = (page) => {
+    switch (page) {
+      case PAGES.about:
+        return <About />;
+      case PAGES.contact:
+        return <Contact />;
+      case PAGES.projects:
+        return <Projects />;
+      default:
+        return null;
+    }
+  };
   return (
     <div
       className="App"
@@ -20,21 +33,10 @@ const App = () => {
         transition: theme.transition,
       }}
     >
-      <Header showData={showData} setShowData={setShowData} />
-      <div className="content-container">{contentSwitcher(showData)}</div>
+      <Header pageKey={pageKey} setPageKey={setPageKey} />
+      <div className="content-container">{contentSwitcher(pageKey)}</div>
     </div>
   );
-};
-
-const contentSwitcher = (showData) => {
-  switch (showData) {
-    case PAGES.about:
-      return <About />;
-    case PAGES.contact:
-      return <Contact />;
-    case PAGES.projects:
-      return <Projects />;
-  }
-};
+}
 
 export default App;
