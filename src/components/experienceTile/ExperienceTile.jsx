@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ThemeContext from "../../themeContext/ThemeContext";
 import "./ExperienceTile.css";
 
-function ExperienceTile({ imageSource, company, title, dates }) {
+function ExperienceTile({ imageSource, company, title, dates, size }) {
   const { theme, isDark } = useContext(ThemeContext);
   return (
     <div>
@@ -11,7 +11,11 @@ function ExperienceTile({ imageSource, company, title, dates }) {
         style={{ color: theme.overlayText }}
       >
         <div className="img-wrapper">
-          <img className="work-img" src={imageSource} alt="Company Logo" />
+          <img
+            className={`work-img ${size === "small" && "small-img"}`}
+            src={imageSource}
+            alt="Company Logo"
+          />
         </div>
         <div
           className={`uk-overlay  uk-position-bottom overlay-plate ${
