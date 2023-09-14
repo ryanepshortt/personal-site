@@ -38,3 +38,13 @@
 .overlay-plate {
   border-radius: 0 0 8px 8px;
 }
+
+.small-text {
+  font-size: 11px;
+  padding: 8px !important;
+  text-align: left;
+}
+
+.subtitle {
+  margin-top: 3px;
+}

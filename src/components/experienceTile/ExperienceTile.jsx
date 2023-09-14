@@ -20,12 +20,12 @@ function ExperienceTile({ imageSource, company, title, dates, size }) {
         <div
           className={`uk-overlay uk-position-bottom overlay-plate ${
             isDark ? "uk-overlay-primary" : "uk-overlay-default"
-          }`}
+          } ${size === "small" && "small-text"}`}
         >
           <p className="uk-margin-remove-bottom">
             <span className="uk-text-bold">{company}</span> - {title}
           </p>
-          <p className="uk-margin-small-top">{dates}</p>
+          <p className="subtitle">{dates}</p>
         </div>
       </div>
     </div>
