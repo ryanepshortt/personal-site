@@ -20,25 +20,27 @@ export const themes = {
 };
 
 const initialState = {
-  dark: true,
-  theme: themes.light,
+  isDark: true,
+  theme: themes.dark,
   toggle: () => {},
 };
 
 const ThemeContext = createContext(initialState);
 
 const ThemeProvider = ({ children }) => {
-  const [dark, setDark] = useState(localStorage.getItem("dark") === "true");
+  const [isDark, setIsDark] = useState(
+    localStorage.getItem("isDark") === "true",
+  );
 
   const toggle = () => {
-    const isDark = !dark;
-    localStorage.setItem("dark", JSON.stringify(isDark));
-    setDark(isDark);
+    console.log(!isDark);
+    localStorage.setItem("isDark", JSON.stringify(!isDark));
+    setIsDark(!isDark);
   };
-  const theme = dark ? themes.dark : themes.light;
+  const theme = isDark ? themes.dark : themes.light;
 
   return (
-    <ThemeContext.Provider value={{ theme, dark, toggle }}>
+    <ThemeContext.Provider value={{ theme, isDark, toggle }}>
       {children}
     </ThemeContext.Provider>
   );

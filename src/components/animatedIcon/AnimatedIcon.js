@@ -3,7 +3,7 @@ import ThemeContext from "../../themeContext/ThemeContext";
 import { useSpring, animated } from "react-spring";
 
 const AnimatedIcon = () => {
-  const { toggle, dark } = useContext(ThemeContext);
+  const { toggle, isDark } = useContext(ThemeContext);
   const properties = {
     dark: {
       r: 9,
@@ -22,7 +22,8 @@ const AnimatedIcon = () => {
     springConfig: { mass: 4, tension: 250, friction: 35 },
   };
 
-  const { r, transform, cx, cy, opacity } = properties[dark ? "dark" : "light"];
+  const { r, transform, cx, cy, opacity } =
+    properties[isDark ? "dark" : "light"];
   const svgContainerProps = useSpring({
     transform,
     config: properties.springConfig,

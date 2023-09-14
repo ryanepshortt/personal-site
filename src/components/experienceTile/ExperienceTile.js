@@ -3,7 +3,7 @@ import ThemeContext from "../../themeContext/ThemeContext";
 import "./ExperienceTile.css";
 
 const ExperienceTile = ({ imageSource, company, title, dates }) => {
-  const { theme, dark } = useContext(ThemeContext);
+  const { theme, isDark } = useContext(ThemeContext);
   return (
     <div>
       <div
@@ -15,7 +15,7 @@ const ExperienceTile = ({ imageSource, company, title, dates }) => {
         </div>
         <div
           className={`uk-overlay  uk-position-bottom overlay-plate ${
-            dark ? "uk-overlay-primary" : "uk-overlay-default"
+            isDark ? "uk-overlay-primary" : "uk-overlay-default"
           }`}
         >
           <p className="uk-margin-remove-bottom">

@@ -9,7 +9,7 @@ const Header = ({ showData, setShowData }) => {
   const [drop, setDrop] = useState(false);
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef, setDrop, drop);
-  const { dark } = useContext(ThemeContext);
+  const { isDark } = useContext(ThemeContext);
   const onDropdownLinkClick = (option) => {
     setShowData(option);
     setDrop(false);
@@ -17,7 +17,7 @@ const Header = ({ showData, setShowData }) => {
   return (
     <div
       className={`uk-width-1-1 uk-flex uk-flex-middle ${
-        dark ? "dark-header-wrapper" : "header-wrapper"
+        isDark ? "dark-header-wrapper" : "header-wrapper"
       }`}
     >
       <div className="uk-flex-none">

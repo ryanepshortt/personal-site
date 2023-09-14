@@ -3,7 +3,7 @@ import ThemeContext from "../../themeContext/ThemeContext";
 import "../../pages/projects/Projects.css";
 
 const ProjectTile = ({ projectInfo }) => {
-  const { theme, dark } = React.useContext(ThemeContext);
+  const { theme, isDark } = React.useContext(ThemeContext);
   const { titleInfo, imageInfo, techList, body } = projectInfo;
   return (
     <div>
@@ -38,7 +38,7 @@ const ProjectTile = ({ projectInfo }) => {
               {techList.map(({ img, darkImg, tooltip }) => (
                 <img
                   className="tech-icon"
-                  src={dark ? darkImg || img : img}
+                  src={isDark ? darkImg || img : img}
                   alt={tooltip}
                   data-uk-tooltip={tooltip}
                 />
