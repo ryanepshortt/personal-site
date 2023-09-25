@@ -67,6 +67,7 @@ function About() {
           title="Fullstack Software Engineer"
           dates="July 2022 - August 2023"
           size="small"
+          hasPadding
         />
         <ExperienceTile
           imageSource={orium}
@@ -74,6 +75,7 @@ function About() {
           title="Software Engineer"
           dates="May 2021 - July 2022"
           size="small"
+          hasPadding
         />
         <ExperienceTile
           imageSource={ciena}
@@ -81,6 +83,7 @@ function About() {
           title="Automation Tools Developer (Co-Op)"
           dates="May 2019 - May 2020"
           size="small"
+          hasPadding
         />
       </div>
 
