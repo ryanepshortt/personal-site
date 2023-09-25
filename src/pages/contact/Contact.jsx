@@ -26,7 +26,7 @@ function Contact() {
           className={`resume-download-button ${
             isDark ? "dark-download" : "light-download"
           }`}
-          href="./resume2023.pdf"
+          href="./resume.pdf"
           download
         >
           Download Resume

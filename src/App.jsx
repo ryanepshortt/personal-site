@@ -34,7 +34,9 @@ function App() {
       }}
     >
       <Header pageKey={pageKey} setPageKey={setPageKey} />
-      <div className="content-container">{contentSwitcher(pageKey)}</div>
+      <div className="content-container">
+        <div className="content">{contentSwitcher(pageKey)}</div>
+      </div>
     </div>
   );
 }
