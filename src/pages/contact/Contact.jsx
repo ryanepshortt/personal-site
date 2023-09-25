@@ -1,28 +1,41 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import ThemeContext from "../../themeContext/ThemeContext";
 import "./Contact.css";
 
 function Contact() {
-  const { height } = useWindowDimensions();
-  const { theme } = useContext(ThemeContext);
+  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+  const { width: screenWidth } = useWindowDimensions();
+  const { isDark } = useContext(ThemeContext);
+
+  const pdfRef = useRef(null);
+  const [pdfWidth, setPdfWidth] = useState();
+
+  const onLoadSuccess = () => {
+    setPdfWidth(pdfRef.current.scrollWidth);
+  };
+
+  useEffect(() => {
+    setPdfWidth(pdfRef.current.scrollWidth);
+  }, [screenWidth]);
   return (
-    <div className="uk-animation-fade" style={{ height: height - 190 }}>
-      <div className="uk-text-center">
-        <h3 style={{ color: theme.cardTitle }}>
-          I am currently interviewing for full stack positions in the Toronto
-          area!
-        </h3>
-        <h4 style={{ color: theme.cardTitle }}>
-          email:{" "}
-          <span className="uk-text-bold uk-text-italic">
-            r.shortt98@gmail.com
-          </span>
-        </h4>
-        <h4 style={{ color: theme.cardTitle }}>
-          phone:{" "}
-          <span className="uk-text-bold uk-text-italic">+1 (289) 600 3833</span>
-        </h4>
+    <div className="uk-text-center">
+      <div className="controls">
+        <a
+          className={`resume-download-button ${
+            isDark ? "dark-download" : "light-download"
+          }`}
+          href="./resume2023.pdf"
+          download
+        >
+          Download Resume
+        </a>
+      </div>
+      <div className="resume-wrapper" ref={pdfRef}>
+        <Document file="./resume2023.pdf" onLoadSuccess={onLoadSuccess}>
+          {pdfWidth && <Page pageNumber={1} width={pdfWidth} />}
+        </Document>
       </div>
     </div>
   );

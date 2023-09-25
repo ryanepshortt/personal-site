@@ -42,7 +42,7 @@ function Header({ pageKey, setPageKey }) {
               <div
                 className={`${
                   pageKey === PAGES.about ? "dd-option" : "dd-selected"
-                } uk-padding uk-padding-remove-horizontal`}
+                }`}
                 onClick={() => onDropdownLinkClick(PAGES.about)}
               >
                 About Me
@@ -50,7 +50,7 @@ function Header({ pageKey, setPageKey }) {
               <div
                 className={`${
                   pageKey === PAGES.projects ? "dd-option" : "dd-selected"
-                }`}
+                } uk-padding uk-padding-remove-horizontal`}
                 onClick={() => onDropdownLinkClick(PAGES.projects)}
               >
                 Projects
