@@ -33,7 +33,7 @@ function Contact() {
         </a>
       </div>
       <div className="resume-wrapper" ref={pdfRef}>
-        <Document file="./resume2023.pdf" onLoadSuccess={onLoadSuccess}>
+        <Document file="./resume.pdf" onLoadSuccess={onLoadSuccess}>
           {pdfWidth && <Page pageNumber={1} width={pdfWidth} />}
         </Document>
       </div>
