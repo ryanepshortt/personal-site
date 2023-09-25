@@ -1,4 +1,4 @@
-import React, { useState, createContext, useMemo } from "react";
+import React, { useState, createContext, useMemo, useEffect } from "react";
 
 export const themes = {
   light: {
@@ -28,8 +28,9 @@ const initialState = {
 const ThemeContext = createContext(initialState);
 
 function ThemeProvider({ children }) {
+  // prettier-ignore
   const [isDark, setIsDark] = useState(
-    localStorage.getItem("isDark") === "true",
+    localStorage.getItem("isDark") === "true"
   );
 
   const toggle = () => {
@@ -39,6 +40,13 @@ function ThemeProvider({ children }) {
   const theme = isDark ? themes.dark : themes.light;
 
   const contextValue = useMemo(() => ({ isDark, theme, toggle }), [isDark]);
+
+  useEffect(() => {
+    const baseHTML = document.getElementsByTagName("html")[0];
+    baseHTML.style.backgroundColor = isDark
+      ? themes.dark.background
+      : themes.light.background;
+  }, [isDark]);
   return (
     <ThemeContext.Provider value={contextValue}>
       {children}

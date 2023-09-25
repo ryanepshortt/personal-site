@@ -1,3 +1,49 @@
-.contact-page {
-  height: 100%;
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.resume-download-button {
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  &:hover {
+    text-decoration: none !important;
+    color: white !important;
+    opacity: 80%;
+  }
+  &:active {
+    text-decoration: none !important;
+    color: white !important;
+    opacity: 90%;
+  }
+}
+
+.light-download {
+  background-color:  #ff9d00;
+}
+
+.dark-download {
+  background-color: #2d37a1;
+}
+
+.resume-wrapper {
+  display: flex;
+  justify-content: center;
+  overflow-x: scroll;
+  .react-pdf__Page__textContent {
+    display: none !important;
+  }
+  .react-pdf__Page__annotations {
+    display: none !important;
+  }
 }

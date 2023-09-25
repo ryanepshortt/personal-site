@@ -88,11 +88,11 @@ function About() {
         <h2 style={{ color: theme.cardTitle }}>Personal Profile</h2>
         <p className="uk-article-meta">Hometown: Whitby On</p>
         <p className="uk-text-lead" style={{ color: theme.foreground }}>
-          I am a hard-working individual with a passion for building high
-          quality products. I am an avid pianist, guitar player and singer,
+          I am a full stack software engineer with a passion for building high
+          quality products. I am also an avid pianist, guitar player and singer,
           having been fortunate enough to play at various events. Likewise, I
-          have a passion for sports as I have played many years of competitive
-          hockey and golf.
+          love sports, having grown up playing competitive hockey and golf, and
+          am now biggest Chelsea FC fan in North America!
         </p>
         <div className="uk-width-1-1 uk-flex uk-flex-center">
           <iframe
