@@ -2,7 +2,14 @@ import React, { useContext } from "react";
 import ThemeContext from "../../themeContext/ThemeContext";
 import "./ExperienceTile.css";
 
-function ExperienceTile({ imageSource, company, title, dates, size }) {
+function ExperienceTile({
+  imageSource,
+  company,
+  title,
+  dates,
+  size,
+  hasPadding,
+}) {
   const { theme, isDark } = useContext(ThemeContext);
   return (
     <div className="about-card-wrapper">
@@ -10,7 +17,7 @@ function ExperienceTile({ imageSource, company, title, dates, size }) {
         className="uk-inline about-card uk-animation-fade"
         style={{ color: theme.overlayText }}
       >
-        <div className="img-wrapper">
+        <div className={`img-wrapper ${hasPadding && "small-padding"}`}>
           <img
             className={`work-img ${size === "small" && "small-img"}`}
             src={imageSource}
