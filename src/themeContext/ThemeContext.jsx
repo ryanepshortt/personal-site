@@ -10,7 +10,7 @@ export const themes = {
     overlayText: "#404040",
   },
   dark: {
-    foreground: "#ffffff",
+    foreground: "#b3b3b3",
     background: "#222222",
     transition: "background 0.5s ease-in-out",
     cardTitle: "#ffffff",
