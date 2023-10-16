@@ -12,6 +12,7 @@ import songImg from "../../assets/avifs/ryanSong.avif";
 import pianoImg from "../../assets/avifs/ryanPiano.avif";
 import golfImg from "../../assets/avifs/ryanSwing.avif";
 import "./About.css";
+import BlockQuote from "../../components/blockQuote/BlockQuote";
 
 function About() {
   const { width, height } = useWindowDimensions();
@@ -86,11 +87,13 @@ function About() {
           hasPadding
         />
       </div>
-
-      <div className="uk-margin-large-top" style={{ color: theme.foreground }}>
-        <h2 style={{ color: theme.cardTitle }}>Personal Profile</h2>
-        <p className="uk-article-meta">Hometown: Whitby On</p>
-        <p className="uk-text-lead" style={{ color: theme.foreground }}>
+      <BlockQuote />
+      <div className="uk-margin-large-top">
+        <h2 style={{ color: theme.cardTitle }}>Profile</h2>
+        <p
+          className="uk-text-lead uk-text-medium"
+          style={{ color: theme.cardTitle }}
+        >
           I am a full stack software engineer with a passion for building high
           quality products. I am also an avid pianist, guitar player and singer,
           having been fortunate enough to play at various events. Likewise, I
