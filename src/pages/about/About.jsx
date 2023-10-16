@@ -89,7 +89,7 @@ function About() {
       </div>
       <BlockQuote
         bodyStrings={QUOTE_STRINGS}
-        footerHref="https://www.linkedin.com/in/ryan-shortt/details/recommendations/"
+        footerHref="https://www.linkedin.com/in/ryan-shortt"
         footerText="Nicole White - Product Manager @ Wish"
         footerDecorationText="See recommendations section"
       />
