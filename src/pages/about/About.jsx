@@ -42,7 +42,7 @@ function About() {
   const onSetDisplayImage = (imageIndex) => {
     if (playerRef?.current && displayImg !== imageIndex) {
       playerRef.current.src = YOUTUBE_LINKS[imageIndex];
-      setDisplayImg(1);
+      setDisplayImg(imageIndex);
     }
   };
   return !showOverlay ? (
