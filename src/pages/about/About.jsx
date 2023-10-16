@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext, useRef } from "react";
 import ThemeContext from "../../themeContext/ThemeContext";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import ExperienceTile from "../../components/experienceTile/ExperienceTile";
-import { YOUTUBE_LINKS } from "../../constants/AppConstants";
+import { QUOTE_STRINGS, YOUTUBE_LINKS } from "../../constants/AppConstants";
 import mcmasterImgWide from "../../assets/avifs/mcmaster.avif";
 import mcmasterImgSmall from "../../assets/avifs/mcMasterOrig.avif";
 import orium from "../../assets/avifs/orium.avif";
@@ -87,7 +87,12 @@ function About() {
           hasPadding
         />
       </div>
-      <BlockQuote />
+      <BlockQuote
+        bodyStrings={QUOTE_STRINGS}
+        footerHref="https://www.linkedin.com/in/ryan-shortt/details/recommendations/"
+        footerText="Nicole White - Product Manager @ Wish"
+        footerDecorationText="See recommendations section"
+      />
       <div className="uk-margin-large-top">
         <h2 style={{ color: theme.cardTitle }}>Profile</h2>
         <p
