@@ -54,7 +54,7 @@ export default {
     {
       img: aws,
       darkImg: awsIcon,
-      tooltip: "AWS",
+      tooltip: "Amazon Web Services",
     },
     {
       img: node,

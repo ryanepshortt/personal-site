@@ -1,3 +1,5 @@
+import InfluencerProgram from "./InfluencerProgram";
+import ReferralProgram from "./Referral";
 import Receta from "./Receta";
 import SmartHome from "./SmartHome";
 import HardwareTopology from "./HardwareTopology";
@@ -7,6 +9,8 @@ import CancerDetector from "./CancerDetector";
 import PersonalSite from "./PersonalSite";
 
 export default [
+  InfluencerProgram,
+  ReferralProgram,
   Receta,
   SmartHome,
   PersonalSite,

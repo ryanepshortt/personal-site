@@ -26,17 +26,17 @@ export default {
         In an attempt to make the site as performant as possible, I Integrated
         Google Lighthouse audits into the Vercel-Github CI/CD pipeline. The app
         now boasts impressive web vitals scores for performance, accessibility,
-        best practices, SEO, & PWA.
+        best practices, SEO, and PWA.
       </p>
       <p>
-        The app is packed with features, I encourage you to check out the{" "}
+        Check out the{" "}
         <a href="https://receta.vercel.app" target="_blank">
           website
         </a>{" "}
-        (you can log into an existing account using <b>demo/demo</b> as the
-        username/password) along with the{" "}
+        (log in using <b>demo/demo</b> or create your own account) as well as
+        the{" "}
         <a href="https://github.com/ShorttRyan/receta" target="_blank">
-          repo & design documentation
+          repo / documentation
         </a>
         .
       </p>
