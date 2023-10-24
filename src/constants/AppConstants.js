@@ -1,7 +1,7 @@
 export const PAGES = {
   about: "about",
   projects: "projects",
-  contact: "contact",
+  resume: "resume",
 };
 
 export const YOUTUBE_LINKS = [

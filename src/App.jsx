@@ -16,7 +16,7 @@ function App() {
     switch (page) {
       case PAGES.about:
         return <About />;
-      case PAGES.contact:
+      case PAGES.resume:
         return <Contact />;
       case PAGES.projects:
         return <Projects />;

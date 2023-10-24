@@ -57,11 +57,11 @@ function Header({ pageKey, setPageKey }) {
               </div>
               <div
                 className={`${
-                  pageKey === PAGES.contact ? "dd-option" : "dd-selected"
+                  pageKey === PAGES.resume ? "dd-option" : "dd-selected"
                 }`}
-                onClick={() => onDropdownLinkClick(PAGES.contact)}
+                onClick={() => onDropdownLinkClick(PAGES.resume)}
               >
-                Contact
+                Resume
               </div>
             </div>
           </div>
@@ -69,11 +69,11 @@ function Header({ pageKey, setPageKey }) {
         <AnimatedIcon />
         <span
           className={`${
-            pageKey === PAGES.contact ? "selected" : "nav-link"
+            pageKey === PAGES.resume ? "selected" : "nav-link"
           } uk-button uk-text-bold uk-float-right uk-visible@s`}
-          onClick={() => setPageKey(PAGES.contact)}
+          onClick={() => setPageKey(PAGES.resume)}
         >
-          Contact
+          Resume
         </span>
         <span
           className={`${
