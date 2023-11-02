@@ -103,7 +103,7 @@ function About() {
           quality products. I am also an avid pianist, guitar player and singer,
           having been fortunate enough to play at various events. Likewise, I
           love sports, having grown up playing competitive hockey and golf, and
-          am now biggest Chelsea FC fan in North America!
+          am now the biggest Chelsea FC fan in North America!
         </p>
         <div className="uk-width-1-1 uk-flex uk-flex-center">
           <iframe
