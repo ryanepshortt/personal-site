@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
-import ThemeContext from "../../themeContext/ThemeContext";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
+import ThemeContext from "../../../contexts/ThemeContext";
 import "./Contact.css";
 
 function Contact() {

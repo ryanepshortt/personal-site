@@ -1,5 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
-import ThemeContext from "../../themeContext/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 import AnimatedIcon from "../animatedIcon/AnimatedIcon";
 import { PAGES } from "../../constants/AppConstants";

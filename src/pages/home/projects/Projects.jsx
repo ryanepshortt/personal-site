@@ -1,6 +1,6 @@
 import React from "react";
-import ProjectInfo from "../../constants/projectConstants/ProjectConstants";
-import ProjectTile from "../../components/projectTile/ProjectTile";
+import ProjectInfo from "../../../constants/projectConstants/ProjectConstants";
+import ProjectTile from "../../../components/projectTile/ProjectTile";
 import "./Projects.css";
 
 function Projects() {

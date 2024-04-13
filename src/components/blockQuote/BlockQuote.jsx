@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ThemeContext from "../../themeContext/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 function BlockQuote({
   bodyStrings,

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useSpring, animated } from "react-spring";
-import ThemeContext from "../../themeContext/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 function AnimatedIcon() {
   const { toggle, isDark } = useContext(ThemeContext);
