@@ -49,7 +49,7 @@ function PlayerRow({ playerId, index }) {
           type="button"
           onClick={() => removePlayerById(playerId)}
         >
-          -
+          <div className="button-text">-</div>
         </button>
       </div>
     </div>

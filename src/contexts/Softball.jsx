@@ -45,7 +45,7 @@ function SoftballProvider({ children }) {
     }));
   }, []);
 
-  const removePlayerById = useCallback((id) => {
+  const removePlayerById = (id) => {
     setPlayers((currentPlayers) => {
       const newPlayers = { ...currentPlayers };
       delete newPlayers[id];
@@ -54,7 +54,7 @@ function SoftballProvider({ children }) {
     if (finalLineup !== undefined) {
       setFinalLineup(undefined);
     }
-  }, []);
+  };
 
   const getLockedPositionById = (id) =>
     Object.keys(lockedPositions).find(
@@ -105,6 +105,8 @@ function SoftballProvider({ children }) {
     setFinalLineup(lineup);
   };
 
+  const clearLineup = () => setFinalLineup(undefined);
+
   const contextValue = useMemo(
     () => ({
       players,
@@ -118,6 +120,7 @@ function SoftballProvider({ children }) {
       generateLineup,
       playerIds: Object.keys(players),
       finalLineup,
+      clearLineup,
     }),
     [players, lockedPositions, finalLineup],
   );
