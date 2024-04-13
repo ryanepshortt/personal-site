@@ -51,6 +51,9 @@ function SoftballProvider({ children }) {
       delete newPlayers[id];
       return newPlayers;
     });
+    if (finalLineup !== undefined) {
+      setFinalLineup(undefined);
+    }
   }, []);
 
   const getLockedPositionById = (id) =>
@@ -78,29 +81,27 @@ function SoftballProvider({ children }) {
 
   const generateLineup = () => {
     const lineup = { ...lockedPositions };
-    const availablePlayerIds = Object.keys(players).filter(
-      (playerId) => getLockedPositionById(playerId) === "any",
+    const lockedPositionIds = Object.values(lockedPositions).filter(
+      (playerId) => playerId !== undefined,
     );
-    if (lineup.pitcher === undefined) {
-      lineup.pitcher = _.sample(
-        availablePlayerIds.filter((playerId) => !players[playerId].hasPitched),
-      );
-      const pitcherIndex = availablePlayerIds.indexOf(lineup.pitcher);
-      availablePlayerIds.splice(pitcherIndex, 1);
-    }
+    const availablePlayers = { ...players };
 
+    lockedPositionIds.forEach((playerId) => delete availablePlayers[playerId]);
+
+    if (lineup.pitcher === undefined) {
+      const availablePitchers = Object.keys(availablePlayers).filter(
+        (playerId) => !availablePlayers[playerId].hasPitched,
+      );
+      lineup.pitcher = _.sample(availablePitchers);
+      delete availablePlayers[lineup.pitcher];
+    }
     Object.keys(lineup)
       .filter((position) => lineup[position] === undefined)
       .forEach((position) => {
-        lineup[position] = _.sample(
-          availablePlayerIds.filter(
-            (playerId) => !players[playerId].hasPitched,
-          ),
-        );
-        const pitcherIndex = availablePlayerIds.indexOf(lineup[position]);
-        availablePlayerIds.splice(pitcherIndex, 1);
+        lineup[position] = _.sample(Object.keys(availablePlayers));
+        delete availablePlayers[lineup[position]];
       });
-    lineup.bench = availablePlayerIds;
+    lineup.bench = Object.keys(availablePlayers);
     setFinalLineup(lineup);
   };
 

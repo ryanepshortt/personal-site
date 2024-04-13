@@ -11,16 +11,18 @@ function FinalLineup() {
       </button>
       {finalLineup !== undefined && (
         <div>
-          <div>Pitcher: {getPlayerById(finalLineup.pitcher).name}</div>
-          <div>Catcher: {getPlayerById(finalLineup.catcher).name}</div>
-          <div>First Base: {getPlayerById(finalLineup.firstBase).name}</div>
-          <div>Second Base: {getPlayerById(finalLineup.secondBase).name}</div>
-          <div>Third Base: {getPlayerById(finalLineup.thirdBase).name}</div>
-          <div>Short Stop: {getPlayerById(finalLineup.shortStop).name}</div>
-          <div>Left Field: {getPlayerById(finalLineup.leftField).name}</div>
-          <div>Center Field: {getPlayerById(finalLineup.centerField).name}</div>
-          <div>Right Field: {getPlayerById(finalLineup.rightField).name}</div>
-          <div>Rover: {getPlayerById(finalLineup.rover).name}</div>
+          <div>Pitcher: {getPlayerById(finalLineup.pitcher)?.name}</div>
+          <div>Catcher: {getPlayerById(finalLineup.catcher)?.name}</div>
+          <div>First Base: {getPlayerById(finalLineup.firstBase)?.name}</div>
+          <div>Second Base: {getPlayerById(finalLineup.secondBase)?.name}</div>
+          <div>Third Base: {getPlayerById(finalLineup.thirdBase)?.name}</div>
+          <div>Short Stop: {getPlayerById(finalLineup.shortStop)?.name}</div>
+          <div>Left Field: {getPlayerById(finalLineup.leftField)?.name}</div>
+          <div>
+            Center Field: {getPlayerById(finalLineup.centerField)?.name}
+          </div>
+          <div>Right Field: {getPlayerById(finalLineup.rightField)?.name}</div>
+          <div>Rover: {getPlayerById(finalLineup.rover)?.name}</div>
           <div>
             Bench:{" "}
             {finalLineup.bench.map(
