@@ -26,6 +26,7 @@ function SoftballProvider({ children }) {
   const [lockedPositions, setLockedPositions] = useState(
     initialState.lockedPositions,
   );
+  const [finalLineup, setFinalLineup] = useState();
 
   const onPlayerNameInput = useCallback((e, id) => {
     setPlayers((currentPlayers) => {
@@ -100,6 +101,7 @@ function SoftballProvider({ children }) {
         availablePlayerIds.splice(pitcherIndex, 1);
       });
     lineup.bench = availablePlayerIds;
+    setFinalLineup(lineup);
   };
 
   const contextValue = useMemo(
@@ -114,8 +116,9 @@ function SoftballProvider({ children }) {
       getPlayerById: (id) => players[id],
       generateLineup,
       playerIds: Object.keys(players),
+      finalLineup,
     }),
-    [players, lockedPositions],
+    [players, lockedPositions, finalLineup],
   );
   return (
     <SoftballContext.Provider value={contextValue}>
