@@ -1,14 +1,14 @@
 import React, { useState, useContext } from "react";
-import ThemeContext from "./themeContext/ThemeContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
-import Header from "./components/header/Header";
-import Contact from "./pages/contact/Contact";
-import About from "./pages/about/About";
-import Projects from "./pages/projects/Projects";
-import { PAGES } from "./constants/AppConstants";
-import "./App.css";
+import Header from "../../components/header/Header";
+import Contact from "./contact/Contact";
+import About from "./about/About";
+import Projects from "./projects/Projects";
+import { PAGES } from "../../constants/AppConstants";
+import "./Home.css";
 
-function App() {
+function Home() {
   const [pageKey, setPageKey] = useState(PAGES.about);
   const { theme } = useContext(ThemeContext);
 
@@ -41,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

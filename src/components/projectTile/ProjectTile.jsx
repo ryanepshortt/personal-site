@@ -1,6 +1,6 @@
 import React from "react";
-import ThemeContext from "../../themeContext/ThemeContext";
-import "../../pages/projects/Projects.css";
+import ThemeContext from "../../contexts/ThemeContext";
+import "../../pages/home/projects/Projects.css";
 
 function ProjectTile({ projectInfo }) {
   const { theme, isDark } = React.useContext(ThemeContext);

@@ -1,0 +1,22 @@
+.list-wrapper {
+  width: 100%;
+}
+
+.player-list-row {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 15px 120px 70px 110px 25px;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+  border: none;
+  font-weight: bold;
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+}

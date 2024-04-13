@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
-import ThemeContext from "../../themeContext/ThemeContext";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
-import ExperienceTile from "../../components/experienceTile/ExperienceTile";
-import { QUOTE_STRINGS, YOUTUBE_LINKS } from "../../constants/AppConstants";
-import mcmasterImgWide from "../../assets/avifs/mcmaster.avif";
-import mcmasterImgSmall from "../../assets/avifs/mcMasterOrig.avif";
-import orium from "../../assets/avifs/orium.avif";
-import wish from "../../assets/avifs/wish.avif";
-import ciena from "../../assets/avifs/ciena.avif";
-import songImg from "../../assets/avifs/ryanSong.avif";
-import pianoImg from "../../assets/avifs/ryanPiano.avif";
-import golfImg from "../../assets/avifs/ryanSwing.avif";
+import ThemeContext from "../../../contexts/ThemeContext";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
+import BlockQuote from "../../../components/blockQuote/BlockQuote";
+import ExperienceTile from "../../../components/experienceTile/ExperienceTile";
+import { QUOTE_STRINGS, YOUTUBE_LINKS } from "../../../constants/AppConstants";
+import mcmasterImgWide from "../../../assets/avifs/mcmaster.avif";
+import mcmasterImgSmall from "../../../assets/avifs/mcMasterOrig.avif";
+import orium from "../../../assets/avifs/orium.avif";
+import wish from "../../../assets/avifs/wish.avif";
+import ciena from "../../../assets/avifs/ciena.avif";
+import songImg from "../../../assets/avifs/ryanSong.avif";
+import pianoImg from "../../../assets/avifs/ryanPiano.avif";
+import golfImg from "../../../assets/avifs/ryanSwing.avif";
 import "./About.css";
-import BlockQuote from "../../components/blockQuote/BlockQuote";
 
 function About() {
   const { width, height } = useWindowDimensions();
