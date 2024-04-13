@@ -5,7 +5,7 @@ import "./Softball.css";
 
 function Softball() {
   return (
-    <div>
+    <div className="softball-page-wrapper">
       <div className="player-list-wrapper">
         <PlayerList />
       </div>

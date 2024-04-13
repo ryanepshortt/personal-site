@@ -1,4 +1,5 @@
 import React, { createContext, useMemo, useState, useCallback } from "react";
+import _ from "lodash";
 import { Players } from "../constants/softball/Softball";
 
 const initialState = {
@@ -74,6 +75,33 @@ function SoftballProvider({ children }) {
     }
   };
 
+  const generateLineup = () => {
+    const lineup = { ...lockedPositions };
+    const availablePlayerIds = Object.keys(players).filter(
+      (playerId) => getLockedPositionById(playerId) === "any",
+    );
+    if (lineup.pitcher === undefined) {
+      lineup.pitcher = _.sample(
+        availablePlayerIds.filter((playerId) => !players[playerId].hasPitched),
+      );
+      const pitcherIndex = availablePlayerIds.indexOf(lineup.pitcher);
+      availablePlayerIds.splice(pitcherIndex, 1);
+    }
+
+    Object.keys(lineup)
+      .filter((position) => lineup[position] === undefined)
+      .forEach((position) => {
+        lineup[position] = _.sample(
+          availablePlayerIds.filter(
+            (playerId) => !players[playerId].hasPitched,
+          ),
+        );
+        const pitcherIndex = availablePlayerIds.indexOf(lineup[position]);
+        availablePlayerIds.splice(pitcherIndex, 1);
+      });
+    lineup.bench = availablePlayerIds;
+  };
+
   const contextValue = useMemo(
     () => ({
       players,
@@ -84,6 +112,7 @@ function SoftballProvider({ children }) {
       setLockedPositionForPlayer,
       lockedPositions,
       getPlayerById: (id) => players[id],
+      generateLineup,
       playerIds: Object.keys(players),
     }),
     [players, lockedPositions],

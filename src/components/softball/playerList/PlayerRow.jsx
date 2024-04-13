@@ -33,7 +33,7 @@ function PlayerRow({ playerId, index }) {
       >
         <option id="any">Any</option>
         {Positions.map(({ id, label }) => (
-          <option id={id} value={id}>
+          <option key={id} id={id} value={id}>
             {label}
           </option>
         ))}
