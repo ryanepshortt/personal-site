@@ -1,17 +1,43 @@
 import React, { useContext } from "react";
 import SoftballContext from "../../../contexts/Softball";
 import "./PlayerList.css";
+import { Positions } from "../../../constants/softball/Softball";
 
 function PlayerRow({ playerId, index }) {
   const {
-    // onPlayerNameInput,
     getPlayerById,
     removePlayerById,
     onPlayerHasPitchedChange,
+    getLockedPositionById,
+    setLockedPositionForPlayer,
   } = useContext(SoftballContext);
   const { name, hasPitched } = getPlayerById(playerId);
   return (
     <div className="player-list-row">
+      <div>{index}.</div>
+      <div>{name}</div>
+      <div>
+        <label htmlFor={`has-pitched-${playerId}`}>
+          Pitched
+          <input
+            type="checkbox"
+            checked={hasPitched}
+            onChange={() => onPlayerHasPitchedChange(playerId)}
+            id={`has-pitched-${playerId}`}
+          />
+        </label>
+      </div>
+      <select
+        value={getLockedPositionById(playerId)}
+        onChange={(e) => setLockedPositionForPlayer(e, playerId)}
+      >
+        <option id="any">Any</option>
+        {Positions.map(({ id, label }) => (
+          <option id={id} value={id}>
+            {label}
+          </option>
+        ))}
+      </select>
       <div>
         <button
           className="remove-button"
@@ -20,20 +46,6 @@ function PlayerRow({ playerId, index }) {
         >
           -
         </button>
-      </div>
-      <div>{index}.</div>
-      <div>{name}</div>
-      {/* <input value={name} onChange={(e) => onPlayerNameInput(e, playerId)} /> */}
-      <div>
-        <label htmlFor={`has-pitched-${playerId}`}>
-          Has Pitched
-          <input
-            type="checkbox"
-            checked={hasPitched}
-            onChange={() => onPlayerHasPitchedChange(playerId)}
-            id={`has-pitched-${playerId}`}
-          />
-        </label>
       </div>
     </div>
   );

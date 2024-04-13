@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 
-export default {
+export const Players = {
   [v4()]: {
     name: "Blake Shaw",
     hasPitched: false,
@@ -62,3 +62,16 @@ export default {
     hasPitched: false,
   },
 };
+
+export const Positions = [
+  { label: "Pitcher", id: "pitcher" },
+  { label: "Catcher", id: "catcher" },
+  { label: "Short Stop", id: "shortStop" },
+  { label: "First Base", id: "firstBase" },
+  { label: "Second Base", id: "secondBase" },
+  { label: "Third Base", id: "thirdBase" },
+  { label: "Left Field", id: "leftField" },
+  { label: "Center Field", id: "centerField" },
+  { label: "Right Field", id: "rightField" },
+  { label: "Rover", id: "rover" },
+];
