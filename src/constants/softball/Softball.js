@@ -1,77 +1,75 @@
-import { v4 } from "uuid";
-
 export const Players = {
-  [v4()]: {
+  blakeShaw: {
     name: "Blake Shaw",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  brysonAhlstedt: {
     name: "Bryson Ahlstedt",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  carterBrooks: {
     name: "Carter Brooks",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  jackVautour: {
     name: "Jack Vautour",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  jasonMacPhearson: {
     name: "Jason MacPhearson",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  johnStewart: {
     name: "John Stewart",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  matthewShortt: {
     name: "Matthew Shortt",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  michaelBoyd: {
     name: "Michael Boyd",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  ostopMostowy: {
     name: "Ostop Mostowy",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  philPavilic: {
     name: "Phil Pavilic",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  ronanWeir: {
     name: "Ronan Weir",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  ryanShortt: {
     name: "Ryan Shortt",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  spencerDobbs: {
     name: "Spencer Dobbs",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  tylerVerbanac: {
     name: "Tyler Verbanac",
     hasPitched: false,
     hasSat: false,
   },
-  [v4()]: {
+  zachCowan: {
     name: "Zach Cowan",
     hasPitched: false,
     hasSat: false,
