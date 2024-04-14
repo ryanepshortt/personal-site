@@ -2,31 +2,37 @@ import React, { createContext, useMemo, useState, useCallback } from "react";
 import _ from "lodash";
 import { Players } from "../constants/softball/Softball";
 
+const emptyLineup = {
+  pitcher: undefined,
+  catcher: undefined,
+  shortStop: undefined,
+  firstBase: undefined,
+  secondBase: undefined,
+  thirdBase: undefined,
+  leftField: undefined,
+  centerField: undefined,
+  rightField: undefined,
+  rover: undefined,
+};
+
+const initialoptions = {
+  lockedPositionsShouldSit: true,
+};
+
 const initialState = {
-  players: Players,
+  players: { ...Players },
   playerIds: Object.keys(Players),
-  lockedPositions: {
-    pitcher: undefined,
-    catcher: undefined,
-    shortStop: undefined,
-    firstBase: undefined,
-    secondBase: undefined,
-    thirdBase: undefined,
-    leftField: undefined,
-    centerField: undefined,
-    rightField: undefined,
-    rover: undefined,
-  },
+  lockedPositions: { ...emptyLineup },
+  options: { ...initialoptions },
 };
 
 const SoftballContext = createContext(initialState);
 
 function SoftballProvider({ children }) {
-  const [players, setPlayers] = useState(Players);
-  const [lockedPositions, setLockedPositions] = useState(
-    initialState.lockedPositions,
-  );
+  const [players, setPlayers] = useState({ ...Players });
+  const [lockedPositions, setLockedPositions] = useState({ ...emptyLineup });
   const [finalLineup, setFinalLineup] = useState();
+  const [options, setOptions] = useState({ ...initialoptions });
 
   const onPlayerNameInput = useCallback((e, id) => {
     setPlayers((currentPlayers) => {
@@ -52,6 +58,13 @@ function SoftballProvider({ children }) {
         ...currentPlayers[id],
         hasSat: !currentPlayers[id].hasSat,
       },
+    }));
+  }, []);
+
+  const onLockedPositionsShouldSitChange = useCallback(() => {
+    setOptions((currentOptions) => ({
+      ...currentOptions,
+      lockedPositionsShouldSit: !currentOptions.lockedPositionsShouldSit,
     }));
   }, []);
 
@@ -90,28 +103,76 @@ function SoftballProvider({ children }) {
   };
 
   const generateLineup = () => {
-    const lineup = { ...lockedPositions };
-    const lockedPositionIds = Object.values(lockedPositions).filter(
-      (playerId) => playerId !== undefined,
-    );
-    const availablePlayers = { ...players };
+    const { lockedPositionsShouldSit } = options;
+    let lineup = { ...emptyLineup };
 
-    lockedPositionIds.forEach((playerId) => delete availablePlayers[playerId]);
+    const lockedPositionIds = [...Object.values(lockedPositions)].filter(
+      (pid) => pid !== undefined,
+    );
+
+    const availablePlayers = { ...players };
+    if (!lockedPositionsShouldSit) {
+      lineup = { ...lockedPositions };
+      lockedPositionIds.forEach((pid) => delete availablePlayers[pid]);
+    }
+
+    // Bench logic
+    const availablePlayerIds = [...Object.keys(availablePlayers)];
+    const benchPlayersRequired = availablePlayerIds.length - 10;
+    if (benchPlayersRequired > 0) {
+      let availableBenchPlayers = availablePlayerIds.filter(
+        (pid) => !availablePlayers[pid].hasSat,
+      );
+      const bench =
+        benchPlayersRequired >= availableBenchPlayers.length
+          ? [...availableBenchPlayers]
+          : [];
+      if (benchPlayersRequired >= availableBenchPlayers.length) {
+        // remove the bench players from available players
+        bench.forEach((pid) => {
+          delete availablePlayers[pid];
+        });
+        // rebuild availableBenchPlayers if more are required
+        if (benchPlayersRequired > availableBenchPlayers.length) {
+          availableBenchPlayers = [...Object.keys(availablePlayers)];
+        }
+      }
+      for (let i = 0; i < benchPlayersRequired - bench.length; i += 1) {
+        const benchPid = _.sample(availableBenchPlayers);
+        bench.push(benchPid);
+        availableBenchPlayers.splice(
+          availableBenchPlayers.indexOf(benchPid),
+          1,
+        );
+        delete availablePlayers[benchPid];
+      }
+      lineup.bench = bench;
+    }
+
+    if (lockedPositionsShouldSit) {
+      lockedPositionIds.forEach((pid) => {
+        if (availablePlayers[pid] !== undefined) {
+          lineup[getLockedPositionById(pid)] = pid;
+          delete availablePlayers[pid];
+        }
+      });
+    }
 
     if (lineup.pitcher === undefined) {
-      const availablePitchers = Object.keys(availablePlayers).filter(
+      const availablePitchers = [...Object.keys(availablePlayers)].filter(
         (playerId) => !availablePlayers[playerId].hasPitched,
       );
       lineup.pitcher = _.sample(availablePitchers);
       delete availablePlayers[lineup.pitcher];
     }
+
     Object.keys(lineup)
       .filter((position) => lineup[position] === undefined)
       .forEach((position) => {
-        lineup[position] = _.sample(Object.keys(availablePlayers));
+        lineup[position] = _.sample([...Object.keys(availablePlayers)]);
         delete availablePlayers[lineup[position]];
       });
-    lineup.bench = Object.keys(availablePlayers);
+
     setFinalLineup(lineup);
   };
 
@@ -126,6 +187,7 @@ function SoftballProvider({ children }) {
       onPlayerNameInput,
       onPlayerHasPitchedChange,
       onPlayerHasSatChange,
+      onLockedPositionsShouldSitChange,
       removePlayerById,
       getLockedPositionById,
       setLockedPositionForPlayer,
