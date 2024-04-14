@@ -45,6 +45,16 @@ function SoftballProvider({ children }) {
     }));
   }, []);
 
+  const onPlayerHasSatChange = useCallback((id) => {
+    setPlayers((currentPlayers) => ({
+      ...currentPlayers,
+      [id]: {
+        ...currentPlayers[id],
+        hasSat: !currentPlayers[id].hasSat,
+      },
+    }));
+  }, []);
+
   const removePlayerById = (id) => {
     setPlayers((currentPlayers) => {
       const newPlayers = { ...currentPlayers };
@@ -110,16 +120,17 @@ function SoftballProvider({ children }) {
   const contextValue = useMemo(
     () => ({
       players,
+      lockedPositions,
+      playerIds: Object.keys(players),
+      finalLineup,
       onPlayerNameInput,
       onPlayerHasPitchedChange,
+      onPlayerHasSatChange,
       removePlayerById,
       getLockedPositionById,
       setLockedPositionForPlayer,
-      lockedPositions,
       getPlayerById: (id) => players[id],
       generateLineup,
-      playerIds: Object.keys(players),
-      finalLineup,
       clearLineup,
     }),
     [players, lockedPositions, finalLineup],
