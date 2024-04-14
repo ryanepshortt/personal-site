@@ -2,52 +2,52 @@ export const Players = {
   blakeShaw: {
     name: "Blake Shaw",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   brysonAhlstedt: {
     name: "Bryson Ahlstedt",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   carterBrooks: {
     name: "Carter Brooks",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   jackVautour: {
     name: "Jack Vautour",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   jasonMacPhearson: {
     name: "Jason MacPhearson",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   johnStewart: {
     name: "John Stewart",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   matthewShortt: {
     name: "Matthew Shortt",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   michaelBoyd: {
     name: "Michael Boyd",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   ostopMostowy: {
     name: "Ostop Mostowy",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   philPavilic: {
     name: "Phil Pavilic",
     hasPitched: false,
-    hasSat: true,
+    hasSat: false,
   },
   ronanWeir: {
     name: "Ronan Weir",
