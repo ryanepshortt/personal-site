@@ -1,24 +1,10 @@
 import React, { useContext } from "react";
 import SoftballContext from "../../../contexts/Softball";
-import "./FinalLineup.css";
 
 function FinalLineup() {
-  const { generateLineup, finalLineup, getPlayerById, clearLineup } =
-    useContext(SoftballContext);
+  const { finalLineup, getPlayerById } = useContext(SoftballContext);
   return (
     <div>
-      <div className="button-section">
-        <button
-          type="button"
-          className="generate-button"
-          onClick={generateLineup}
-        >
-          Generate Lineup
-        </button>
-        <button type="button" className="clear-button" onClick={clearLineup}>
-          Clear Lineup
-        </button>
-      </div>
       {finalLineup !== undefined && (
         <div>
           <div>

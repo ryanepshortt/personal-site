@@ -3,6 +3,7 @@ import { SoftballProvider } from "../../contexts/Softball";
 import PlayerList from "../../components/softball/playerList/PlayerList";
 import "./Softball.css";
 import FinalLineup from "../../components/softball/finalLineup/FinalLineup";
+import Controls from "../../components/softball/controls/Controls";
 
 function Softball() {
   return (
@@ -10,6 +11,7 @@ function Softball() {
       <div className="player-list-wrapper">
         <PlayerList />
       </div>
+      <Controls />
       <FinalLineup />
     </div>
   );

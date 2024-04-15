@@ -16,7 +16,8 @@ const emptyLineup = {
 };
 
 const initialoptions = {
-  lockedPositionsShouldSit: true,
+  lockedPositionsDontSit: false,
+  innings: 7,
 };
 
 const initialState = {
@@ -31,8 +32,9 @@ const SoftballContext = createContext(initialState);
 function SoftballProvider({ children }) {
   const [players, setPlayers] = useState({ ...Players });
   const [lockedPositions, setLockedPositions] = useState({ ...emptyLineup });
-  const [finalLineup, setFinalLineup] = useState();
+  const [singleLineup, setSingleLineup] = useState();
   const [options, setOptions] = useState({ ...initialoptions });
+  const [fullGameLineup, setFullGameLineup] = useState();
 
   const onPlayerNameInput = useCallback((e, id) => {
     setPlayers((currentPlayers) => {
@@ -64,7 +66,14 @@ function SoftballProvider({ children }) {
   const onLockedPositionsShouldSitChange = useCallback(() => {
     setOptions((currentOptions) => ({
       ...currentOptions,
-      lockedPositionsShouldSit: !currentOptions.lockedPositionsShouldSit,
+      lockedPositionsDontSit: !currentOptions.lockedPositionsDontSit,
+    }));
+  }, []);
+
+  const onInningsChange = useCallback((e) => {
+    setOptions((currentOptions) => ({
+      ...currentOptions,
+      innings: e.target.value,
     }));
   }, []);
 
@@ -74,8 +83,11 @@ function SoftballProvider({ children }) {
       delete newPlayers[id];
       return newPlayers;
     });
-    if (finalLineup !== undefined) {
-      setFinalLineup(undefined);
+    if (singleLineup !== undefined) {
+      setSingleLineup(undefined);
+    }
+    if (fullGameLineup !== undefined) {
+      setFullGameLineup(undefined);
     }
   };
 
@@ -102,16 +114,16 @@ function SoftballProvider({ children }) {
     }
   };
 
-  const generateLineup = () => {
-    const { lockedPositionsShouldSit } = options;
+  const generateLineup = (playerList, opts) => {
+    const { lockedPositionsDontSit } = opts;
     let lineup = { ...emptyLineup };
 
     const lockedPositionIds = [...Object.values(lockedPositions)].filter(
       (pid) => pid !== undefined,
     );
 
-    const availablePlayers = { ...players };
-    if (!lockedPositionsShouldSit) {
+    const availablePlayers = { ...playerList };
+    if (lockedPositionsDontSit) {
       lineup = { ...lockedPositions };
       lockedPositionIds.forEach((pid) => delete availablePlayers[pid]);
     }
@@ -120,28 +132,29 @@ function SoftballProvider({ children }) {
     const availablePlayerIds = [...Object.keys(availablePlayers)];
     const benchPlayersRequired = availablePlayerIds.length - 10;
     if (benchPlayersRequired > 0) {
-      let availableBenchPlayers = availablePlayerIds.filter(
+      let playersThatHaveNotSat = availablePlayerIds.filter(
         (pid) => !availablePlayers[pid].hasSat,
       );
       const bench =
-        benchPlayersRequired >= availableBenchPlayers.length
-          ? [...availableBenchPlayers]
+        benchPlayersRequired >= playersThatHaveNotSat.length
+          ? [...playersThatHaveNotSat]
           : [];
-      if (benchPlayersRequired >= availableBenchPlayers.length) {
+      if (benchPlayersRequired >= playersThatHaveNotSat.length) {
         // remove the bench players from available players
         bench.forEach((pid) => {
           delete availablePlayers[pid];
         });
         // rebuild availableBenchPlayers if more are required
-        if (benchPlayersRequired > availableBenchPlayers.length) {
-          availableBenchPlayers = [...Object.keys(availablePlayers)];
+        if (benchPlayersRequired > playersThatHaveNotSat.length) {
+          playersThatHaveNotSat = [...Object.keys(availablePlayers)];
         }
       }
-      for (let i = 0; i < benchPlayersRequired - bench.length; i += 1) {
-        const benchPid = _.sample(availableBenchPlayers);
+      const remainingBenchPlayerNum = benchPlayersRequired - bench.length;
+      for (let i = 0; i < remainingBenchPlayerNum; i += 1) {
+        const benchPid = _.sample(playersThatHaveNotSat);
         bench.push(benchPid);
-        availableBenchPlayers.splice(
-          availableBenchPlayers.indexOf(benchPid),
+        playersThatHaveNotSat.splice(
+          playersThatHaveNotSat.indexOf(benchPid),
           1,
         );
         delete availablePlayers[benchPid];
@@ -149,7 +162,7 @@ function SoftballProvider({ children }) {
       lineup.bench = bench;
     }
 
-    if (lockedPositionsShouldSit) {
+    if (!lockedPositionsDontSit) {
       lockedPositionIds.forEach((pid) => {
         if (availablePlayers[pid] !== undefined) {
           lineup[getLockedPositionById(pid)] = pid;
@@ -173,17 +186,40 @@ function SoftballProvider({ children }) {
         delete availablePlayers[lineup[position]];
       });
 
-    setFinalLineup(lineup);
+    return lineup;
   };
 
-  const clearLineup = () => setFinalLineup(undefined);
+  const generateSingleLineup = () => {
+    const lineup = generateLineup(players, options);
+    setFullGameLineup(undefined);
+    setSingleLineup(lineup);
+  };
+
+  const generateFullGameLineup = () => {
+    const lineups = [];
+    const trackedPlayers = { ...players };
+    for (let i = 0; i < options.innings; i += 1) {
+      const lineup = generateLineup(trackedPlayers, options);
+      lineups.push(lineup);
+      trackedPlayers[lineup.pitcher].hasPitched = true;
+      lineup.bench?.forEach((pid) => {
+        trackedPlayers[pid].hasSat = true;
+      });
+    }
+    setSingleLineup(undefined);
+    setFullGameLineup(lineups);
+  };
 
   const contextValue = useMemo(
     () => ({
       players,
       lockedPositions,
+      options,
       playerIds: Object.keys(players),
-      finalLineup,
+      singleLineup,
+      fullGameLineup,
+      getPlayerById: (id) => players[id],
+      onInningsChange,
       onPlayerNameInput,
       onPlayerHasPitchedChange,
       onPlayerHasSatChange,
@@ -191,11 +227,18 @@ function SoftballProvider({ children }) {
       removePlayerById,
       getLockedPositionById,
       setLockedPositionForPlayer,
-      getPlayerById: (id) => players[id],
-      generateLineup,
-      clearLineup,
+      generateSingleLineup,
+      generateFullGameLineup,
     }),
-    [players, lockedPositions, finalLineup],
+    [
+      players,
+      lockedPositions,
+      singleLineup,
+      fullGameLineup,
+      options,
+      generateSingleLineup,
+      generateFullGameLineup,
+    ],
   );
   return (
     <SoftballContext.Provider value={contextValue}>
