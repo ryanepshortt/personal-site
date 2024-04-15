@@ -20,11 +20,10 @@ function FullLineup() {
   }
   return (
     <div>
-      <h6 style={{ marginBottom: "2px" }}>Team Table</h6>
       <table>
         <thead>
           <tr>
-            <th scope="col" />
+            <th scope="col">Team Table</th>
             {fullGameLineup.map((lineup, index) => (
               <th key={JSON.stringify(lineup)} scope="col">
                 {nth(index + 1)}
@@ -115,11 +114,10 @@ function FullLineup() {
           </tr>
         </tbody>
       </table>
-      <h6 style={{ marginBottom: "2px", marginTop: "8px" }}>Player Table</h6>
-      <table>
+      <table style={{ marginTop: "20px" }}>
         <thead>
           <tr>
-            <th scope="col" />
+            <th scope="col">Player Table</th>
             {fullGameLineup.map((lineup, index) => (
               <th key={JSON.stringify(lineup)} scope="col">
                 {nth(index + 1)}

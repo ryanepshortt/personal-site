@@ -4,11 +4,10 @@ import "./Controls.css";
 
 function Controls() {
   const {
-    generateSingleLineup,
+    generateFullGameLineup,
     options,
     onLockedPositionsShouldSitChange,
     onInningsChange,
-    generateFullGameLineup,
   } = useContext(SoftballContext);
   return (
     <div>
@@ -37,13 +36,6 @@ function Controls() {
         </div>
       </div>
       <div className="button-section">
-        <button
-          type="button"
-          className="generate-button"
-          onClick={generateSingleLineup}
-        >
-          Generate Single Lineup
-        </button>
         <button
           type="button"
           className="generate-button"

@@ -24,13 +24,5 @@
   border-radius: 8px;
   color: white;
   cursor: pointer;
-}
-
-.clear-button {
-  background-color: red;
-  border: none;
-  padding: 15px;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
+  font-weight: bold;
 }

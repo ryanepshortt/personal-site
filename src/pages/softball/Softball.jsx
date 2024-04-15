@@ -2,7 +2,6 @@ import React from "react";
 import { SoftballProvider } from "../../contexts/Softball";
 import PlayerList from "../../components/softball/playerList/PlayerList";
 import "./Softball.css";
-import SingleLineup from "../../components/softball/singleLineup/SingleLineup";
 import Controls from "../../components/softball/controls/Controls";
 import FullLineup from "../../components/softball/fullLineup/FullLineup";
 
@@ -13,7 +12,6 @@ function Softball() {
         <PlayerList />
       </div>
       <Controls />
-      <SingleLineup />
       <FullLineup />
     </div>
   );

@@ -32,7 +32,6 @@ const SoftballContext = createContext(initialState);
 function SoftballProvider({ children }) {
   const [players, setPlayers] = useState({ ...Players });
   const [lockedPositions, setLockedPositions] = useState({ ...emptyLineup });
-  const [singleLineup, setSingleLineup] = useState();
   const [options, setOptions] = useState({ ...initialoptions });
   const [fullGameLineup, setFullGameLineup] = useState();
 
@@ -83,9 +82,6 @@ function SoftballProvider({ children }) {
       delete newPlayers[id];
       return newPlayers;
     });
-    if (singleLineup !== undefined) {
-      setSingleLineup(undefined);
-    }
     if (fullGameLineup !== undefined) {
       setFullGameLineup(undefined);
     }
@@ -201,12 +197,6 @@ function SoftballProvider({ children }) {
     return [lineup, playerListCopy];
   };
 
-  const generateSingleLineup = () => {
-    const lineup = generateLineup(players, options);
-    setFullGameLineup(undefined);
-    setSingleLineup(lineup[0]);
-  };
-
   const generateFullGameLineup = () => {
     const lineups = [];
     let trackedPlayers = _.cloneDeep(players);
@@ -215,7 +205,6 @@ function SoftballProvider({ children }) {
       trackedPlayers = updatedPlayers;
       lineups.push(lineup);
     }
-    setSingleLineup(undefined);
     setFullGameLineup(lineups);
   };
 
@@ -235,7 +224,6 @@ function SoftballProvider({ children }) {
       lockedPositions,
       options,
       playerIds: Object.keys(players),
-      singleLineup,
       fullGameLineup,
       getPlayerById: (id) => players[id],
       onInningsChange,
@@ -246,19 +234,10 @@ function SoftballProvider({ children }) {
       removePlayerById,
       getLockedPositionById,
       setLockedPositionForPlayer,
-      generateSingleLineup,
       generateFullGameLineup,
       getPositionFromLineupForPlayer,
     }),
-    [
-      players,
-      lockedPositions,
-      singleLineup,
-      fullGameLineup,
-      options,
-      generateSingleLineup,
-      generateFullGameLineup,
-    ],
+    [players, lockedPositions, fullGameLineup, options, generateFullGameLineup],
   );
   return (
     <SoftballContext.Provider value={contextValue}>
