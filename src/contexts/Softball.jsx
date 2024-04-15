@@ -116,13 +116,13 @@ function SoftballProvider({ children }) {
 
   const generateLineup = (playerList, opts) => {
     const { lockedPositionsDontSit } = opts;
-    let lineup = { ...emptyLineup };
+    let lineup = _.cloneDeep(emptyLineup);
 
     const lockedPositionIds = [...Object.values(lockedPositions)].filter(
       (pid) => pid !== undefined,
     );
-
-    const availablePlayers = { ...playerList };
+    const playerListCopy = _.cloneDeep(playerList);
+    const availablePlayers = _.cloneDeep(playerList);
     if (lockedPositionsDontSit) {
       lineup = { ...lockedPositions };
       lockedPositionIds.forEach((pid) => delete availablePlayers[pid]);
@@ -148,6 +148,9 @@ function SoftballProvider({ children }) {
         if (benchPlayersRequired > playersThatHaveNotSat.length) {
           playersThatHaveNotSat = [...Object.keys(availablePlayers)];
         }
+        Object.keys(playerListCopy).forEach((pid) => {
+          playerListCopy[pid].hasSat = false;
+        });
       }
       const remainingBenchPlayerNum = benchPlayersRequired - bench.length;
       for (let i = 0; i < remainingBenchPlayerNum; i += 1) {
@@ -158,6 +161,7 @@ function SoftballProvider({ children }) {
           1,
         );
         delete availablePlayers[benchPid];
+        playerListCopy[benchPid].hasSat = true;
       }
       lineup.bench = bench;
     }
@@ -171,12 +175,20 @@ function SoftballProvider({ children }) {
       });
     }
 
+    // Pitcher Logic
     if (lineup.pitcher === undefined) {
-      const availablePitchers = [...Object.keys(availablePlayers)].filter(
+      let availablePitchers = [...Object.keys(availablePlayers)].filter(
         (playerId) => !availablePlayers[playerId].hasPitched,
       );
+      if (availablePitchers.length === 0) {
+        availablePitchers = [...Object.keys(availablePlayers)];
+        playerListCopy.forEach((pid) => {
+          playerListCopy[pid].hasPitched = false;
+        });
+      }
       lineup.pitcher = _.sample(availablePitchers);
       delete availablePlayers[lineup.pitcher];
+      playerListCopy[lineup.pitcher].hasPitched = true;
     }
 
     Object.keys(lineup)
@@ -186,25 +198,22 @@ function SoftballProvider({ children }) {
         delete availablePlayers[lineup[position]];
       });
 
-    return lineup;
+    return [lineup, playerListCopy];
   };
 
   const generateSingleLineup = () => {
     const lineup = generateLineup(players, options);
     setFullGameLineup(undefined);
-    setSingleLineup(lineup);
+    setSingleLineup(lineup[0]);
   };
 
   const generateFullGameLineup = () => {
     const lineups = [];
-    const trackedPlayers = { ...players };
+    let trackedPlayers = _.cloneDeep(players);
     for (let i = 0; i < options.innings; i += 1) {
-      const lineup = generateLineup(trackedPlayers, options);
+      const [lineup, updatedPlayers] = generateLineup(trackedPlayers, options);
+      trackedPlayers = updatedPlayers;
       lineups.push(lineup);
-      trackedPlayers[lineup.pitcher].hasPitched = true;
-      lineup.bench?.forEach((pid) => {
-        trackedPlayers[pid].hasSat = true;
-      });
     }
     setSingleLineup(undefined);
     setFullGameLineup(lineups);
