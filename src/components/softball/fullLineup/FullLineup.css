@@ -5,13 +5,13 @@ table {
 }
 
 th {
-  border: 1px solid;
+  border: 0.5px solid;
   padding: 5px;
   font-size: 10px;
 }
 
 td {
-  border: 1px solid;
+  border: 0.5px solid;
   font-size: 8.5px;
   padding: 2px;
   text-align: center;

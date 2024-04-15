@@ -20,7 +20,7 @@ function FullLineup() {
   }
   return (
     <div>
-      <h3>Team Table</h3>
+      <h6 style={{ marginBottom: "2px" }}>Team Table</h6>
       <table>
         <thead>
           <tr>
@@ -115,7 +115,7 @@ function FullLineup() {
           </tr>
         </tbody>
       </table>
-      <h4>Player Table</h4>
+      <h6 style={{ marginBottom: "2px", marginTop: "8px" }}>Player Table</h6>
       <table>
         <thead>
           <tr>
