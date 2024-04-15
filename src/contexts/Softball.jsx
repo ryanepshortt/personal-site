@@ -1,6 +1,6 @@
 import React, { createContext, useMemo, useState, useCallback } from "react";
 import _ from "lodash";
-import { Players } from "../constants/softball/Softball";
+import { Players, PositionIdToLabelMap } from "../constants/softball/Softball";
 
 const emptyLineup = {
   pitcher: undefined,
@@ -219,6 +219,16 @@ function SoftballProvider({ children }) {
     setFullGameLineup(lineups);
   };
 
+  const getPositionFromLineupForPlayer = (lineup, playerId) => {
+    return PositionIdToLabelMap[
+      Object.keys(lineup).find((positionId) =>
+        positionId === "bench"
+          ? lineup[positionId].includes(playerId)
+          : lineup[positionId] === playerId,
+      )
+    ];
+  };
+
   const contextValue = useMemo(
     () => ({
       players,
@@ -238,6 +248,7 @@ function SoftballProvider({ children }) {
       setLockedPositionForPlayer,
       generateSingleLineup,
       generateFullGameLineup,
+      getPositionFromLineupForPlayer,
     }),
     [
       players,

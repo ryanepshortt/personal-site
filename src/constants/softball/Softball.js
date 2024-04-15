@@ -53,8 +53,8 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
   },
-  philPavilic: {
-    name: "Phil Pavilic",
+  philPavilich: {
+    name: "Phil Pavilich",
     firstName: "Phil",
     hasPitched: false,
     hasSat: false,
@@ -103,3 +103,17 @@ export const Positions = [
   { label: "Right Field", id: "rightField" },
   { label: "Rover", id: "rover" },
 ];
+
+export const PositionIdToLabelMap = {
+  pitcher: "Pitcher",
+  catcher: "Catcher",
+  firstBase: "1B",
+  secondBase: "2B",
+  thirdBase: "3B",
+  shortStop: "SS",
+  leftField: "LF",
+  rightField: "RF",
+  centerField: "CF",
+  rover: "Rover",
+  bench: "",
+};
