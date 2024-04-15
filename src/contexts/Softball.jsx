@@ -182,7 +182,7 @@ function SoftballProvider({ children }) {
       );
       if (availablePitchers.length === 0) {
         availablePitchers = [...Object.keys(availablePlayers)];
-        playerListCopy.forEach((pid) => {
+        Object.keys(playerListCopy).forEach((pid) => {
           playerListCopy[pid].hasPitched = false;
         });
       }
