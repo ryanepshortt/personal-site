@@ -1,65 +1,93 @@
-import { v4 } from "uuid";
-
 export const Players = {
-  [v4()]: {
+  blakeShaw: {
     name: "Blake Shaw",
+    firstName: "Blake",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  brysonAhlstedt: {
     name: "Bryson Ahlstedt",
+    firstName: "Bryson",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  carterBrooks: {
     name: "Carter Brooks",
+    firstName: "Carter",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  jackVautour: {
     name: "Jack Vautour",
+    firstName: "Jack",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  jasonMacPhearson: {
     name: "Jason MacPhearson",
+    firstName: "Jason",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  johnStewart: {
     name: "John Stewart",
+    firstName: "John",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  matthewShortt: {
     name: "Matthew Shortt",
+    firstName: "Matthew",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  michaelBoyd: {
     name: "Michael Boyd",
+    firstName: "Michael",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  ostopMostowy: {
     name: "Ostop Mostowy",
+    firstName: "Ostop",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  philPavilic: {
     name: "Phil Pavilic",
+    firstName: "Phil",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  ronanWeir: {
     name: "Ronan Weir",
+    firstName: "Ronan",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  ryanShortt: {
     name: "Ryan Shortt",
+    firstName: "Ryan",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  spencerDobbs: {
     name: "Spencer Dobbs",
+    firstName: "Spencer",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  tylerVerbanac: {
     name: "Tyler Verbanac",
+    firstName: "Tyler",
     hasPitched: false,
+    hasSat: false,
   },
-  [v4()]: {
+  zachCowan: {
     name: "Zach Cowan",
+    firstName: "Zach",
     hasPitched: false,
+    hasSat: false,
   },
 };
 

@@ -1,3 +1,13 @@
+.options-section {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.innings {
+  margin-top: 10px;
+}
+
 .button-section {
   display: flex;
   width: 100%;
@@ -13,6 +23,7 @@
   padding: 15px;
   border-radius: 8px;
   color: white;
+  cursor: pointer;
 }
 
 .clear-button {
@@ -21,4 +32,5 @@
   padding: 15px;
   border-radius: 8px;
   color: white;
+  cursor: pointer;
 }
