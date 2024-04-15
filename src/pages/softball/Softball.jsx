@@ -2,8 +2,9 @@ import React from "react";
 import { SoftballProvider } from "../../contexts/Softball";
 import PlayerList from "../../components/softball/playerList/PlayerList";
 import "./Softball.css";
-import FinalLineup from "../../components/softball/singleLineup/SingleLineup";
+import SingleLineup from "../../components/softball/singleLineup/SingleLineup";
 import Controls from "../../components/softball/controls/Controls";
+import FullLineup from "../../components/softball/fullLineup/FullLineup";
 
 function Softball() {
   return (
@@ -12,7 +13,8 @@ function Softball() {
         <PlayerList />
       </div>
       <Controls />
-      <FinalLineup />
+      <SingleLineup />
+      <FullLineup />
     </div>
   );
 }
