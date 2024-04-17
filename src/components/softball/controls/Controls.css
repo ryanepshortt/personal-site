@@ -6,6 +6,12 @@
 
 .innings {
   margin-top: 10px;
+  input {
+    width: 15px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
 }
 
 .button-section {

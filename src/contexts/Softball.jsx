@@ -16,7 +16,8 @@ const emptyLineup = {
 };
 
 const initialoptions = {
-  lockedPositionsDontSit: false,
+  sitLockedPositions: true,
+  sitPitcher: false,
   innings: 7,
 };
 
@@ -62,10 +63,17 @@ function SoftballProvider({ children }) {
     }));
   }, []);
 
-  const onLockedPositionsShouldSitChange = useCallback(() => {
+  const onSitLockedPositionsChange = useCallback(() => {
     setOptions((currentOptions) => ({
       ...currentOptions,
-      lockedPositionsDontSit: !currentOptions.lockedPositionsDontSit,
+      sitLockedPositions: !currentOptions.sitLockedPositions,
+    }));
+  }, []);
+
+  const onSitPitcherChange = useCallback(() => {
+    setOptions((currentOptions) => ({
+      ...currentOptions,
+      sitPitcher: !currentOptions.sitPitcher,
     }));
   }, []);
 
@@ -95,23 +103,16 @@ function SoftballProvider({ children }) {
   const setLockedPositionForPlayer = (e, id) => {
     const newPosition = e.target.value;
     const currentPosition = getLockedPositionById(id);
-    const newPositions = { ...lockedPositions };
-    let shouldUpdate = false;
-    if (currentPosition !== "any") {
-      newPositions[currentPosition] = undefined;
-      shouldUpdate = true;
-    }
-    if (newPosition !== "any") {
+    const newPositions = _.cloneDeep(lockedPositions);
+    newPositions[currentPosition] = undefined;
+    if (newPosition !== "Any") {
       newPositions[newPosition] = id;
-      shouldUpdate = true;
     }
-    if (shouldUpdate) {
-      setLockedPositions(newPositions);
-    }
+    setLockedPositions(newPositions);
   };
 
   const generateLineup = (playerList, opts) => {
-    const { lockedPositionsDontSit } = opts;
+    const { sitLockedPositions, sitPitcher } = opts;
     let lineup = _.cloneDeep(emptyLineup);
 
     const lockedPositionIds = [...Object.values(lockedPositions)].filter(
@@ -119,9 +120,13 @@ function SoftballProvider({ children }) {
     );
     const playerListCopy = _.cloneDeep(playerList);
     const availablePlayers = _.cloneDeep(playerList);
-    if (lockedPositionsDontSit) {
-      lineup = { ...lockedPositions };
+    if (!sitLockedPositions) {
+      lineup = _.cloneDeep(lockedPositions);
       lockedPositionIds.forEach((pid) => delete availablePlayers[pid]);
+    }
+
+    if (!sitPitcher && lockedPositions.pitcher !== undefined) {
+      lineup.pitcher = lockedPositions.pitcher;
     }
 
     // Bench logic
@@ -162,7 +167,7 @@ function SoftballProvider({ children }) {
       lineup.bench = bench;
     }
 
-    if (!lockedPositionsDontSit) {
+    if (sitLockedPositions) {
       lockedPositionIds.forEach((pid) => {
         if (availablePlayers[pid] !== undefined) {
           lineup[getLockedPositionById(pid)] = pid;
@@ -230,7 +235,8 @@ function SoftballProvider({ children }) {
       onPlayerNameInput,
       onPlayerHasPitchedChange,
       onPlayerHasSatChange,
-      onLockedPositionsShouldSitChange,
+      onSitLockedPositionsChange,
+      onSitPitcherChange,
       removePlayerById,
       getLockedPositionById,
       setLockedPositionForPlayer,

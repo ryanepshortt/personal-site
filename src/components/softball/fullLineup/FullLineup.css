@@ -2,17 +2,20 @@ table {
   border: 1px solid;
   border-collapse: collapse;
   white-space: nowrap;
+  width: 100%;
+}
+
+tr {
+  height: 25px;
 }
 
 th {
   border: 1px solid;
-  padding: 5px;
   font-size: 10px;
 }
 
 td {
   border: 1px solid;
   font-size: 8.5px;
-  padding: 2px;
   text-align: center;
 }

@@ -6,23 +6,45 @@ function Controls() {
   const {
     generateFullGameLineup,
     options,
-    onLockedPositionsShouldSitChange,
+    onSitLockedPositionsChange,
+    onSitPitcherChange,
     onInningsChange,
+    lockedPositions,
   } = useContext(SoftballContext);
+
+  const lockedPositionExists = Object.keys(lockedPositions).some(
+    (pos) => pos !== "pitcher" && lockedPositions[pos] !== undefined,
+  );
   return (
     <div>
       <div className="options-section">
-        <div className="locked-postion">
-          <label htmlFor="locked-position-option">
-            Don't sit players with locked positions:{"  "}
-            <input
-              type="checkbox"
-              value={options.lockedPositionsDontSit}
-              onChange={onLockedPositionsShouldSitChange}
-              id="locked-position-option"
-            />
-          </label>
-        </div>
+        {lockedPositions.pitcher !== undefined && (
+          <div className="locked-postion">
+            <label htmlFor="should-pitcher-sit">
+              Sit the locked pitcher:{"  "}
+              <input
+                type="checkbox"
+                value={options.sitPitcher}
+                onChange={onSitPitcherChange}
+                id="should-pitcher-sit"
+              />
+            </label>
+          </div>
+        )}
+        {lockedPositionExists && (
+          <div className="locked-postion">
+            <label htmlFor="locked-position-option">
+              Sit players with locked positions:{"  "}
+              <input
+                type="checkbox"
+                value={options.sitLockedPositions}
+                onChange={onSitLockedPositionsChange}
+                defaultChecked
+                id="locked-position-option"
+              />
+            </label>
+          </div>
+        )}
         <div className="innings">
           <label htmlFor="innings">
             Innings:{"  "}
