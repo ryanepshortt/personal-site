@@ -7,7 +7,6 @@ function Controls() {
     generateFullGameLineup,
     options,
     onSitLockedPositionsChange,
-    onSitPitcherChange,
     onShouldSwitchPitcherChange,
     onInningsChange,
     lockedPositions,
@@ -16,29 +15,19 @@ function Controls() {
   const lockedPositionExists = Object.keys(lockedPositions).some(
     (pos) => pos !== "pitcher" && lockedPositions[pos] !== undefined,
   );
+  const lockedPitcherExists = lockedPositions.pitcher !== undefined;
   return (
     <div>
       <div className="options-section">
-        <div className="locked-postion">
-          <label htmlFor="should-switch-pitcher">
-            Switch randomized pitcher each inning:{"  "}
-            <input
-              type="checkbox"
-              value={options.shouldSwitchPitcher}
-              onChange={onShouldSwitchPitcherChange}
-              id="should-switch-pitcher"
-            />
-          </label>
-        </div>
-        {lockedPositions.pitcher !== undefined && (
+        {!lockedPitcherExists && (
           <div className="locked-postion">
-            <label htmlFor="should-pitcher-sit">
-              Sit the locked pitcher:{"  "}
+            <label htmlFor="should-switch-pitcher">
+              Switch randomized pitcher each inning:{"  "}
               <input
                 type="checkbox"
-                value={options.sitPitcher}
-                onChange={onSitPitcherChange}
-                id="should-pitcher-sit"
+                value={options.shouldSwitchPitcher}
+                onChange={onShouldSwitchPitcherChange}
+                id="should-switch-pitcher"
               />
             </label>
           </div>

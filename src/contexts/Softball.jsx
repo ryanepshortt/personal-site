@@ -17,9 +17,8 @@ const emptyLineup = {
 
 const initialoptions = {
   sitLockedPositions: true,
-  sitPitcher: false,
-  innings: 7,
   shouldSwitchPitcher: false,
+  innings: 7,
 };
 
 const initialState = {
@@ -71,13 +70,6 @@ function SoftballProvider({ children }) {
     }));
   }, []);
 
-  const onSitPitcherChange = useCallback(() => {
-    setOptions((currentOptions) => ({
-      ...currentOptions,
-      sitPitcher: !currentOptions.sitPitcher,
-    }));
-  }, []);
-
   const onShouldSwitchPitcherChange = useCallback(() => {
     setOptions((currentOptions) => ({
       ...currentOptions,
@@ -120,7 +112,7 @@ function SoftballProvider({ children }) {
   };
 
   const generateLineup = (playerList, opts, previousLineup) => {
-    const { sitLockedPositions, sitPitcher, shouldSwitchPitcher } = opts;
+    const { sitLockedPositions, shouldSwitchPitcher } = opts;
     let lineup = _.cloneDeep(emptyLineup);
 
     const lockedPositionIds = [...Object.values(lockedPositions)].filter(
@@ -137,7 +129,7 @@ function SoftballProvider({ children }) {
       lineup.pitcher = previousLineup.pitcher;
     }
 
-    if (!sitPitcher && lockedPositions.pitcher !== undefined) {
+    if (lockedPositions.pitcher !== undefined) {
       lineup.pitcher = lockedPositions.pitcher;
     }
 
@@ -179,6 +171,7 @@ function SoftballProvider({ children }) {
       lineup.bench = bench;
     }
 
+    // Locked Position Logic
     if (sitLockedPositions) {
       lockedPositionIds.forEach((pid) => {
         if (availablePlayers[pid] !== undefined) {
@@ -204,6 +197,7 @@ function SoftballProvider({ children }) {
       playerListCopy[lineup.pitcher].hasPitched = true;
     }
 
+    // Remaining Randomized Position Logic
     Object.keys(lineup)
       .filter((position) => lineup[position] === undefined)
       .forEach((position) => {
@@ -254,7 +248,6 @@ function SoftballProvider({ children }) {
       onPlayerHasPitchedChange,
       onPlayerHasSatChange,
       onSitLockedPositionsChange,
-      onSitPitcherChange,
       onShouldSwitchPitcherChange,
       removePlayerById,
       getLockedPositionById,
