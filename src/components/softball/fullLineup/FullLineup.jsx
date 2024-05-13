@@ -129,10 +129,12 @@ function FullLineup() {
           {Object.keys(players).map((playerId) => {
             const player = getPlayerById(playerId);
             return (
-              <tr>
+              <tr key={playerId}>
                 <th scope="row">{player.firstName}</th>
                 {fullGameLineup.map((lineup) => (
-                  <td>{getPositionFromLineupForPlayer(lineup, playerId)}</td>
+                  <td key={JSON.stringify(lineup)}>
+                    {getPositionFromLineupForPlayer(lineup, playerId)}
+                  </td>
                 ))}
               </tr>
             );

@@ -8,6 +8,7 @@ function Controls() {
     options,
     onSitLockedPositionsChange,
     onSitPitcherChange,
+    onShouldSwitchPitcherChange,
     onInningsChange,
     lockedPositions,
   } = useContext(SoftballContext);
@@ -18,6 +19,17 @@ function Controls() {
   return (
     <div>
       <div className="options-section">
+        <div className="locked-postion">
+          <label htmlFor="should-switch-pitcher">
+            Switch randomized pitcher each inning:{"  "}
+            <input
+              type="checkbox"
+              value={options.shouldSwitchPitcher}
+              onChange={onShouldSwitchPitcherChange}
+              id="should-switch-pitcher"
+            />
+          </label>
+        </div>
         {lockedPositions.pitcher !== undefined && (
           <div className="locked-postion">
             <label htmlFor="should-pitcher-sit">

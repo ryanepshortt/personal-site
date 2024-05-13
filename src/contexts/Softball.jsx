@@ -19,6 +19,7 @@ const initialoptions = {
   sitLockedPositions: true,
   sitPitcher: false,
   innings: 7,
+  shouldSwitchPitcher: false,
 };
 
 const initialState = {
@@ -77,6 +78,13 @@ function SoftballProvider({ children }) {
     }));
   }, []);
 
+  const onShouldSwitchPitcherChange = useCallback(() => {
+    setOptions((currentOptions) => ({
+      ...currentOptions,
+      shouldSwitchPitcher: !currentOptions.shouldSwitchPitcher,
+    }));
+  }, []);
+
   const onInningsChange = useCallback((e) => {
     setOptions((currentOptions) => ({
       ...currentOptions,
@@ -111,8 +119,8 @@ function SoftballProvider({ children }) {
     setLockedPositions(newPositions);
   };
 
-  const generateLineup = (playerList, opts) => {
-    const { sitLockedPositions, sitPitcher } = opts;
+  const generateLineup = (playerList, opts, previousLineup) => {
+    const { sitLockedPositions, sitPitcher, shouldSwitchPitcher } = opts;
     let lineup = _.cloneDeep(emptyLineup);
 
     const lockedPositionIds = [...Object.values(lockedPositions)].filter(
@@ -123,6 +131,10 @@ function SoftballProvider({ children }) {
     if (!sitLockedPositions) {
       lineup = _.cloneDeep(lockedPositions);
       lockedPositionIds.forEach((pid) => delete availablePlayers[pid]);
+    }
+
+    if (!shouldSwitchPitcher && previousLineup?.pitcher !== undefined) {
+      lineup.pitcher = previousLineup.pitcher;
     }
 
     if (!sitPitcher && lockedPositions.pitcher !== undefined) {
@@ -205,10 +217,16 @@ function SoftballProvider({ children }) {
   const generateFullGameLineup = () => {
     const lineups = [];
     let trackedPlayers = _.cloneDeep(players);
+    let previousLineup;
     for (let i = 0; i < options.innings; i += 1) {
-      const [lineup, updatedPlayers] = generateLineup(trackedPlayers, options);
+      const [lineup, updatedPlayers] = generateLineup(
+        trackedPlayers,
+        options,
+        previousLineup,
+      );
       trackedPlayers = updatedPlayers;
       lineups.push(lineup);
+      previousLineup = lineup;
     }
     setFullGameLineup(lineups);
   };
@@ -237,6 +255,7 @@ function SoftballProvider({ children }) {
       onPlayerHasSatChange,
       onSitLockedPositionsChange,
       onSitPitcherChange,
+      onShouldSwitchPitcherChange,
       removePlayerById,
       getLockedPositionById,
       setLockedPositionForPlayer,
