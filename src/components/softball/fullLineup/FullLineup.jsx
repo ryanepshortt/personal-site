@@ -81,7 +81,7 @@ function FullLineup() {
             ))}
           </tr>
           <tr>
-            <th scope="row">Left Field</th>
+            <th scope="row">Outfield</th>
             {fullGameLineup.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
                 {getPlayerById(lineup.leftField)?.firstName}
@@ -89,7 +89,7 @@ function FullLineup() {
             ))}
           </tr>
           <tr>
-            <th scope="row">Center Field</th>
+            <th scope="row">Outfield</th>
             {fullGameLineup.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
                 {getPlayerById(lineup.centerField)?.firstName}
@@ -97,7 +97,7 @@ function FullLineup() {
             ))}
           </tr>
           <tr>
-            <th scope="row">Right Field</th>
+            <th scope="row">Outfield</th>
             {fullGameLineup.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
                 {getPlayerById(lineup.rightField)?.firstName}
@@ -105,7 +105,7 @@ function FullLineup() {
             ))}
           </tr>
           <tr>
-            <th scope="row">Rover</th>
+            <th scope="row">Outfield</th>
             {fullGameLineup.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
                 {getPlayerById(lineup.rover)?.firstName}

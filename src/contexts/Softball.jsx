@@ -120,19 +120,16 @@ function SoftballProvider({ children }) {
     );
     const playerListCopy = _.cloneDeep(playerList);
     const availablePlayers = _.cloneDeep(playerList);
+    // Pitcher Logic
+    if (!shouldSwitchPitcher && previousLineup?.pitcher !== undefined) {
+      lineup.pitcher = previousLineup.pitcher;
+      delete availablePlayers[lineup.pitcher];
+    }
+    // Follow logic if we want locked players to always play
     if (!sitLockedPositions) {
       lineup = _.cloneDeep(lockedPositions);
       lockedPositionIds.forEach((pid) => delete availablePlayers[pid]);
     }
-
-    if (!shouldSwitchPitcher && previousLineup?.pitcher !== undefined) {
-      lineup.pitcher = previousLineup.pitcher;
-    }
-
-    if (lockedPositions.pitcher !== undefined) {
-      lineup.pitcher = lockedPositions.pitcher;
-    }
-
     // Bench logic
     const availablePlayerIds = [...Object.keys(availablePlayers)];
     const benchPlayersRequired = availablePlayerIds.length - 10;
@@ -181,7 +178,7 @@ function SoftballProvider({ children }) {
       });
     }
 
-    // Pitcher Logic
+    // Pitcher Logic For Randomizing Each Inning
     if (lineup.pitcher === undefined) {
       let availablePitchers = [...Object.keys(availablePlayers)].filter(
         (playerId) => !availablePlayers[playerId].hasPitched,
@@ -195,6 +192,23 @@ function SoftballProvider({ children }) {
       lineup.pitcher = _.sample(availablePitchers);
       delete availablePlayers[lineup.pitcher];
       playerListCopy[lineup.pitcher].hasPitched = true;
+    }
+
+    // Catcher Logic
+    if (!lockedPositions.catcher) {
+      let availableCatchers = [...Object.keys(availablePlayers)].filter(
+        (pid) => !availablePlayers[pid].hasCaught,
+      );
+      if (availableCatchers.length === 0) {
+        Object.keys(playerListCopy).forEach((pid) => {
+          playerListCopy[pid].hasCaught = false;
+        });
+        availableCatchers = [...Object.keys(availablePlayers)];
+      }
+      const catcherId = _.sample(availableCatchers);
+      delete availablePlayers[catcherId];
+      playerListCopy[catcherId].hasCaught = true;
+      lineup.catcher = catcherId;
     }
 
     // Remaining Randomized Position Logic
