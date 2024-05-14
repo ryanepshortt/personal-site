@@ -19,10 +19,8 @@ function FullLineup() {
     return null;
   }
   return fullGameLineup.map((game, gameNum) => (
-    <div className="table-wrapper">
-      <div>
-        <h3>Game {gameNum + 1}</h3>
-      </div>
+    <div key={JSON.stringify(game)} className="table-wrapper">
+      <div className="title">Game {gameNum + 1}</div>
       <table>
         <thead>
           <tr>

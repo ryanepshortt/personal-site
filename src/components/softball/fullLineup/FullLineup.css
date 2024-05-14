@@ -2,6 +2,10 @@
    margin-top: 40px;
 }
 
+.title {
+  text-align: center;
+}
+
 table {
   border: 1px solid;
   border-collapse: collapse;

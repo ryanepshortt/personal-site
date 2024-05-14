@@ -133,7 +133,7 @@ function SoftballProvider({ children }) {
     }
     // Bench logic
     const availablePlayerIds = [...Object.keys(availablePlayers)];
-    const benchPlayersRequired = availablePlayerIds.length - 10;
+    const benchPlayersRequired = Object.keys(playerListCopy).length - 10;
     if (benchPlayersRequired > 0) {
       let playersThatHaveNotSat = availablePlayerIds.filter(
         (pid) => !availablePlayers[pid].hasSat,
@@ -201,15 +201,33 @@ function SoftballProvider({ children }) {
         (pid) => !availablePlayers[pid].hasCaught,
       );
       if (availableCatchers.length === 0) {
-        Object.keys(playerListCopy).forEach((pid) => {
-          playerListCopy[pid].hasCaught = false;
-        });
-        availableCatchers = [...Object.keys(availablePlayers)];
+        const eligibleCatcherOnBench = lineup.bench.find(
+          (pid) => !playerListCopy[pid].hasCaught,
+        );
+        const extraEligiblePlayerForBench = [
+          ...Object.keys(availablePlayers),
+        ].find((pid) => !availablePlayers[pid].hasSat);
+        if (eligibleCatcherOnBench && extraEligiblePlayerForBench) {
+          lineup.catcher = eligibleCatcherOnBench;
+          lineup.bench[lineup.bench.indexOf(eligibleCatcherOnBench)] =
+            extraEligiblePlayerForBench;
+          delete availablePlayers[extraEligiblePlayerForBench];
+          playerListCopy[extraEligiblePlayerForBench].hasSat = true;
+          playerListCopy[eligibleCatcherOnBench].hasSat = false;
+          playerListCopy[eligibleCatcherOnBench].hasCaught = true;
+        } else {
+          Object.keys(playerListCopy).forEach((pid) => {
+            playerListCopy[pid].hasCaught = false;
+          });
+          availableCatchers = [...Object.keys(availablePlayers)];
+        }
       }
-      const catcherId = _.sample(availableCatchers);
-      delete availablePlayers[catcherId];
-      playerListCopy[catcherId].hasCaught = true;
-      lineup.catcher = catcherId;
+      if (!lineup.catcher) {
+        const catcherId = _.sample(availableCatchers);
+        delete availablePlayers[catcherId];
+        playerListCopy[catcherId].hasCaught = true;
+        lineup.catcher = catcherId;
+      }
     }
 
     // Remaining Randomized Position Logic
@@ -225,9 +243,9 @@ function SoftballProvider({ children }) {
 
   const generateFullGameLineup = () => {
     const games = [];
+    let trackedPlayers = _.cloneDeep(players);
     for (let i = 0; i < options.games; i += 1) {
       const lineups = [];
-      let trackedPlayers = _.cloneDeep(players);
       let previousLineup;
       for (let j = 0; j < options.innings; j += 1) {
         const [lineup, updatedPlayers] = generateLineup(
