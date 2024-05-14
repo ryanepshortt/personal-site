@@ -19,6 +19,7 @@ const initialoptions = {
   sitLockedPositions: true,
   shouldSwitchPitcher: false,
   innings: 7,
+  games: 2,
 };
 
 const initialState = {
@@ -35,13 +36,6 @@ function SoftballProvider({ children }) {
   const [lockedPositions, setLockedPositions] = useState({ ...emptyLineup });
   const [options, setOptions] = useState({ ...initialoptions });
   const [fullGameLineup, setFullGameLineup] = useState();
-
-  const onPlayerNameInput = useCallback((e, id) => {
-    setPlayers((currentPlayers) => {
-      const player = { ...currentPlayers[id], name: e.target.value };
-      return { ...currentPlayers, [id]: player };
-    });
-  }, []);
 
   const onPlayerHasPitchedChange = useCallback((id) => {
     setPlayers((currentPlayers) => ({
@@ -81,6 +75,13 @@ function SoftballProvider({ children }) {
     setOptions((currentOptions) => ({
       ...currentOptions,
       innings: e.target.value,
+    }));
+  }, []);
+
+  const onGamesChange = useCallback((e) => {
+    setOptions((currentOptions) => ({
+      ...currentOptions,
+      games: e.target.value,
     }));
   }, []);
 
@@ -223,20 +224,24 @@ function SoftballProvider({ children }) {
   };
 
   const generateFullGameLineup = () => {
-    const lineups = [];
-    let trackedPlayers = _.cloneDeep(players);
-    let previousLineup;
-    for (let i = 0; i < options.innings; i += 1) {
-      const [lineup, updatedPlayers] = generateLineup(
-        trackedPlayers,
-        options,
-        previousLineup,
-      );
-      trackedPlayers = updatedPlayers;
-      lineups.push(lineup);
-      previousLineup = lineup;
+    const games = [];
+    for (let i = 0; i < options.games; i += 1) {
+      const lineups = [];
+      let trackedPlayers = _.cloneDeep(players);
+      let previousLineup;
+      for (let j = 0; j < options.innings; j += 1) {
+        const [lineup, updatedPlayers] = generateLineup(
+          trackedPlayers,
+          options,
+          previousLineup,
+        );
+        trackedPlayers = updatedPlayers;
+        lineups.push(lineup);
+        previousLineup = lineup;
+      }
+      games.push(lineups);
     }
-    setFullGameLineup(lineups);
+    setFullGameLineup(games);
   };
 
   const getPositionFromLineupForPlayer = (lineup, playerId) => {
@@ -258,7 +263,7 @@ function SoftballProvider({ children }) {
       fullGameLineup,
       getPlayerById: (id) => players[id],
       onInningsChange,
-      onPlayerNameInput,
+      onGamesChange,
       onPlayerHasPitchedChange,
       onPlayerHasSatChange,
       onSitLockedPositionsChange,

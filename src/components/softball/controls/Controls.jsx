@@ -9,6 +9,7 @@ function Controls() {
     onSitLockedPositionsChange,
     onShouldSwitchPitcherChange,
     onInningsChange,
+    onGamesChange,
     lockedPositions,
   } = useContext(SoftballContext);
 
@@ -54,6 +55,17 @@ function Controls() {
               value={options.innings}
               onChange={onInningsChange}
               id="innings"
+            />
+          </label>
+        </div>
+        <div className="innings">
+          <label htmlFor="games">
+            Games:{"  "}
+            <input
+              type="number"
+              value={options.games}
+              onChange={onGamesChange}
+              id="games"
             />
           </label>
         </div>
