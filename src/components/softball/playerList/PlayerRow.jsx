@@ -9,11 +9,12 @@ function PlayerRow({ playerId, index }) {
     removePlayerById,
     onPlayerHasPitchedChange,
     onPlayerHasSatChange,
+    onPlayerHasCaughtChange,
     getLockedPositionById,
     setLockedPositionForPlayer,
     lockedPositions,
   } = useContext(SoftballContext);
-  const { name, hasPitched, hasSat } = getPlayerById(playerId);
+  const { name, hasPitched, hasSat, hasCaught } = getPlayerById(playerId);
 
   const someoneIsLockedAsPitcher = lockedPositions.pitcher !== undefined;
   return (
@@ -43,6 +44,16 @@ function PlayerRow({ playerId, index }) {
             checked={hasSat}
             onChange={() => onPlayerHasSatChange(playerId)}
             id={`has-sat-${playerId}`}
+          />
+        </div>
+      </div>
+      <div className="column-wrapper">
+        <div className="checkbox-wrapper">
+          <input
+            type="checkbox"
+            checked={hasCaught}
+            onChange={() => onPlayerHasCaughtChange(playerId)}
+            id={`has-caught-${playerId}`}
           />
         </div>
       </div>

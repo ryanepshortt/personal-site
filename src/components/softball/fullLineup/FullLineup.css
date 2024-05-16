@@ -13,17 +13,25 @@ table {
   width: 100%;
 }
 
+.first-column {
+  width: 60px;
+}
+
 tr {
   height: 25px;
+  border: 1px solid;
+  min-width: 40px;
 }
 
 th {
   border: 1px solid;
   font-size: 10px;
+  min-width: 40px;
 }
 
 td {
   border: 1px solid;
-  font-size: 8.5px;
+  font-size: 8px;
   text-align: center;
+  min-width: 40px;
 }

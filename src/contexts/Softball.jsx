@@ -57,6 +57,16 @@ function SoftballProvider({ children }) {
     }));
   }, []);
 
+  const onPlayerHasCaughtChange = useCallback((id) => {
+    setPlayers((currentPlayers) => ({
+      ...currentPlayers,
+      [id]: {
+        ...currentPlayers[id],
+        hasCaught: !currentPlayers[id].hasCaught,
+      },
+    }));
+  }, []);
+
   const onSitLockedPositionsChange = useCallback(() => {
     setOptions((currentOptions) => ({
       ...currentOptions,
@@ -272,6 +282,19 @@ function SoftballProvider({ children }) {
     ];
   };
 
+  const flipAllFields = (key, value) => {
+    setPlayers((currentPlayers) => {
+      const newPlayers = { ...currentPlayers };
+      Object.keys(newPlayers).forEach((playerKey) => {
+        newPlayers[playerKey] = {
+          ...newPlayers[playerKey],
+          [key]: value,
+        };
+      });
+      return newPlayers;
+    });
+  };
+
   const contextValue = useMemo(
     () => ({
       players,
@@ -284,6 +307,7 @@ function SoftballProvider({ children }) {
       onGamesChange,
       onPlayerHasPitchedChange,
       onPlayerHasSatChange,
+      onPlayerHasCaughtChange,
       onSitLockedPositionsChange,
       onShouldSwitchPitcherChange,
       removePlayerById,
@@ -291,6 +315,7 @@ function SoftballProvider({ children }) {
       setLockedPositionForPlayer,
       generateFullGameLineup,
       getPositionFromLineupForPlayer,
+      flipAllFields,
     }),
     [players, lockedPositions, fullGameLineup, options, generateFullGameLineup],
   );
