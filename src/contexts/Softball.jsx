@@ -268,6 +268,9 @@ function SoftballProvider({ children }) {
         previousLineup = lineup;
       }
       games.push(lineups);
+      if (!options.shouldSwitchPitcher) {
+        trackedPlayers[lineups[0].pitcher].hasSat = true;
+      }
     }
     setFullGameLineup(games);
   };
