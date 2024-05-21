@@ -10,8 +10,8 @@ import { generateLineup } from "./SoftballUtils";
 const initialoptions = {
   sitLockedPositions: true,
   shouldSwitchPitcher: false,
-  innings: 3,
-  games: 1,
+  innings: 7,
+  games: 2,
 };
 
 const initialState = {
