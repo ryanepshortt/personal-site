@@ -148,11 +148,17 @@ const setPositionWithReplacement = (lineupContext, positionId) => {
   const playerToPositionMap = {};
   const positionEligibilityMap = {};
   Object.keys(newContext.lineup).forEach((pos) => {
-    playerToPositionMap[newContext.lineup[pos]] = pos;
-    positionEligibilityMap[pos] = getEligiblePlayerIdsForPosition(
-      newContext.availablePlayers,
-      pos,
-    );
+    if (pos === POSITIONS.bench) {
+      newContext.lineup[pos].forEach((playerId) => {
+        playerToPositionMap[playerId] = POSITIONS.bench;
+      });
+    } else {
+      playerToPositionMap[newContext.lineup[pos]] = pos;
+      positionEligibilityMap[pos] = getEligiblePlayerIdsForPosition(
+        newContext.availablePlayers,
+        pos,
+      );
+    }
   });
   eligiblePlayers.some((potentialReplacement) => {
     const playersPosition = playerToPositionMap[potentialReplacement];
@@ -165,7 +171,7 @@ const setPositionWithReplacement = (lineupContext, positionId) => {
       return false;
     }
     const availableSubstitutes = positionEligibilityMap[playersPosition];
-    if (availableSubstitutes.length > 0) {
+    if (availableSubstitutes?.length > 0) {
       // eslint-disable-next-line
       newContext.lineup[playersPosition] = availableSubstitutes[0];
       newContext.lineup[positionId] = potentialReplacement;
