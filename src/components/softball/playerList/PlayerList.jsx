@@ -34,7 +34,7 @@ function PlayerList() {
         <div className="column-title" onClick={onCaughtFlip}>
           Caught
         </div>
-        <div className="column-title-left">Position Lock</div>
+        <div className="column-title-left">Eligible Positions</div>
         <div />
       </div>
       {playerIds.map((id, index) => (

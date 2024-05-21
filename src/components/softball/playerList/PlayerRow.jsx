@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SoftballContext from "../../../contexts/Softball";
 import "./PlayerList.css";
-import { Positions } from "../../../constants/softball/Softball";
+import { POSITIONS } from "../../../constants/softball/Softball";
 
 function PlayerRow({ playerId, index }) {
   const {
@@ -10,13 +10,11 @@ function PlayerRow({ playerId, index }) {
     onPlayerHasPitchedChange,
     onPlayerHasSatChange,
     onPlayerHasCaughtChange,
-    getLockedPositionById,
-    setLockedPositionForPlayer,
-    lockedPositions,
+    onTogglePlayerEligiblePositions,
   } = useContext(SoftballContext);
-  const { name, hasPitched, hasSat, hasCaught } = getPlayerById(playerId);
+  const { name, hasPitched, hasSat, hasCaught, eligiblePositions } =
+    getPlayerById(playerId);
 
-  const someoneIsLockedAsPitcher = lockedPositions.pitcher !== undefined;
   return (
     <div className="player-list-row">
       <div className="column-wrapper">
@@ -27,14 +25,12 @@ function PlayerRow({ playerId, index }) {
       </div>
       <div className="column-wrapper">
         <div className="checkbox-wrapper">
-          {!someoneIsLockedAsPitcher && (
-            <input
-              type="checkbox"
-              checked={hasPitched}
-              onChange={() => onPlayerHasPitchedChange(playerId)}
-              id={`has-pitched-${playerId}`}
-            />
-          )}
+          <input
+            type="checkbox"
+            checked={hasPitched}
+            onChange={() => onPlayerHasPitchedChange(playerId)}
+            id={`has-pitched-${playerId}`}
+          />
         </div>
       </div>
       <div className="column-wrapper">
@@ -57,21 +53,98 @@ function PlayerRow({ playerId, index }) {
           />
         </div>
       </div>
-      <div className="column-wrapper">
-        <div className="select-wrapper">
-          <select
-            className="position-select"
-            value={getLockedPositionById(playerId)}
-            onChange={(e) => setLockedPositionForPlayer(e, playerId)}
-          >
-            <option id="any">Any</option>
-            {Positions.map(({ id, label }) => (
-              <option key={id} id={id} value={id}>
-                {label}
-              </option>
-            ))}
-          </select>
-        </div>
+      <div className="column-wrapper positions-wrapper">
+        <button
+          type="button"
+          className={`positionButton ${
+            eligiblePositions[POSITIONS.pitcher]
+              ? "eligiblePosition"
+              : "ineligiblePosition"
+          }`}
+          onClick={() =>
+            onTogglePlayerEligiblePositions(playerId, POSITIONS.pitcher)
+          }
+        >
+          P
+        </button>
+        <button
+          type="button"
+          className={`positionButton ${
+            eligiblePositions[POSITIONS.catcher]
+              ? "eligiblePosition"
+              : "ineligiblePosition"
+          }`}
+          onClick={() =>
+            onTogglePlayerEligiblePositions(playerId, POSITIONS.catcher)
+          }
+        >
+          C
+        </button>
+        <button
+          type="button"
+          className={`positionButton ${
+            eligiblePositions[POSITIONS.firstBase]
+              ? "eligiblePosition"
+              : "ineligiblePosition"
+          }`}
+          onClick={() =>
+            onTogglePlayerEligiblePositions(playerId, POSITIONS.firstBase)
+          }
+        >
+          1
+        </button>
+        <button
+          type="button"
+          className={`positionButton ${
+            eligiblePositions[POSITIONS.secondBase]
+              ? "eligiblePosition"
+              : "ineligiblePosition"
+          }`}
+          onClick={() =>
+            onTogglePlayerEligiblePositions(playerId, POSITIONS.secondBase)
+          }
+        >
+          2
+        </button>
+        <button
+          type="button"
+          className={`positionButton ${
+            eligiblePositions[POSITIONS.thirdBase]
+              ? "eligiblePosition"
+              : "ineligiblePosition"
+          }`}
+          onClick={() =>
+            onTogglePlayerEligiblePositions(playerId, POSITIONS.thirdBase)
+          }
+        >
+          3
+        </button>
+        <button
+          type="button"
+          className={`positionButton ${
+            eligiblePositions[POSITIONS.shortStop]
+              ? "eligiblePosition"
+              : "ineligiblePosition"
+          }`}
+          onClick={() =>
+            onTogglePlayerEligiblePositions(playerId, POSITIONS.shortStop)
+          }
+        >
+          S
+        </button>
+        <button
+          type="button"
+          className={`positionButton ${
+            eligiblePositions[POSITIONS.outfield]
+              ? "eligiblePosition"
+              : "ineligiblePosition"
+          }`}
+          onClick={() =>
+            onTogglePlayerEligiblePositions(playerId, POSITIONS.outfield)
+          }
+        >
+          O
+        </button>
       </div>
       <div className="column-wrapper">
         <button

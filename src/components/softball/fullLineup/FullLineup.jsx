@@ -101,7 +101,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.leftField)?.firstName}
+                {getPlayerById(lineup.outfield1)?.firstName}
               </td>
             ))}
           </tr>
@@ -111,7 +111,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.centerField)?.firstName}
+                {getPlayerById(lineup.outfield2)?.firstName}
               </td>
             ))}
           </tr>
@@ -121,7 +121,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.rightField)?.firstName}
+                {getPlayerById(lineup.outfield3)?.firstName}
               </td>
             ))}
           </tr>
@@ -131,7 +131,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.rover)?.firstName}
+                {getPlayerById(lineup.outfield4)?.firstName}
               </td>
             ))}
           </tr>

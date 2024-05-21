@@ -1,3 +1,44 @@
+import _ from "lodash";
+
+export const emptyLineup = {
+  pitcher: undefined,
+  catcher: undefined,
+  shortStop: undefined,
+  firstBase: undefined,
+  secondBase: undefined,
+  thirdBase: undefined,
+  outfield1: undefined,
+  outfield2: undefined,
+  outfield3: undefined,
+  outfield4: undefined,
+};
+
+export const POSITIONS = {
+  pitcher: "pitcher",
+  catcher: "catcher",
+  firstBase: "firstBase",
+  secondBase: "secondBase",
+  thirdBase: "thirdBase",
+  shortStop: "shortStop",
+  outfield1: "outfield1",
+  outfield2: "outfield2",
+  outfield3: "outfield3",
+  outfield4: "outfield4",
+  bench: "bench",
+  outfield: "outfield",
+  any: "any",
+};
+
+const initialEligiblePositions = {
+  [POSITIONS.pitcher]: true,
+  [POSITIONS.catcher]: true,
+  [POSITIONS.firstBase]: true,
+  [POSITIONS.secondBase]: true,
+  [POSITIONS.thirdBase]: true,
+  [POSITIONS.shortStop]: true,
+  [POSITIONS.outfield]: true,
+};
+
 export const Players = {
   blakeShaw: {
     name: "Blake Shaw",
@@ -5,6 +46,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   brysonAhlstedt: {
     name: "Bryson Ahlstedt",
@@ -12,6 +54,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   carterBrooks: {
     name: "Carter Brooks",
@@ -19,6 +62,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   jackVautour: {
     name: "Jack Vautour",
@@ -26,6 +70,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   jasonMacPhearson: {
     name: "Jason MacPhearson",
@@ -33,6 +78,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   johnStewart: {
     name: "John Stewart",
@@ -40,6 +86,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   matthewShortt: {
     name: "Matthew Shortt",
@@ -47,6 +94,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   michaelBoyd: {
     name: "Michael Boyd",
@@ -54,6 +102,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   ostopMostowy: {
     name: "Ostop Mostowy",
@@ -61,6 +110,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   philPavilich: {
     name: "Phil Pavilich",
@@ -68,6 +118,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   ronanWeir: {
     name: "Ronan Weir",
@@ -75,6 +126,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   ryanShortt: {
     name: "Ryan Shortt",
@@ -82,6 +134,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   spencerDobbs: {
     name: "Spencer Dobbs",
@@ -89,6 +142,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   tylerVerbanac: {
     name: "Tyler Verbanac",
@@ -96,6 +150,7 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
   zachCowan: {
     name: "Zach Cowan",
@@ -103,32 +158,38 @@ export const Players = {
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
+    eligiblePositions: _.cloneDeep(initialEligiblePositions),
   },
 };
 
-export const Positions = [
-  { label: "Pitcher", id: "pitcher" },
-  { label: "Catcher", id: "catcher" },
-  { label: "Short Stop", id: "shortStop" },
-  { label: "First Base", id: "firstBase" },
-  { label: "Second Base", id: "secondBase" },
-  { label: "Third Base", id: "thirdBase" },
-  { label: "Outfield", id: "leftField" },
-  { label: "Outfield", id: "centerField" },
-  { label: "Outfield", id: "rightField" },
-  { label: "Outfield", id: "rover" },
+export const LockedPositionsOptions = [
+  { label: "Any", id: POSITIONS.any },
+  { label: "Pitcher", id: POSITIONS.pitcher },
+  { label: "Catcher", id: POSITIONS.catcher },
+  { label: "Short Stop", id: POSITIONS.shortStop },
+  { label: "First Base", id: POSITIONS.firstBase },
+  { label: "Second Base", id: POSITIONS.secondBase },
+  { label: "Third Base", id: POSITIONS.thirdBase },
+  { label: "Outfield", id: POSITIONS.outfield },
 ];
 
 export const PositionIdToLabelMap = {
-  pitcher: "Pitcher",
-  catcher: "Catcher",
-  firstBase: "1B",
-  secondBase: "2B",
-  thirdBase: "3B",
-  shortStop: "SS",
-  leftField: "OF",
-  rightField: "OF",
-  centerField: "OF",
-  rover: "OF",
-  bench: "",
+  [POSITIONS.pitcher]: "Pitcher",
+  [POSITIONS.catcher]: "Catcher",
+  [POSITIONS.firstBase]: "1B",
+  [POSITIONS.secondBase]: "2B",
+  [POSITIONS.thirdBase]: "2B",
+  [POSITIONS.shortStop]: "SS",
+  [POSITIONS.outfield1]: "OF",
+  [POSITIONS.outfield2]: "OF",
+  [POSITIONS.outfield3]: "OF",
+  [POSITIONS.outfield4]: "OF",
+  [POSITIONS.bench]: "",
 };
+
+export const OutfieldPositions = [
+  POSITIONS.outfield1,
+  POSITIONS.outfield2,
+  POSITIONS.outfield3,
+  POSITIONS.outfield4,
+];

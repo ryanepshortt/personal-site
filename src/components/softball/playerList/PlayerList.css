@@ -5,7 +5,7 @@
 .header-row {
   margin-bottom: 10px;
   display: grid;
-  grid-template-columns: 12px 106px 30px 30px 30px 100px 25px;
+  grid-template-columns: 12px 106px 30px 30px 30px 90px 25px;
   gap: 6px;
   border-bottom: 1px solid black;
 }
@@ -29,7 +29,7 @@
 .player-list-row {
   margin-bottom: 10px;
   display: grid;
-  grid-template-columns: 12px 106px 30px 30px 30px 100px 25px;
+  grid-template-columns: 12px 106px 30px 30px 30px 90px 25px;
   gap: 6px;
   font-size: 12px;
   height: 30px;
@@ -77,4 +77,22 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.positions-wrapper {
+  justify-content: flex-start !important;
+  gap: 3px;
+}
+
+.positionButton {
+  all: unset;
+  font-weight: bold;
+}
+
+.eligiblePosition {
+  color: green;
+}
+
+.ineligiblePosition {
+  color: red;
 }
