@@ -6,7 +6,7 @@ function Controls() {
   const {
     generateFullGameLineup,
     options,
-    onShouldSwitchPitcherChange,
+    onPitcherInningsChange,
     onInningsChange,
     onGamesChange,
   } = useContext(SoftballContext);
@@ -14,17 +14,6 @@ function Controls() {
   return (
     <div>
       <div className="options-section">
-        <div className="locked-postion">
-          <label htmlFor="should-switch-pitcher">
-            Switch randomized pitcher each inning:{"  "}
-            <input
-              type="checkbox"
-              value={options.shouldSwitchPitcher}
-              onChange={onShouldSwitchPitcherChange}
-              id="should-switch-pitcher"
-            />
-          </label>
-        </div>
         <div className="innings">
           <label htmlFor="innings">
             Innings:{"  "}
@@ -44,6 +33,17 @@ function Controls() {
               value={options.games}
               onChange={onGamesChange}
               id="games"
+            />
+          </label>
+        </div>
+        <div className="innings">
+          <label htmlFor="pitcherInnings">
+            Innings Per Pitcher:{"  "}
+            <input
+              type="number"
+              value={options.pitcherInnings}
+              onChange={onPitcherInningsChange}
+              id="pitcherInnings"
             />
           </label>
         </div>

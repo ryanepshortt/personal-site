@@ -182,37 +182,43 @@ const setPositionWithReplacement = (lineupContext, positionId) => {
   return newContext;
 };
 
-export const generateLineup = (playerList, opts, previousLineup) => {
+export const generateLineup = (oldContext) => {
   /*
     ACTUAL FUNCTION HERE
   */
   let lineupContext = {
-    options: opts,
+    options: oldContext.options,
     lineup: _.cloneDeep(emptyLineup),
-    playerList: _.cloneDeep(playerList),
-    availablePlayers: _.cloneDeep(playerList),
+    playerList: _.cloneDeep(oldContext.playerList),
+    availablePlayers: _.cloneDeep(oldContext.playerList),
     replaceablePlayersFromBench: [],
+    games: _.cloneDeep(oldContext.games),
+    previousLineup: oldContext.lineup,
+    inningsLeftForPitcher: oldContext?.inningsLeftForPitcher,
   };
 
   // PITCHER Logic - set pitcher from previous inning
-  if (
-    !lineupContext.options.shouldSwitchPitcher &&
-    previousLineup?.pitcher !== undefined
-  ) {
-    lineupContext.lineup.pitcher = previousLineup.pitcher;
+  const shouldReusePitcher =
+    lineupContext.previousLineup?.pitcher !== undefined &&
+    lineupContext?.inningsLeftForPitcher > 0;
+  if (shouldReusePitcher) {
+    lineupContext.lineup.pitcher = lineupContext.previousLineup.pitcher;
     delete lineupContext.availablePlayers[lineupContext.lineup.pitcher];
+    // eslint-disable-next-line
+    lineupContext.inningsLeftForPitcher = lineupContext.inningsLeftForPitcher - 1;
   }
-
   // BENCH
   lineupContext = generateBench(lineupContext);
 
   // PITCHER Logic For Randomizing Each Inning
-  if (!lineupContext.lineup.pitcher) {
+  if (!shouldReusePitcher) {
     lineupContext = setDistributedPositionWithBenchReplacement(
       POSITIONS.pitcher,
       "hasPitched",
       lineupContext,
     );
+    lineupContext.inningsLeftForPitcher =
+      lineupContext.options.pitcherInnings - 1;
   }
 
   // CATCHER Logic
@@ -227,7 +233,7 @@ export const generateLineup = (playerList, opts, previousLineup) => {
     lineupContext = setPositionWithReplacement(lineupContext, position);
   });
 
-  return [lineupContext.lineup, lineupContext.playerList];
+  return lineupContext;
 };
 
 export default generateLineup;
