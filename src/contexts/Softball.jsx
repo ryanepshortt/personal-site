@@ -82,21 +82,21 @@ function SoftballProvider({ children }) {
   const onInningsChange = useCallback((e) => {
     setOptions((currentOptions) => ({
       ...currentOptions,
-      innings: parseInt(e.target.value, 10),
+      innings: parseInt(e.target.value, 10) || 0,
     }));
   }, []);
 
   const onGamesChange = useCallback((e) => {
     setOptions((currentOptions) => ({
       ...currentOptions,
-      games: parseInt(e.target.value, 10),
+      games: parseInt(e.target.value, 10) || 0,
     }));
   }, []);
 
   const onPitcherInningsChange = useCallback((e) => {
     setOptions((currentOptions) => ({
       ...currentOptions,
-      pitcherInnings: parseInt(e.target.value, 10),
+      pitcherInnings: parseInt(e.target.value, 10) || 0,
     }));
   }, []);
 

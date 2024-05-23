@@ -25,7 +25,7 @@ const generateBench = (lineupContext) => {
   const replaceablePlayersFromBench = [];
   if (benchPlayersRequired > 0) {
     playersThatHaveNotSat = availablePlayerIds.filter(
-      (pid) => !newContext.availablePlayers[pid].hasSat,
+      (pid) => !newContext.playerList[pid].hasSat,
     );
     if (benchPlayersRequired >= playersThatHaveNotSat.length) {
       // remove the bench players from available players
@@ -70,7 +70,7 @@ const setDistributedPositionWithBenchReplacement = (
     positionId,
   );
   let allEligibleAndPlayersThatHaveNotPlayed = allEligiblePlayers.filter(
-    (pid) => !newContext.availablePlayers[pid][key],
+    (pid) => !newContext.playerList[pid][key],
   );
   if (allEligibleAndPlayersThatHaveNotPlayed.length === 0) {
     const eligibleReplacementFromBench =
@@ -81,7 +81,7 @@ const setDistributedPositionWithBenchReplacement = (
       );
     const eligibleReplacementToBench = [
       ...Object.keys(newContext.availablePlayers),
-    ]?.find((pid) => !newContext.availablePlayers[pid].hasSat);
+    ]?.find((pid) => !newContext.playerList[pid].hasSat);
     if (eligibleReplacementFromBench && eligibleReplacementToBench) {
       newContext.lineup[positionId] = eligibleReplacementFromBench;
       newContext.lineup.bench[
@@ -121,10 +121,9 @@ const setPositionWithReplacement = (lineupContext, positionId) => {
     return lineupContext;
   }
   const newContext = _.cloneDeep(lineupContext);
-  const eligiblePositionId = getEligiblePositionKey(positionId);
   const eligiblePlayersForPosition = getEligiblePlayerIdsForPosition(
     newContext.availablePlayers,
-    eligiblePositionId,
+    positionId,
   );
   if (eligiblePlayersForPosition.length > 0) {
     // ELIGIBLE PLAYER WITHOUT REPLACEMENT
@@ -152,40 +151,75 @@ const setPositionWithReplacement = (lineupContext, positionId) => {
       newContext.lineup[pos].forEach((playerId) => {
         playerToPositionMap[playerId] = POSITIONS.bench;
       });
+      positionEligibilityMap[pos] = [
+        ...Object.keys(newContext.availablePlayers),
+      ].filter((playerId) => !newContext.playerList[playerId].hasSat);
     } else {
       playerToPositionMap[newContext.lineup[pos]] = pos;
       positionEligibilityMap[pos] = getEligiblePlayerIdsForPosition(
         newContext.availablePlayers,
         pos,
       );
+      if (pos === POSITIONS.pitcher || pos === POSITIONS.catcher) {
+        positionEligibilityMap[pos] = positionEligibilityMap[pos].filter(
+          (playerId) =>
+            !newContext.playerList[playerId][
+              pos === POSITIONS.pitcher ? "hasPitched" : "hasCaught"
+            ],
+        );
+      }
     }
   });
-  eligiblePlayers.some((potentialReplacement) => {
-    const playersPosition = playerToPositionMap[potentialReplacement];
-    if (
-      playersPosition === POSITIONS.pitcher ||
-      playersPosition === POSITIONS.catcher ||
-      playersPosition === POSITIONS.bench
-    ) {
-      // TODO BUILD OUT SWAPPING FOR CATCHER AND BENCH
+  const foundSwap = eligiblePlayers.some((eligiblePlayer) => {
+    const eligiblePlayerCurrentPos = playerToPositionMap[eligiblePlayer];
+    const subsForEligiblePlayer =
+      positionEligibilityMap[eligiblePlayerCurrentPos];
+
+    if (subsForEligiblePlayer?.length === 0) {
       return false;
     }
-    const availableSubstitutes = positionEligibilityMap[playersPosition];
-    if (availableSubstitutes?.length > 0) {
-      // eslint-disable-next-line
-      newContext.lineup[playersPosition] = availableSubstitutes[0];
-      newContext.lineup[positionId] = potentialReplacement;
-      return true;
+    if (
+      eligiblePlayerCurrentPos === POSITIONS.bench ||
+      eligiblePlayerCurrentPos === POSITIONS.pitcher
+    ) {
+      return false;
     }
-    return false;
+    if (eligiblePlayerCurrentPos === POSITIONS.catcher) {
+      return subsForEligiblePlayer.some((pid) => {
+        if (newContext.playerList[pid].hasCaught) {
+          return false;
+        }
+        newContext.playerList[pid].hasCaught = true;
+        newContext.playerList[eligiblePlayer].hasCaught = false;
+        newContext.lineup[eligiblePlayerCurrentPos] = pid;
+        newContext.lineup[positionId] = eligiblePlayer;
+        delete newContext.availablePlayers[pid];
+        return true;
+      });
+    }
+    // eslint-disable-next-line
+    const availableSubForEligiblePlayer = subsForEligiblePlayer[0];
+    newContext.lineup[eligiblePlayerCurrentPos] = availableSubForEligiblePlayer;
+    newContext.lineup[positionId] = eligiblePlayer;
+    delete newContext.availablePlayers[availableSubForEligiblePlayer];
+    return true;
   });
+  if (!foundSwap) {
+    const playerId = _.sample(Object.keys(newContext.availablePlayers));
+    newContext.lineup[positionId] = playerId;
+    delete newContext.availablePlayers[playerId];
+  }
   return newContext;
 };
 
+/*
+  
+  
+  ACTUAL FUNCTION
+
+
+*/
 export const generateLineup = (oldContext) => {
-  /*
-    ACTUAL FUNCTION HERE
-  */
   let lineupContext = {
     options: oldContext.options,
     lineup: _.cloneDeep(emptyLineup),
