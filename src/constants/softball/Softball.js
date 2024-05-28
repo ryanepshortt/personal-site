@@ -178,7 +178,7 @@ export const PositionIdToLabelMap = {
   [POSITIONS.catcher]: "Catcher",
   [POSITIONS.firstBase]: "1B",
   [POSITIONS.secondBase]: "2B",
-  [POSITIONS.thirdBase]: "2B",
+  [POSITIONS.thirdBase]: "3B",
   [POSITIONS.shortStop]: "SS",
   [POSITIONS.outfield1]: "OF",
   [POSITIONS.outfield2]: "OF",
