@@ -111,7 +111,7 @@ function PlayerList() {
           <button
             type="button"
             className={`positionButton ${
-              secondFlip ? "ineligiblePosition" : "eligiblePosition"
+              thirdFlip ? "ineligiblePosition" : "eligiblePosition"
             }`}
             onClick={onThirdFlip}
           >
@@ -120,7 +120,7 @@ function PlayerList() {
           <button
             type="button"
             className={`positionButton ${
-              secondFlip ? "ineligiblePosition" : "eligiblePosition"
+              ssFlip ? "ineligiblePosition" : "eligiblePosition"
             }`}
             onClick={onSsFlip}
           >
@@ -129,7 +129,7 @@ function PlayerList() {
           <button
             type="button"
             className={`positionButton ${
-              secondFlip ? "ineligiblePosition" : "eligiblePosition"
+              oFlip ? "ineligiblePosition" : "eligiblePosition"
             }`}
             onClick={onOFlip}
           >

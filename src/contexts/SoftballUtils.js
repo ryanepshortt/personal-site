@@ -239,7 +239,16 @@ export const generateLineup = (oldContext) => {
     lineupContext.lineup.pitcher = lineupContext.previousLineup.pitcher;
     delete lineupContext.availablePlayers[lineupContext.lineup.pitcher];
     // eslint-disable-next-line
-    lineupContext.inningsLeftForPitcher = lineupContext.inningsLeftForPitcher - 1;
+    lineupContext.inningsLeftForPitcher =
+      lineupContext.inningsLeftForPitcher - 1;
+  }
+
+  const shouldSetCatcher =
+    !lineupContext.options.shouldReuseCatcher ||
+    lineupContext?.previousLineup?.catcher === undefined;
+  if (!shouldSetCatcher) {
+    lineupContext.lineup.catcher = lineupContext.previousLineup.catcher;
+    delete lineupContext.availablePlayers[lineupContext.lineup.catcher];
   }
   // BENCH
   lineupContext = generateBench(lineupContext);
@@ -256,11 +265,13 @@ export const generateLineup = (oldContext) => {
   }
 
   // CATCHER Logic
-  lineupContext = setDistributedPositionWithBenchReplacement(
-    POSITIONS.catcher,
-    "hasCaught",
-    lineupContext,
-  );
+  if (shouldSetCatcher) {
+    lineupContext = setDistributedPositionWithBenchReplacement(
+      POSITIONS.catcher,
+      "hasCaught",
+      lineupContext,
+    );
+  }
 
   // Remaining Randomized Position Logic
   Object.keys(lineupContext.lineup).forEach((position) => {

@@ -10,6 +10,7 @@ const initialoptions = {
   innings: 7,
   games: 2,
   pitcherInnings: 3,
+  shouldReuseCatcher: true,
 };
 
 const initialState = {
