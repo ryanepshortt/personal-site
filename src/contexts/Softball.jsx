@@ -82,23 +82,46 @@ function SoftballProvider({ children }) {
   const onInningsChange = useCallback((e) => {
     setOptions((currentOptions) => ({
       ...currentOptions,
-      innings: parseInt(e.target.value, 10) || 0,
+      innings: parseInt(e.target.value, 10) || "",
     }));
   }, []);
 
   const onGamesChange = useCallback((e) => {
     setOptions((currentOptions) => ({
       ...currentOptions,
-      games: parseInt(e.target.value, 10) || 0,
+      games: parseInt(e.target.value, 10) || "",
     }));
   }, []);
 
   const onPitcherInningsChange = useCallback((e) => {
     setOptions((currentOptions) => ({
       ...currentOptions,
-      pitcherInnings: parseInt(e.target.value, 10) || 0,
+      pitcherInnings: parseInt(e.target.value, 10) || "",
     }));
   }, []);
+
+  const getPositionFromLineupForPlayer = (lineup, playerId) => {
+    return PositionIdToLabelMap[
+      Object.keys(lineup).find((positionId) =>
+        positionId === POSITIONS.bench
+          ? lineup[positionId].includes(playerId)
+          : lineup[positionId] === playerId,
+      )
+    ];
+  };
+
+  const flipAllFields = (key, value) => {
+    setPlayers((currentPlayers) => {
+      const newPlayers = { ...currentPlayers };
+      Object.keys(newPlayers).forEach((playerKey) => {
+        newPlayers[playerKey] = {
+          ...newPlayers[playerKey],
+          [key]: value,
+        };
+      });
+      return newPlayers;
+    });
+  };
 
   const removePlayerById = (id) => {
     setPlayers((currentPlayers) => {
@@ -126,29 +149,6 @@ function SoftballProvider({ children }) {
     }
     setPlayers(context.playerList);
     setFullGameLineup(context.games);
-  };
-
-  const getPositionFromLineupForPlayer = (lineup, playerId) => {
-    return PositionIdToLabelMap[
-      Object.keys(lineup).find((positionId) =>
-        positionId === POSITIONS.bench
-          ? lineup[positionId].includes(playerId)
-          : lineup[positionId] === playerId,
-      )
-    ];
-  };
-
-  const flipAllFields = (key, value) => {
-    setPlayers((currentPlayers) => {
-      const newPlayers = { ...currentPlayers };
-      Object.keys(newPlayers).forEach((playerKey) => {
-        newPlayers[playerKey] = {
-          ...newPlayers[playerKey],
-          [key]: value,
-        };
-      });
-      return newPlayers;
-    });
   };
 
   const contextValue = useMemo(
