@@ -10,7 +10,7 @@ const initialoptions = {
   innings: 7,
   games: 2,
   pitcherInnings: 3,
-  shouldReuseCatcher: true,
+  shouldReuseCatcher: false,
 };
 
 const initialState = {
@@ -101,6 +101,13 @@ function SoftballProvider({ children }) {
     }));
   }, []);
 
+  const onShouldReuseCatcherChange = useCallback(() => {
+    setOptions((currentOptions) => ({
+      ...currentOptions,
+      shouldReuseCatcher: !currentOptions.shouldReuseCatcher,
+    }));
+  }, []);
+
   const getPositionFromLineupForPlayer = (lineup, playerId) => {
     return PositionIdToLabelMap[
       Object.keys(lineup).find((positionId) =>
@@ -188,6 +195,7 @@ function SoftballProvider({ children }) {
       getPositionFromLineupForPlayer,
       flipAllFields,
       flipAllEligiblePositions,
+      onShouldReuseCatcherChange,
     }),
     [players, fullGameLineup, options, generateFullGameLineup],
   );

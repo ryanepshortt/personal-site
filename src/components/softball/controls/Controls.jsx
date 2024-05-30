@@ -9,6 +9,7 @@ function Controls() {
     onPitcherInningsChange,
     onInningsChange,
     onGamesChange,
+    onShouldReuseCatcherChange,
   } = useContext(SoftballContext);
 
   return (
@@ -44,6 +45,17 @@ function Controls() {
               value={options.pitcherInnings}
               onChange={onPitcherInningsChange}
               id="pitcherInnings"
+            />
+          </label>
+        </div>
+        <div className="innings">
+          <label htmlFor="shouldReuseCatcher">
+            Should Have A Single Catcher:{"  "}
+            <input
+              type="checkbox"
+              checked={options.shouldReuseCatcher}
+              onChange={onShouldReuseCatcherChange}
+              id="shouldReuseCatcher"
             />
           </label>
         </div>
