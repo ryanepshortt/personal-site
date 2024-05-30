@@ -123,6 +123,22 @@ function SoftballProvider({ children }) {
     });
   };
 
+  const flipAllEligiblePositions = (positionId, value) => {
+    setPlayers((currentPlayers) => {
+      const newPlayers = { ...currentPlayers };
+      Object.keys(newPlayers).forEach((playerKey) => {
+        newPlayers[playerKey] = {
+          ...newPlayers[playerKey],
+          eligiblePositions: {
+            ...newPlayers[playerKey].eligiblePositions,
+            [positionId]: value,
+          },
+        };
+      });
+      return newPlayers;
+    });
+  };
+
   const removePlayerById = (id) => {
     setPlayers((currentPlayers) => {
       const newPlayers = { ...currentPlayers };
@@ -170,6 +186,7 @@ function SoftballProvider({ children }) {
       generateFullGameLineup,
       getPositionFromLineupForPlayer,
       flipAllFields,
+      flipAllEligiblePositions,
     }),
     [players, fullGameLineup, options, generateFullGameLineup],
   );
