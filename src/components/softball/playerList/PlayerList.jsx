@@ -22,40 +22,27 @@ function PlayerList() {
     flipAllFields("hasCaught", caughtFlip);
     setCaughtFlip(!caughtFlip);
   };
-  const [pitcherFlip, setPitcherFlip] = useState(false);
+
   const onPitcherFlip = () => {
-    flipAllEligiblePositions(POSITIONS.pitcher, pitcherFlip);
-    setPitcherFlip(!pitcherFlip);
+    flipAllEligiblePositions(POSITIONS.pitcher);
   };
-  const [catcherFlip, setCatcherFlip] = useState(false);
   const onCatcherFlip = () => {
-    flipAllEligiblePositions(POSITIONS.catcher, catcherFlip);
-    setCatcherFlip(!catcherFlip);
+    flipAllEligiblePositions(POSITIONS.catcher);
   };
-  const [firstFlip, setFirstFlip] = useState(false);
   const onFirstFlip = () => {
-    flipAllEligiblePositions(POSITIONS.firstBase, firstFlip);
-    setFirstFlip(!firstFlip);
+    flipAllEligiblePositions(POSITIONS.firstBase);
   };
-  const [secondFlip, setSecondFlip] = useState(false);
   const onSecondFlip = () => {
-    flipAllEligiblePositions(POSITIONS.secondBase, secondFlip);
-    setSecondFlip(!secondFlip);
+    flipAllEligiblePositions(POSITIONS.secondBase);
   };
-  const [thirdFlip, setThirdFlip] = useState(false);
   const onThirdFlip = () => {
-    flipAllEligiblePositions(POSITIONS.thirdBase, thirdFlip);
-    setThirdFlip(!thirdFlip);
+    flipAllEligiblePositions(POSITIONS.thirdBase);
   };
-  const [ssFlip, setSsFlip] = useState(false);
   const onSsFlip = () => {
-    flipAllEligiblePositions(POSITIONS.shortStop, ssFlip);
-    setSsFlip(!ssFlip);
+    flipAllEligiblePositions(POSITIONS.shortStop);
   };
-  const [oFlip, setOFlip] = useState(false);
   const onOFlip = () => {
-    flipAllEligiblePositions(POSITIONS.outfield, oFlip);
-    setOFlip(!oFlip);
+    flipAllEligiblePositions(POSITIONS.outfield);
   };
   return (
     <div className="list-wrapper">
@@ -74,63 +61,49 @@ function PlayerList() {
         <div className="positions-wrapper-header">
           <button
             type="button"
-            className={`positionButton ${
-              pitcherFlip ? "ineligiblePosition" : "eligiblePosition"
-            }`}
+            className="positionButton eligiblePosition"
             onClick={onPitcherFlip}
           >
             P
           </button>
           <button
             type="button"
-            className={`positionButton ${
-              catcherFlip ? "ineligiblePosition" : "eligiblePosition"
-            }`}
+            className="positionButton eligiblePosition"
             onClick={onCatcherFlip}
           >
             C
           </button>
           <button
             type="button"
-            className={`positionButton ${
-              firstFlip ? "ineligiblePosition" : "eligiblePosition"
-            }`}
+            className="positionButton eligiblePosition"
             onClick={onFirstFlip}
           >
             1
           </button>
           <button
             type="button"
-            className={`positionButton ${
-              secondFlip ? "ineligiblePosition" : "eligiblePosition"
-            }`}
+            className="positionButton eligiblePosition"
             onClick={onSecondFlip}
           >
             2
           </button>
           <button
             type="button"
-            className={`positionButton ${
-              thirdFlip ? "ineligiblePosition" : "eligiblePosition"
-            }`}
+            className="positionButton eligiblePosition"
             onClick={onThirdFlip}
           >
             3
           </button>
           <button
             type="button"
-            className={`positionButton ${
-              ssFlip ? "ineligiblePosition" : "eligiblePosition"
-            }`}
+            className="positionButton eligiblePosition"
             onClick={onSsFlip}
           >
             S
           </button>
           <button
             type="button"
-            className={`positionButton ${
-              oFlip ? "ineligiblePosition" : "eligiblePosition"
-            }`}
+            className="positionButton eligiblePosition"
             onClick={onOFlip}
           >
             O

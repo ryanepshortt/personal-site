@@ -156,7 +156,8 @@ function FullLineup() {
             return (
               <tr key={playerId}>
                 <th scope="row" className="first-column">
-                  {player.firstName}
+                  {player.firstName}{" "}
+                  <span className="jersey-num">{player.jerseyNum}</span>
                 </th>
                 {game.map((lineup) => (
                   <td key={JSON.stringify(lineup)}>

@@ -131,7 +131,7 @@ function SoftballProvider({ children }) {
     });
   };
 
-  const flipAllEligiblePositions = (positionId, value) => {
+  const flipAllEligiblePositions = (positionId) => {
     setPlayers((currentPlayers) => {
       const newPlayers = { ...currentPlayers };
       Object.keys(newPlayers).forEach((playerKey) => {
@@ -139,7 +139,7 @@ function SoftballProvider({ children }) {
           ...newPlayers[playerKey],
           eligiblePositions: {
             ...newPlayers[playerKey].eligiblePositions,
-            [positionId]: value,
+            [positionId]: !newPlayers[playerKey].eligiblePositions[positionId],
           },
         };
       });

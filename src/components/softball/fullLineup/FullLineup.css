@@ -35,3 +35,8 @@ td {
   text-align: center;
   min-width: 40px;
 }
+
+.jersey-num {
+  font-size: 6px;
+  color: #555555;
+}

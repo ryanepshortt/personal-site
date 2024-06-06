@@ -43,6 +43,7 @@ export const Players = {
   blakeShaw: {
     name: "Blake Shaw",
     firstName: "Blake",
+    jerseyNum: 26,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -51,6 +52,7 @@ export const Players = {
   brysonAhlstedt: {
     name: "Bryson Ahlstedt",
     firstName: "Bryson",
+    jerseyNum: 24,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -59,6 +61,7 @@ export const Players = {
   carterBrooks: {
     name: "Carter Brooks",
     firstName: "Carter",
+    jerseyNum: 17,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -67,6 +70,7 @@ export const Players = {
   jackVautour: {
     name: "Jack Vautour",
     firstName: "Jack",
+    jerseyNum: 22,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -75,6 +79,7 @@ export const Players = {
   jasonMacPhearson: {
     name: "Jason MacPhearson",
     firstName: "Jason",
+    jerseyNum: 8,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -83,6 +88,7 @@ export const Players = {
   johnStewart: {
     name: "John Stewart",
     firstName: "John",
+    jerseyNum: 4,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -91,6 +97,7 @@ export const Players = {
   matthewShortt: {
     name: "Matthew Shortt",
     firstName: "Matthew",
+    jerseyNum: 48,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -99,6 +106,7 @@ export const Players = {
   michaelBoyd: {
     name: "Michael Boyd",
     firstName: "Michael",
+    jerseyNum: 28,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -107,6 +115,7 @@ export const Players = {
   ostopMostowy: {
     name: "Ostop Mostowy",
     firstName: "Ostop",
+    jerseyNum: 9,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -115,6 +124,7 @@ export const Players = {
   philPavilich: {
     name: "Phil Pavilich",
     firstName: "Phil",
+    jerseyNum: 11,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -123,6 +133,7 @@ export const Players = {
   ronanWeir: {
     name: "Ronan Weir",
     firstName: "Ronan",
+    jerseyNum: 59,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -131,6 +142,7 @@ export const Players = {
   ryanShortt: {
     name: "Ryan Shortt",
     firstName: "Ryan",
+    jerseyNum: 73,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -139,6 +151,7 @@ export const Players = {
   spencerDobbs: {
     name: "Spencer Dobbs",
     firstName: "Spencer",
+    jerseyNum: 19,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -147,6 +160,7 @@ export const Players = {
   tylerVerbanac: {
     name: "Tyler Verbanac",
     firstName: "Tyler",
+    jerseyNum: 27,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
@@ -155,6 +169,7 @@ export const Players = {
   zachCowan: {
     name: "Zach Cowan",
     firstName: "Zach",
+    jerseyNum: 23,
     hasPitched: false,
     hasSat: false,
     hasCaught: false,
