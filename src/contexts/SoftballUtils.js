@@ -282,3 +282,5 @@ export const generateLineup = (oldContext) => {
 };
 
 export default generateLineup;
+
+export const getFirstName = (player) => player.name.split(" ")[0];

@@ -56,6 +56,16 @@ function SoftballProvider({ children }) {
     }));
   }, []);
 
+  const onPlayerNameChange = useCallback((id, e) => {
+    setPlayers((currentPlayers) => ({
+      ...currentPlayers,
+      [id]: {
+        ...currentPlayers[id],
+        name: e.target.value,
+      },
+    }));
+  }, []);
+
   const onTogglePlayerEligiblePositions = useCallback(
     (playerId, positionId) => {
       setPlayers((currentPlayers) => ({
@@ -196,6 +206,7 @@ function SoftballProvider({ children }) {
       flipAllFields,
       flipAllEligiblePositions,
       onShouldReuseCatcherChange,
+      onPlayerNameChange,
     }),
     [players, fullGameLineup, options, generateFullGameLineup],
   );

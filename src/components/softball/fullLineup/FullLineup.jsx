@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import SoftballContext from "../../../contexts/Softball";
+import { getFirstName } from "../../../contexts/SoftballUtils";
 import "./FullLineup.css";
 
 function nth(n) {
@@ -41,7 +42,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.pitcher)?.firstName}
+                {getFirstName(getPlayerById(lineup.pitcher))}
               </td>
             ))}
           </tr>
@@ -51,7 +52,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.catcher)?.firstName}
+                {getFirstName(getPlayerById(lineup.catcher))}
               </td>
             ))}
           </tr>
@@ -61,7 +62,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.firstBase)?.firstName}
+                {getFirstName(getPlayerById(lineup.firstBase))}
               </td>
             ))}
           </tr>
@@ -71,7 +72,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.secondBase)?.firstName}
+                {getFirstName(getPlayerById(lineup.secondBase))}
               </td>
             ))}
           </tr>
@@ -81,7 +82,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.thirdBase)?.firstName}
+                {getFirstName(getPlayerById(lineup.thirdBase))}
               </td>
             ))}
           </tr>
@@ -91,7 +92,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.shortStop)?.firstName}
+                {getFirstName(getPlayerById(lineup.shortStop))}
               </td>
             ))}
           </tr>
@@ -101,7 +102,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.outfield1)?.firstName}
+                {getFirstName(getPlayerById(lineup.outfield1))}
               </td>
             ))}
           </tr>
@@ -111,7 +112,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.outfield2)?.firstName}
+                {getFirstName(getPlayerById(lineup.outfield2))}
               </td>
             ))}
           </tr>
@@ -121,7 +122,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.outfield3)?.firstName}
+                {getFirstName(getPlayerById(lineup.outfield3))}
               </td>
             ))}
           </tr>
@@ -131,7 +132,7 @@ function FullLineup() {
             </th>
             {game.map((lineup) => (
               <td key={JSON.stringify(lineup)}>
-                {getPlayerById(lineup.outfield4)?.firstName}
+                {getFirstName(getPlayerById(lineup.outfield4))}
               </td>
             ))}
           </tr>
@@ -156,7 +157,7 @@ function FullLineup() {
             return (
               <tr key={playerId}>
                 <th scope="row" className="first-column">
-                  {player.firstName}{" "}
+                  {getFirstName(player)}{" "}
                   <span className="jersey-num">{player.jerseyNum}</span>
                 </th>
                 {game.map((lineup) => (

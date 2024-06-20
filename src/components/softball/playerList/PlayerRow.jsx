@@ -11,6 +11,7 @@ function PlayerRow({ playerId, index }) {
     onPlayerHasSatChange,
     onPlayerHasCaughtChange,
     onTogglePlayerEligiblePositions,
+    onPlayerNameChange,
   } = useContext(SoftballContext);
   const { name, hasPitched, hasSat, hasCaught, eligiblePositions } =
     getPlayerById(playerId);
@@ -21,7 +22,12 @@ function PlayerRow({ playerId, index }) {
         <div className="player-number">{index}.</div>
       </div>
       <div className="column-wrapper-name">
-        <div className="player-name">{name}</div>
+        <input
+          className="player-name-input"
+          type="text"
+          value={name}
+          onChange={(e) => onPlayerNameChange(playerId, e)}
+        />
       </div>
       <div className="column-wrapper">
         <div className="checkbox-wrapper">

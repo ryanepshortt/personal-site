@@ -19,7 +19,8 @@
   font-size: 10px;
 }
 
-.player-name {
+.player-name-input {
+  border: none;
   font-size: 11px;
 }
 
