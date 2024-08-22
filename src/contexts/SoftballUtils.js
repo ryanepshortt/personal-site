@@ -107,7 +107,11 @@ const setDistributedPositionWithBenchReplacement = (
     }
   }
   if (!newContext.lineup[positionId]) {
-    const playerId = _.sample(allEligibleAndPlayersThatHaveNotPlayed);
+    const pool =
+      allEligibleAndPlayersThatHaveNotPlayed.length > 0
+        ? allEligibleAndPlayersThatHaveNotPlayed
+        : Object.keys(newContext.availablePlayers);
+    const playerId = _.sample(pool);
     delete newContext.availablePlayers[playerId];
     newContext.playerList[playerId][key] = true;
     newContext.lineup[positionId] = playerId;
@@ -243,6 +247,9 @@ export const generateLineup = (oldContext) => {
       lineupContext.inningsLeftForPitcher - 1;
   }
 
+  // BENCH
+  lineupContext = generateBench(lineupContext);
+
   const shouldSetCatcher =
     !lineupContext.options.shouldReuseCatcher ||
     lineupContext?.previousLineup?.catcher === undefined;
@@ -250,8 +257,6 @@ export const generateLineup = (oldContext) => {
     lineupContext.lineup.catcher = lineupContext.previousLineup.catcher;
     delete lineupContext.availablePlayers[lineupContext.lineup.catcher];
   }
-  // BENCH
-  lineupContext = generateBench(lineupContext);
 
   // PITCHER Logic For Randomizing Each Inning
   if (!shouldReusePitcher) {
