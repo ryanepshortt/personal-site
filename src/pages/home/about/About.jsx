@@ -8,6 +8,7 @@ import mcmasterImgWide from "../../../assets/avifs/mcmaster.avif";
 import mcmasterImgSmall from "../../../assets/avifs/mcMasterOrig.avif";
 import orium from "../../../assets/avifs/orium.avif";
 import wish from "../../../assets/avifs/wish.avif";
+import awn from "../../../assets/avifs/arcticwolf.avif";
 import ciena from "../../../assets/avifs/ciena.avif";
 import songImg from "../../../assets/avifs/ryanSong.avif";
 import pianoImg from "../../../assets/avifs/ryanPiano.avif";
@@ -59,9 +60,17 @@ function About() {
         />
       </div>
       <div
-        className="uk-child-width-1-3@m uk-text-center uk-grid-match"
+        className="uk-child-width-1-4@m uk-text-center uk-grid-match"
         data-uk-grid
       >
+        <ExperienceTile
+          imageSource={awn}
+          company="Arctic Wolf"
+          title="Senior Software Developer"
+          dates="Dec 2023 - Present"
+          size="small"
+          hasPadding
+        />
         <ExperienceTile
           imageSource={wish}
           company="Wish"
