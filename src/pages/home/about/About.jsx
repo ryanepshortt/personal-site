@@ -14,7 +14,6 @@ import wish from "../../../assets/avifs/wish.avif";
 import awn from "../../../assets/avifs/arcticwolf.avif";
 import ciena from "../../../assets/avifs/ciena.avif";
 import songImg from "../../../assets/avifs/ryanSong.avif";
-import pianoImg from "../../../assets/avifs/ryanPiano.avif";
 import golfImg from "../../../assets/avifs/ryanSwing.avif";
 
 const containerVariants = {
@@ -33,7 +32,6 @@ const itemVariants = {
 
 const MEDIA_THUMBNAILS = [
   { src: songImg, alt: "Singing thumbnail", label: "Singing", index: 1 },
-  { src: pianoImg, alt: "Piano thumbnail", label: "Piano", index: 2 },
   { src: golfImg, alt: "Golf thumbnail", label: "Golf", index: 3 },
 ];
 
@@ -114,19 +112,6 @@ function About() {
     >
       {/* ── HERO ── */}
       <motion.section variants={itemVariants} className="pt-4">
-        <div className="mb-3">
-          <span
-            className="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase px-3 py-1.5 rounded-full border"
-            style={{
-              color: "#a89cf0",
-              borderColor: "rgba(124,111,236,0.3)",
-              background: "rgba(124,111,236,0.08)",
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            Available for opportunities
-          </span>
-        </div>
         <h1
           className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6"
           style={{ color: theme.cardTitle }}
@@ -224,7 +209,7 @@ function About() {
         </div>
 
         {/* Thumbnail strip */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 gap-2">
           {MEDIA_THUMBNAILS.map(({ src, alt, label, index }) => (
             <button
               key={index}

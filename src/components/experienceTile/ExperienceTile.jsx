@@ -12,6 +12,7 @@ function ExperienceTile({
 }) {
   const { theme, isDark } = useContext(ThemeContext);
   const isSmall = size === "small";
+  const isBanner = !isSmall; // McMaster full-width banner style
 
   return (
     <motion.div
@@ -28,30 +29,46 @@ function ExperienceTile({
           : "0 1px 1px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.08)",
       }}
     >
-      {/* Image area */}
-      <div
-        className="w-full flex items-center justify-center"
-        style={{
-          // eslint-disable-next-line no-nested-ternary
-          padding: hasPadding ? (isSmall ? "20px" : "16px") : "0",
-          minHeight: isSmall ? "100px" : "160px",
-          background: isDark ? "rgba(0,0,0,0.2)" : "rgba(255,255,255,0.5)",
-        }}
-      >
-        <img
-          src={imageSource}
-          alt={`${company} logo`}
+      {isBanner ? (
+        // ── Full-width banner (McMaster) ──
+        <div className="w-full overflow-hidden" style={{ height: "200px" }}>
+          <img
+            src={imageSource}
+            alt={`${company}`}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+              display: "block",
+            }}
+          />
+        </div>
+      ) : (
+        // ── Small logo card (employers) ──
+        <div
+          className="w-full flex items-center justify-center"
           style={{
-            maxHeight: isSmall ? "56px" : "120px",
-            maxWidth: "100%",
-            objectFit: "contain",
+            padding: hasPadding ? "20px" : "0",
+            minHeight: "100px",
+            background: isDark ? "rgba(0,0,0,0.2)" : "rgba(255,255,255,0.5)",
           }}
-        />
-      </div>
+        >
+          <img
+            src={imageSource}
+            alt={`${company} logo`}
+            style={{
+              maxHeight: "56px",
+              maxWidth: "80%",
+              objectFit: "contain",
+            }}
+          />
+        </div>
+      )}
 
       {/* Info bar */}
       <div
-        className="px-3 py-2.5 border-t"
+        className="px-4 py-3 border-t"
         style={{
           borderColor: isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)",
           background: isDark ? "rgba(0,0,0,0.25)" : "rgba(255,255,255,0.6)",
@@ -61,7 +78,7 @@ function ExperienceTile({
         <p
           className="font-medium leading-tight mb-0.5"
           style={{
-            fontSize: isSmall ? "11px" : "13px",
+            fontSize: isSmall ? "11px" : "14px",
             color: theme.cardTitle,
           }}
         >
