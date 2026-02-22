@@ -10,10 +10,7 @@ import postgres from "../../assets/avifs/postgres.avif";
 import prisma from "../../assets/avifs/prisma.avif";
 
 export default {
-  titleInfo: {
-    title: "Receta",
-    href: "https://receta.vercel.app",
-  },
+  titleInfo: { title: "Receta", href: "https://receta.vercel.app" },
   body: () => (
     <>
       <p>
@@ -30,54 +27,31 @@ export default {
       </p>
       <p>
         Check out the{" "}
-        <a href="https://receta.vercel.app" target="_blank">
+        <a href="https://receta.vercel.app" target="_blank" rel="noreferrer">
           website
         </a>{" "}
         (log in using <b>demo/demo</b> or create your own account) as well as
         the{" "}
-        <a href="https://github.com/ShorttRyan/receta" target="_blank">
+        <a
+          href="https://github.com/ShorttRyan/receta"
+          target="_blank"
+          rel="noreferrer"
+        >
           repo / documentation
         </a>
         .
       </p>
     </>
   ),
-  imageInfo: {
-    img: receta,
-    alt: "Receta Screenshot",
-  },
+  imageInfo: { img: receta, alt: "Receta Screenshot" },
   techList: [
-    {
-      img: typescript,
-      tooltip: "Typescript",
-    },
-    {
-      img: react,
-      tooltip: "React",
-    },
-    {
-      img: postgres,
-      tooltip: "Postgres",
-    },
-    {
-      img: prisma,
-      tooltip: "Prisma",
-    },
-    {
-      img: nextjs,
-      tooltip: "NextJS",
-    },
-    {
-      img: vercel,
-      tooltip: "vercel",
-    },
-    {
-      img: lighthouse,
-      tooltip: "Lighthouse",
-    },
-    {
-      img: scss,
-      tooltip: "SCSS",
-    },
+    { img: typescript, tooltip: "Typescript" },
+    { img: react, tooltip: "React" },
+    { img: postgres, tooltip: "Postgres" },
+    { img: prisma, tooltip: "Prisma" },
+    { img: nextjs, tooltip: "NextJS" },
+    { img: vercel, tooltip: "vercel" },
+    { img: lighthouse, tooltip: "Lighthouse" },
+    { img: scss, tooltip: "SCSS" },
   ],
 };

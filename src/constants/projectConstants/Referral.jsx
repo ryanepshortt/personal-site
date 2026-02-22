@@ -11,13 +11,11 @@ import unified from "../../assets/avifs/unified.avif";
 import grafana from "../../assets/svgs/grafana.svg";
 
 export default {
-  titleInfo: {
-    title: "Referral Program (Wish)",
-  },
+  titleInfo: { title: "Referral Program (Wish)" },
   body: () => (
     <>
       <p>
-        Led the software architecture and implementation of Wish’s user-to-user
+        Led the software architecture and implementation of Wish's user-to-user
         referral rewards program, a project requiring close collaboration with
         numerous cross-functional teams.
       </p>
@@ -28,43 +26,15 @@ export default {
       </p>
     </>
   ),
-  imageInfo: {
-    img: growth,
-    alt: "Upwards Trajectory Chart",
-  },
+  imageInfo: { img: growth, alt: "Upwards Trajectory Chart" },
   techList: [
-    {
-      img: python,
-      tooltip: "Python",
-    },
-    {
-      img: mongoDB,
-      tooltip: "MongoDB",
-    },
-    {
-      img: aws,
-      darkImg: awsIcon,
-      tooltip: "Amazon Web Services",
-    },
-    {
-      img: rest,
-      tooltip: "REST API",
-    },
-    {
-      img: unified,
-      tooltip: "API accessible to web, iOS, and Android",
-    },
-    {
-      img: sql,
-      tooltip: "SQL",
-    },
-    {
-      img: grafana,
-      tooltip: "Grafana",
-    },
-    {
-      img: prometheus,
-      tooltip: "Prometheus",
-    },
+    { img: python, tooltip: "Python" },
+    { img: mongoDB, tooltip: "MongoDB" },
+    { img: aws, darkImg: awsIcon, tooltip: "Amazon Web Services" },
+    { img: rest, tooltip: "REST API" },
+    { img: unified, tooltip: "API accessible to web, iOS, and Android" },
+    { img: sql, tooltip: "SQL" },
+    { img: grafana, tooltip: "Grafana" },
+    { img: prometheus, tooltip: "Prometheus" },
   ],
 };

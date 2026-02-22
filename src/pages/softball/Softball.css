@@ -1,9 +1,9 @@
-.softball-page-wrapper { 
+.softball-page-wrapper {
   padding: 15px;
 }
 
 .player-list-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }

@@ -11,9 +11,7 @@ import redux from "../../assets/avifs/redux.avif";
 import typescript from "../../assets/avifs/typescript.avif";
 
 export default {
-  titleInfo: {
-    title: "Influencer Program (Wish)",
-  },
+  titleInfo: { title: "Influencer Program (Wish)" },
   body: () => (
     <>
       <p>
@@ -33,43 +31,15 @@ export default {
       </p>
     </>
   ),
-  imageInfo: {
-    img: verified,
-    alt: "Verified User Symbol",
-  },
+  imageInfo: { img: verified, alt: "Verified User Symbol" },
   techList: [
-    {
-      img: python,
-      tooltip: "Python",
-    },
-    {
-      img: mongoDB,
-      tooltip: "MongoDB",
-    },
-    {
-      img: aws,
-      darkImg: awsIcon,
-      tooltip: "Amazon Web Services",
-    },
-    {
-      img: rest,
-      tooltip: "REST API",
-    },
-    {
-      img: unified,
-      tooltip: "API accessible to web, iOS, and Android",
-    },
-    {
-      img: react,
-      tooltip: "React",
-    },
-    {
-      img: redux,
-      tooltip: "Redux",
-    },
-    {
-      img: typescript,
-      tooltip: "Typescript",
-    },
+    { img: python, tooltip: "Python" },
+    { img: mongoDB, tooltip: "MongoDB" },
+    { img: aws, darkImg: awsIcon, tooltip: "Amazon Web Services" },
+    { img: rest, tooltip: "REST API" },
+    { img: unified, tooltip: "API accessible to web, iOS, and Android" },
+    { img: react, tooltip: "React" },
+    { img: redux, tooltip: "Redux" },
+    { img: typescript, tooltip: "Typescript" },
   ],
 };

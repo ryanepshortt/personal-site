@@ -1,21 +1,25 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import "./index.css";
 import Softball from "./pages/softball/Softball";
+import "./index.css";
 
-ReactDOM.render(
-  <Router>
-    <React.StrictMode>
+const root = createRoot(document.getElementById("root"));
+
+root.render(
+  <React.StrictMode>
+    <Router>
       <ThemeProvider>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<Home initialPage="about" />} />
+          <Route path="/projects" element={<Home initialPage="projects" />} />
+          <Route path="/resume" element={<Home initialPage="resume" />} />
           <Route path="/softball" element={<Softball />} />
         </Routes>
       </ThemeProvider>
-    </React.StrictMode>
-  </Router>,
-  document.getElementById("root"),
+    </Router>
+  </React.StrictMode>,
 );
