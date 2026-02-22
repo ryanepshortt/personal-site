@@ -7,7 +7,7 @@ import AnimatedIcon from "../animatedIcon/AnimatedIcon";
 const NAV_ITEMS = [
   { label: "About", path: "/about" },
   { label: "Projects", path: "/projects" },
-  { label: "Resume", path: "/resume" },
+  { label: "Contact", path: "/contact" },
 ];
 
 function Header() {

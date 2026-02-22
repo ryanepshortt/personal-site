@@ -23,7 +23,7 @@ function PageContent({ path }) {
       return <About />;
     case "/projects":
       return <Projects />;
-    case "/resume":
+    case "/contact":
       return <Contact />;
     default:
       return <About />;
