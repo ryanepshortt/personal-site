@@ -7,7 +7,7 @@ import AnimatedIcon from "../animatedIcon/AnimatedIcon";
 const NAV_ITEMS = [
   { label: "About", path: "/about" },
   { label: "Projects", path: "/projects" },
-  { label: "Contact", path: "/contact" },
+  { label: "Resume", path: "/resume" },
 ];
 
 function Header() {
@@ -15,14 +15,13 @@ function Header() {
   const { isDark } = useContext(ThemeContext);
   const location = useLocation();
 
-  // Treat "/" same as "/about"
   const activePath = location.pathname === "/" ? "/about" : location.pathname;
 
   return (
     <header
       className="sticky top-0 z-50 w-full"
       style={{
-        background: isDark ? "rgba(8,8,12,0.8)" : "rgba(244,244,248,0.8)",
+        background: isDark ? "rgba(8,8,12,0.97)" : "rgba(244,244,248,0.97)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
         borderBottom: isDark
@@ -30,11 +29,12 @@ function Header() {
           : "1px solid rgba(0,0,0,0.08)",
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      {/* Main bar */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Wordmark */}
         <Link
           to="/about"
-          className="group flex items-center gap-3 no-underline"
+          className="group flex items-center gap-2.5 no-underline flex-shrink-0"
         >
           <div
             className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold text-white transition-transform duration-300 group-hover:scale-110"
@@ -55,7 +55,13 @@ function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden sm:flex items-center gap-1">
-          <div className="relative flex items-center bg-white/[0.04] rounded-full p-1 border border-white/[0.06]">
+          <div
+            className="relative flex items-center rounded-full p-1 border"
+            style={{
+              background: "rgba(255,255,255,0.04)",
+              borderColor: "rgba(255,255,255,0.06)",
+            }}
+          >
             {NAV_ITEMS.map(({ label, path }) => {
               const isActive = activePath === path;
               return (
@@ -93,41 +99,55 @@ function Header() {
               );
             })}
           </div>
-
           <div className="ml-2">
             <AnimatedIcon />
           </div>
         </nav>
 
-        {/* Mobile right side */}
-        <div className="flex sm:hidden items-center gap-3">
+        {/* Mobile — theme toggle + hamburger */}
+        <div className="flex sm:hidden items-center gap-1">
           <AnimatedIcon />
           <button
             type="button"
             aria-label="Toggle menu"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="relative w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none"
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((o) => !o)}
+            style={{
+              background: "transparent",
+              border: "none",
+              cursor: "pointer",
+              width: "36px",
+              height: "36px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "5px",
+              borderRadius: "8px",
+            }}
           >
-            <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.2 }}
-              className="block w-5 h-px rounded-full"
-              style={{ background: isDark ? "#e8e8f0" : "#0f0f14" }}
-            />
-            <motion.span
-              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.15 }}
-              className="block w-5 h-px rounded-full"
-              style={{ background: isDark ? "#e8e8f0" : "#0f0f14" }}
-            />
-            <motion.span
-              animate={
-                mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }
-              }
-              transition={{ duration: 0.2 }}
-              className="block w-5 h-px rounded-full"
-              style={{ background: isDark ? "#e8e8f0" : "#0f0f14" }}
-            />
+            {[
+              mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 },
+              mobileOpen
+                ? { opacity: 0, scaleX: 0 }
+                : { opacity: 1, scaleX: 1 },
+              mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 },
+            ].map((anim, i) => (
+              <motion.span
+                /* eslint-disable-next-line react/no-array-index-key */
+                key={i}
+                animate={anim}
+                transition={{ duration: 0.2 }}
+                style={{
+                  display: "block",
+                  width: "18px",
+                  height: "1.5px",
+                  borderRadius: "99px",
+                  transformOrigin: "center",
+                  background: isDark ? "#e8e8f0" : "#0f0f14",
+                }}
+              />
+            ))}
           </button>
         </div>
       </div>
@@ -135,22 +155,22 @@ function Header() {
       {/* Mobile dropdown */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <motion.nav
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
+            transition={{ duration: 0.22, ease: "easeInOut" }}
             style={{
+              overflow: "hidden",
               borderTop: isDark
                 ? "1px solid rgba(255,255,255,0.06)"
                 : "1px solid rgba(0,0,0,0.08)",
               background: isDark
-                ? "rgba(15,15,20,0.95)"
-                : "rgba(244,244,248,0.95)",
+                ? "rgba(8,8,12,0.97)"
+                : "rgba(244,244,248,0.97)",
             }}
-            className="sm:hidden overflow-hidden"
           >
-            <div className="px-6 py-4 flex flex-col gap-1">
+            <div className="px-4 py-3 flex flex-col gap-1">
               {NAV_ITEMS.map(({ label, path }) => {
                 const isActive = activePath === path;
                 return (
@@ -158,7 +178,7 @@ function Header() {
                     key={path}
                     to={path}
                     onClick={() => setMobileOpen(false)}
-                    className="px-4 py-3 rounded-xl text-sm font-medium transition-colors no-underline"
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium no-underline"
                     style={{
                       // eslint-disable-next-line no-nested-ternary
                       color: isActive
@@ -171,12 +191,24 @@ function Header() {
                         : "transparent",
                     }}
                   >
+                    {isActive && (
+                      <span
+                        style={{
+                          width: "4px",
+                          height: "4px",
+                          borderRadius: "99px",
+                          background: "#7c6fec",
+                          flexShrink: 0,
+                          display: "block",
+                        }}
+                      />
+                    )}
                     {label}
                   </Link>
                 );
               })}
             </div>
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </header>
