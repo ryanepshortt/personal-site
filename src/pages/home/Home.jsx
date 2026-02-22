@@ -60,7 +60,7 @@ function Home() {
 
       <Header />
 
-      <main className="max-w-6xl mx-auto px-6 py-12">
+      <main className="max-w-6xl mx-auto px-6 py-8 sm:py-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
