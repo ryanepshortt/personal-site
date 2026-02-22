@@ -16,7 +16,7 @@ root.render(
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Home initialPage="about" />} />
           <Route path="/projects" element={<Home initialPage="projects" />} />
-          <Route path="/resume" element={<Home initialPage="resume" />} />
+          <Route path="/contact" element={<Home initialPage="contact" />} />
           <Route path="/softball" element={<Softball />} />
         </Routes>
       </ThemeProvider>
