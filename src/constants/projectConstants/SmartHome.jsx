@@ -11,15 +11,13 @@ import aws from "../../assets/avifs/aws.avif";
 import awsIcon from "../../assets/avifs/awsIcon.avif";
 
 export default {
-  titleInfo: {
-    title: "Smart Home Microsite",
-  },
+  titleInfo: { title: "Smart Home Microsite" },
   body: () => (
     <>
       <p>
-        Designed and implemented a smart home microsite for a
-        <span className="uk-text-bold"> McMaster-partnered company</span>. This
-        was my 4th year capstone project where and I had to interview for the
+        Designed and implemented a smart home microsite for a{" "}
+        <span className="font-semibold"> McMaster-partnered company</span>. This
+        was my 4th year capstone project where I had to interview for the
         opportunity to work with this company.
       </p>
       <p>
@@ -30,43 +28,15 @@ export default {
       </p>
     </>
   ),
-  imageInfo: {
-    img: smartHome,
-    alt: "Smart Home App",
-  },
+  imageInfo: { img: smartHome, alt: "Smart Home App" },
   techList: [
-    {
-      img: javascript,
-      tooltip: "Javascript",
-    },
-    {
-      img: react,
-      tooltip: "React",
-    },
-    {
-      img: postgres,
-      tooltip: "Postgres",
-    },
-    {
-      img: redux,
-      tooltip: "Redux",
-    },
-    {
-      img: aws,
-      darkImg: awsIcon,
-      tooltip: "Amazon Web Services",
-    },
-    {
-      img: node,
-      tooltip: "NodeJs",
-    },
-    {
-      img: formik,
-      tooltip: "Formik",
-    },
-    {
-      img: d3,
-      tooltip: "D3 Charts",
-    },
+    { img: javascript, tooltip: "Javascript" },
+    { img: react, tooltip: "React" },
+    { img: postgres, tooltip: "Postgres" },
+    { img: redux, tooltip: "Redux" },
+    { img: aws, darkImg: awsIcon, tooltip: "Amazon Web Services" },
+    { img: node, tooltip: "NodeJs" },
+    { img: formik, tooltip: "Formik" },
+    { img: d3, tooltip: "D3 Charts" },
   ],
 };
